@@ -80,7 +80,9 @@ section, .container, .wrapper {
 /* Tablet (769px - 1366px): Mobile-like but with tablet tweaks */
 @media screen and (min-width: 769px) and (max-width: 1366px) {
 	 #desktop-nav { display: none; }
-	 #hamburger-nav { display: flex; justify-content: space-between; padding: 1rem; }
+	 #hamburger-nav { 
+		display: flex; 
+	 }
 	 
 	 .projects-grid { 
 		 grid-template-columns: 1fr; 
@@ -106,7 +108,9 @@ section, .container, .wrapper {
 /* Mobile (<= 768px) */
 @media screen and (max-width: 768px) {
 	 #desktop-nav { display: none; }
-	 #hamburger-nav { display: flex; justify-content: space-between; padding: 1rem; }
+	 #hamburger-nav { 
+		display: flex; 
+	 }
  
 	 /* Remove all margin and padding from hero sections */
 	 #profile,
@@ -192,7 +196,7 @@ section, .container, .wrapper {
 /* ≤480px: tiny tweaks */
 @media screen and (max-width: 480px) {
 	 .logo {
-		 font-size: 1.5rem;
+		 font-size: 0.95rem;
 		 white-space: nowrap;
 		 flex-shrink: 0;
 	 }

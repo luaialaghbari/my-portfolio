@@ -1,17 +1,4 @@
-/* ==================================================
-   styles/style.css — Main stylesheet
 
-   Overview:
-   - Top: design tokens (colors, spacing, shadows, animation tokens)
-   - Global reset and typography
-   - Layout: navigation, page `section` container, hero, grids
-   - Component styles: cards, buttons, tiles, forms
-   - Utilities: reveal, responsive helpers, reduced-motion
-
-   Notes:
-   - Keep `mediaqueries.css` linked after this file for overrides.
-   - Edit variables under :root to change theme spacing/colors.
-   ================================================== */
 
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -909,7 +896,7 @@
    
    .hero-name-bg {
      position: absolute;
-     top: 17vh;
+     top: 28vh;
      left: 4vw;
      width: auto;
      display: flex;
@@ -998,7 +985,7 @@
      justify-content: center;
      align-items: flex-start;
      gap: 1.5rem;
-     padding-top: 26vh; 
+     padding-top: 31vh; 
      z-index: 15;
    }
    
@@ -1032,7 +1019,7 @@
 
    
    .hero-action-btn {
-     margin-top: 9rem;
+     margin-top: 18rem;
    }
    
    .hero-col-portrait {
@@ -1046,7 +1033,7 @@
 
    .hero-portrait {
      position: absolute;
-    bottom: 0;
+    bottom: -10vh;
      right: -8vw;
      width: 60vw;
      height: 110vh;
@@ -1091,7 +1078,7 @@
 
    .portrait-bg-shape {
     position: absolute;
-    bottom: -20%;
+    bottom: -26%;
     right: 24%;
     width: 580px;
     height: 380px;
@@ -1209,7 +1196,7 @@
       gap: 2.5rem;
     }
     .hero-col-content {
-      padding-top: 4vh;
+      padding-top: 9vh;
       align-items: center;
       text-align: center;
       gap: 1.2rem;
@@ -1229,6 +1216,7 @@
       justify-content: center;
       left: 0;
       top: 0;
+      margin-top: 5vh;
       margin-bottom: 1.2rem;
       padding: 0;
     }
@@ -6348,4 +6336,194 @@
   margin-right: 12px;
   margin-bottom: 2px;
   vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+#desktop-nav {
+  display: flex !important;
+  position: fixed !important;
+  top: 1.8rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: max-content !important;
+  z-index: 1000 !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  padding: 0.45rem 0.5rem !important;
+  background: rgba(50, 50, 50, 0.35) !important;
+  backdrop-filter: blur(25px) saturate(210%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(210%) !important;
+  border-radius: 999px !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 40px rgba(27, 27, 27, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.04) !important;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+
+.nav-links {
+  display: flex !important;
+  gap: 2rem !important;
+  list-style: none !important;
+  font-size: 0.9rem !important;
+  padding: 0 1.5rem !important;
+  margin: 0 !important;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #fff !important;
+}
+
+.lang-toggle {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+  padding: 0.65rem 1.6rem !important;
+  border-radius: 999px !important;
+  cursor: pointer !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.lang-toggle:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  transform: scale(1.02) !important;
+}
+
+.left-nav {
+  background: var(--gradient-accent) !important;
+  padding: 0.6rem 1.6rem !important;
+  border-radius: 999px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
+}
+
+.logo {
+  font-family: 'Inter', sans-serif !important;
+  color: #fff !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-decoration: none !important;
+}
+
+.logo:hover {
+  cursor: default !important;
+}
+
+/* Hamburger Navigation */
+#hamburger-nav {
+  display: none;
+  position: fixed !important;
+  top: 1.8rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 90% !important;
+  max-width: 440px !important;
+  z-index: 1000 !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 0.45rem 0.5rem !important;
+  background: rgba(15, 15, 15, 0.35) !important;
+  backdrop-filter: blur(25px) saturate(210%) !important;
+  -webkit-backdrop-filter: blur(25px) saturate(210%) !important;
+  border-radius: 999px !important;
+  border: 0.3px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.04) !important;
+}
+
+.hamburger-menu {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.7rem;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  height: 20px;
+  width: 24px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-controls-mobile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hamburger-icon.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #0b0b0f;
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-md);
+}
+
+.menu-links.open {
+  max-height: 300px;
+}
+
+.menu-links li {
+  list-style: none;
+}
+
+.menu-links a {
+  display: block;
+  padding: var(--space-3) var(--space-5);
+  font-size: 1rem;
+  background: var(--title-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  font-weight: 600;
 }
