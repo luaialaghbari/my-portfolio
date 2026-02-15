@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node -e \"require('fs').writeFileSync('out/.nojekyll', '')\"",
     "start": "next start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d out"

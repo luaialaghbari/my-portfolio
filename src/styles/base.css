@@ -1,0 +1,513 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
+/* Hilmar Sans (local assets in public/assets) */
+@font-face {
+  font-family: "Hilmar Sans";
+  src: url("/assets/Hilmar-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hilmar Sans";
+  src: url("/assets/Hilmar-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hilmar Sans";
+  src: url("/assets/Hilmar-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/Clash%20fonts/ClashDisplay-Extralight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/Clash%20fonts/ClashDisplay-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/Clash%20fonts/ClashDisplay-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/Clash%20fonts/ClashDisplay-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/Clash%20fonts/ClashDisplay-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/Clash%20fonts/ClashDisplay-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Travel Sans";
+  src:
+    url("/assets/Travel%20Sans%20Font/Travel%20Sans%20Font.ttf") format("truetype"),
+    url("/assets/Travel%20Sans%20Font/Travel%20Sans%20Font.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Chreed";
+  src: url("/assets/Chreed-Regular-BF677aa80d13fdb.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Chreed";
+  src: url("/assets/Chreed-Medium-BF677aa80d1e9f0.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Chreed";
+  src: url("/assets/Chreed-SemiBold-BF677aa80d0dfd4.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Dark theme colors */
+  --color-bg: #0b0b0f;
+  --color-surface: #0f1117;
+  --color-text: #f8fafc;
+  --color-muted: #94a3b8;
+  --color-border: #1f2937;
+  --color-accent: #8b5cf6;
+  --accent-color: var(--color-accent);
+
+  /* Accent gradients */
+  --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #6366f1 45%, #8b5cf6 75%, #a855f7 100%);
+  --title-accent: linear-gradient(90deg, #3b82f6 0%, #7c3aed 50%, #ff6fbf 100%);
+
+  /* About surface */
+  --about-gradient: linear-gradient(135deg, #06b6d4 0%, #7c3aed 70%);
+  --about-surface-top: #071021;
+
+  /* Effects */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35), 0 1px 1px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.35);
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+
+  /* Layout */
+  --section-spacing: clamp(1.5rem, 3vw, 2.5rem);
+  --gutter: clamp(0.2rem, 0.5vw, 0.4rem);
+  --nav-vertical: clamp(1rem, 2.2vh, 1.5rem);
+  --avatar-size: clamp(180px, 24vw, 360px);
+
+  /* Motion */
+  --dur-1: 160ms;
+  --dur-2: 260ms;
+  --dur-3: 420ms;
+  --dur-4: 640ms;
+  --ease-out-2: cubic-bezier(0.17, 0.67, 0.36, 1);
+  --ease-out-3: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-linear: linear;
+
+  /* Radii */
+  --radius-card: 18px;
+  --radius-card-lg: 32px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  color: var(--color-text);
+  background: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  overflow-x: hidden !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Arabic / RTL typography + alignment */
+html[lang="ar"],
+html[dir="rtl"] {
+  font-family: "Rubik", system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+html[lang="ar"] body,
+html[dir="rtl"] body {
+  font-family: "Rubik", system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* English / LTR typography */
+html[lang="en"] body {
+  font-family: "Clash Display", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+  font-weight: 400;
+}
+
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] .title,
+html[lang="en"] .title-refined,
+html[lang="en"] .title-massive,
+html[lang="en"] .node-title {
+  font-family: "Clash Display", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+html[lang="en"] .subtitle-editorial,
+html[lang="en"] .section_text_p1 {
+  font-family: "Clash Display", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+  font-weight: 500 !important;
+}
+
+html[lang="en"] p,
+html[lang="en"] li,
+html[lang="en"] a,
+html[lang="en"] button,
+html[lang="en"] input,
+html[lang="en"] textarea,
+html[lang="en"] .hero-description,
+html[lang="en"] .bento-desc,
+html[lang="en"] .node-highlights li {
+  font-family: "Clash Display", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+  font-weight: 400 !important;
+}
+
+/* Keep hero name typography unchanged */
+html[lang="en"] .hero-name-bg h1 {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+html[lang="en"] .hero-name-bg .hi-text,
+html[lang="en"] .hero-name-bg .mid-name,
+html[lang="en"] .hero-name-bg .last-name {
+  font-family: "Chreed" !important;
+}
+
+html[dir="rtl"] nav {
+  direction: rtl;
+}
+
+html[dir="rtl"] .nav-links {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .nav-controls,
+html[dir="rtl"] .nav-controls-mobile {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+html[dir="rtl"] .hero-centered .hero-copy {
+  align-items: flex-end;
+  text-align: right;
+}
+
+html[dir="rtl"] .hero-centered .btn-container,
+html[dir="rtl"] .hero-centered #socials-container {
+  justify-content: flex-end;
+}
+
+html[dir="rtl"] .section-header-left {
+  align-items: flex-start;
+  text-align: right;
+}
+
+html[dir="rtl"] .edu-watermark,
+html[dir="rtl"] .edu-period-tag,
+html[dir="rtl"] .edu-number {
+  font-family: "Inter", sans-serif !important;
+}
+
+html[dir="rtl"] .title-refined,
+html[dir="rtl"] .subtitle-editorial,
+html[dir="rtl"] .node-card,
+html[dir="rtl"] .node-card-content,
+html[dir="rtl"] .edu-premium-card,
+html[dir="rtl"] .edu-card-content,
+html[dir="rtl"] .bento-card,
+html[dir="rtl"] .bento-desc,
+html[dir="rtl"] .bento-title {
+  text-align: right;
+}
+
+html[dir="rtl"] .edu-institution {
+  direction: rtl;
+}
+
+html[dir="rtl"] .bento-email-btn {
+  direction: rtl;
+}
+
+p {
+  color: var(--color-muted);
+  margin-bottom: var(--space-4);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #c7d2fe;
+}
+
+.gradient-text {
+  background: var(--title-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 12s ease infinite;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: grayscale(1) opacity(0.7);
+}
+
+.icon:hover {
+  transform: scale(1.2) rotate(5deg);
+  filter: grayscale(0) opacity(1) drop-shadow(0 5px 15px rgba(124, 58, 237, 0.4));
+}
+
+.title-refined {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.1;
+  display: inline-block;
+  position: relative;
+}
+
+.title-refined::after,
+.title-massive::after {
+  content: ".";
+  color: var(--accent-color);
+  margin-left: 0.1em;
+  -webkit-text-fill-color: var(--accent-color);
+}
+
+.title-refined {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.1;
+  display: inline-block;
+  text-align: inherit;
+  background: var(--title-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+#experience .title-refined,
+#skills .title-refined,
+#education .title-refined,
+#contact .title-refined {
+  background: var(--title-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: inherit;
+  margin-bottom: var(--space-12);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+  gap: 0.5rem;
+}
+
+#contact.contact-apple .section-header-left {
+  position: relative;
+  max-width: 1180px;
+  padding: 0 2rem;
+  margin-bottom: -30px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+  z-index: 0;
+}
+
+#contact.contact-apple .subtitle-editorial {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+#contact.contact-apple .title-refined {
+  position: relative;
+  z-index: 0;
+  font-size: clamp(3.4rem, 9.5vw, 6.6rem);
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  margin-bottom: -0.35em;
+  display: block;
+  opacity: 1;
+}
+
+#contact.contact-apple .contact-apple-grid {
+  align-items: center;
+}
+
+#contact.contact-apple .contact-apple-surface {
+  position: relative;
+  z-index: 2;
+  background: #111111;
+  pointer-events: auto;
+}
+
+@media (max-width: 900px) {
+  #contact.contact-apple .section-header-left {
+    padding: 0 1.25rem;
+    margin-bottom: -28px;
+  }
+}
+
+.title-massive {
+  font-size: clamp(3rem, 8vw, 6rem) !important;
+  font-weight: 950 !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.04em !important;
+  margin: 0 !important;
+  text-align: center !important;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+}
+
+.subtitle-editorial {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--accent-color);
+  opacity: 0.9;
+  margin: 0;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.arrow-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 2rem;
+  pointer-events: none;
+}
+
+.arrow-container img {
+  pointer-events: auto;
+}
+
+.arrow {
+  position: static;
+  display: block;
+  margin: var(--space-4) auto 0;
+  cursor: pointer;
+  filter: invert(1) brightness(2);
+  opacity: 0.85;
+}
+
+/* Global section container defaults */
+section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  padding-top: var(--section-spacing);
+  padding-bottom: var(--section-spacing);
+}
+
+/* Hero sections: remove padding/margins */
+#profile,
+section#profile,
+.hero-modern,
+.hero-centered,
+.hero-modern-container {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}

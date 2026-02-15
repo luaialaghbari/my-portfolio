@@ -3,19 +3,19 @@
 /*  EDUCATION SECTION
       ================================================== */
 .scope { /* local hook to satisfy CSS Modules purity */ }
-.scope :global(#education) {
+.scope:global(#education) {
      padding: 0 !important;
      margin: 10rem 0 0 !important; /* Increased space between Skills and Education */
      max-width: 100vw !important;
    }
 
-   .scope :global(#education .title-refined) {
+   .scope:global(#education) :global(.title-refined) {
        background: var(--title-accent);
        -webkit-background-clip: text;
        -webkit-text-fill-color: transparent;
    }
 
-   .scope :global(#education .section-header-left) {
+   .scope:global(#education) :global(.section-header-left) {
      margin-bottom: 1rem; /* Reduced height between title and content */
    }
 

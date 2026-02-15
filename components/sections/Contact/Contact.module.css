@@ -8,11 +8,11 @@
 .scope {
   /* local hook to satisfy CSS Modules purity */
 }
-.scope.contact-apple {
+.scope:global(.contact-apple) {
     position: relative;
     background: transparent;
   }
-.scope.contact-apple::before {
+.scope:global(.contact-apple)::before {
     content: "";
     position: absolute;
     inset: 0;

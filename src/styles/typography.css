@@ -1,0 +1,94 @@
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/Clash%20fonts/ClashDisplay-Extralight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/Clash%20fonts/ClashDisplay-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/Clash%20fonts/ClashDisplay-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/Clash%20fonts/ClashDisplay-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/Clash%20fonts/ClashDisplay-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: url("/assets/Clash%20fonts/ClashDisplay-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* English typography mapping */
+html[lang="en"] body {
+  font-family: "Clash Display", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+  font-weight: 400;
+}
+
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] .title,
+html[lang="en"] .title-refined,
+html[lang="en"] .title-massive,
+html[lang="en"] .node-title {
+  font-family: "Clash Display", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+html[lang="en"] .subtitle-editorial,
+html[lang="en"] .section_text_p1 {
+  font-family: "Clash Display", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+  font-weight: 500 !important;
+}
+
+html[lang="en"] p,
+html[lang="en"] li,
+html[lang="en"] a,
+html[lang="en"] button,
+html[lang="en"] input,
+html[lang="en"] textarea,
+html[lang="en"] .hero-description,
+html[lang="en"] .bento-desc,
+html[lang="en"] .node-highlights li {
+  font-family: "Clash Display", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+  font-weight: 400 !important;
+}
+
+/* Keep hero name exactly as before */
+html[lang="en"] .hero-name-bg h1 {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+
+html[lang="en"] .hero-name-bg .hi-text,
+html[lang="en"] .hero-name-bg .mid-name,
+html[lang="en"] .hero-name-bg .last-name {
+  font-family: "Chreed" !important;
+}

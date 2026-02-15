@@ -1,4 +1,4 @@
-export const assetPrefix = process.env.NODE_ENV === 'production' ? '/my-portfolio' : '';
+export const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export const renderSkillIcon = (skillName) => {
   const skillKey = skillName.toLowerCase().replace(/\s+/g, '').replace(/[\.\-\/]/g, '');

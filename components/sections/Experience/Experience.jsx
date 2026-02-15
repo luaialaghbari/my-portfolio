@@ -3,6 +3,15 @@ import { motion } from 'framer-motion';
 import styles from './Experience.module.css';
 
 export default function Experience({ resume, trans, lang, assetPrefix, isDesktop }) {
+  const withAssetPrefix = (url) => {
+    if (!url || url === '#') return url;
+    if (/^(?:[a-z]+:)?\/\//i.test(url) || url.startsWith('mailto:') || url.startsWith('tel:')) {
+      return url;
+    }
+    const normalized = url.startsWith('/') ? url : `/${url}`;
+    return `${assetPrefix}${normalized}`;
+  };
+
   return (
     <section id="experience" className={`${styles.scope} modern-experience`}>
       <motion.div 
@@ -362,12 +371,12 @@ export default function Experience({ resume, trans, lang, assetPrefix, isDesktop
                     {(exp.preview && exp.preview !== '#') || (exp.source && exp.source !== '#') ? (
                       <div className="node-actions">
                         {exp.preview && exp.preview !== '#' && (
-                          <a href={exp.preview} target="_blank" rel="noopener" className="btn btn-color-2 btn-sm">
+                          <a href={withAssetPrefix(exp.preview)} target="_blank" rel="noopener" className="btn btn-color-2 btn-sm">
                             {trans.preview}
                           </a>
                         )}
                         {exp.source && exp.source !== '#' && (
-                          <a href={exp.source} target="_blank" rel="noopener" className="btn btn-color-1 btn-sm">
+                          <a href={withAssetPrefix(exp.source)} target="_blank" rel="noopener" className="btn btn-color-1 btn-sm">
                             {trans.source}
                           </a>
                         )}

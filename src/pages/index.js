@@ -1,6 +1,6 @@
 
 import Head from 'next/head';
-const assetPrefix = process.env.NODE_ENV === 'production' ? '/my-portfolio' : '';
+const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import resume from '../data/resume';

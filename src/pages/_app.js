@@ -1,4 +1,5 @@
-import '../styles/style.css';
+import '../styles/base.css';
+import '../styles/typography.css';
 import '../styles/mediaqueries.css';
 import '../styles/mobile.css';
 import '../styles/navigation.css';
