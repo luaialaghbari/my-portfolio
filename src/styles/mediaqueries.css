@@ -1,0 +1,88 @@
+/* ==================================================
+	styles/mediaqueries.css — responsive overrides
+
+	Purpose: This file contains breakpoint-specific adjustments
+	and should be linked after `styles/style.css` so it can
+	override base rules where necessary.
+	================================================== */
+/* be sure this is linked *after* style.css */
+
+/* ==================================================
+   Global Responsive Enhancements
+   ================================================== */
+
+/* Ensure all images are responsive */
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* Prevent horizontal overflow */
+* {
+	box-sizing: border-box;
+}
+
+/* Ensure containers don't exceed viewport */
+section, .container, .wrapper {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+/* ==================================================
+   Very Large Screens (1440px and above)
+   ================================================== */
+@media screen and (min-width: 1440px) {
+	section {
+		max-width: 1400px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: clamp(2rem, 5vw, 4rem);
+		padding-right: clamp(2rem, 5vw, 4rem);
+	}
+}
+
+@media screen and (min-width: 1920px) {
+	section {
+		max-width: 1600px;
+		padding-left: clamp(3rem, 6vw, 6rem);
+		padding-right: clamp(3rem, 6vw, 6rem);
+	}
+}
+
+/* ==================================================
+   Large Tablets / Small Desktops (1025px - 1200px)
+   ================================================== */
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+	section {
+		padding-left: clamp(2rem, 4vw, 3rem);
+		padding-right: clamp(2rem, 4vw, 3rem);
+	}
+}
+
+/* Tablet (769px - 1366px): Mobile-like but with tablet tweaks */
+
+/* Mobile (<= 768px) */
+@media screen and (max-width: 768px) {
+.icon {
+ width: 24px;
+ height: 24px;
+ }
+
+ /* Ensure containers don't overflow */
+.container, .wrapper, .section-header-left {
+ max-width: 100%;
+ padding-left: clamp(1rem, 3vw, 2rem);
+ padding-right: clamp(1rem, 3vw, 2rem);
+}
+ }
+
+/* ≤480px: tiny tweaks */
+
+
+
+@media screen and (max-width: 480px) {
+	 a:hover {
+		 text-underline-offset: 0.5rem;
+	 }
+}

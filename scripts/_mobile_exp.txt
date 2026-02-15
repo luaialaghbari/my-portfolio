@@ -1,0 +1,196 @@
+@media screen and (max-width: 1366px) {
+
+  .iphone-17-frame {
+    transform: scale(0.9) translateZ(0);
+  }
+
+  /* Experience Section Shared Layout (Tablet & Mobile) */
+  .candy-phone-left-container,
+  .yemeni-phone-right-container,
+  .graduation-phone-left-container,
+  .internship-phone-right-container,
+  .qr-phone-right-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transform: none;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .experience-node {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 0 !important;
+    height: auto !important;
+    padding: 28px 16px !important;
+  }
+
+  /* Reorder: card first, arrow second, frame last */
+  .node-content-wrapper {
+    order: 1 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .project-connector-line {
+    order: 2 !important;
+    margin-bottom: 12px !important;
+  }
+
+  .candy-phone-left-container,
+  .yemeni-phone-right-container,
+  .graduation-phone-left-container,
+  .internship-phone-right-container,
+  .qr-phone-right-container {
+    order: 3 !important;
+  }
+
+  /* Ensure timeline nodes collapse to a clean vertical list */
+  .timeline {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .experience-node {
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Center cards for both Mobile and Tablet */
+  #experience .experience-node .node-content-wrapper {
+    width: 92% !important;
+    margin: 0 auto !important;
+    max-width: 900px !important;
+    /* Wider for Tablets to be closer to edges */
+    padding: 0 !important;
+    text-align: center !important;
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    right: auto !important;
+  }
+
+  [dir="rtl"] #experience .experience-node .node-content-wrapper {
+    margin: 0 auto !important;
+    text-align: center !important;
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    right: auto !important;
+  }
+
+  /* Mobile specific overrides to keep cards narrow on phones */
+  @media screen and (max-width: 768px) {
+
+    #experience .experience-node .node-content-wrapper,
+    .project-connector-line {
+      max-width: 520px !important;
+    }
+
+    
+  }
+
+  .node-card,
+  .node-card-glass {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+    margin: 0 auto !important;
+  }
+
+  .node-card-glass::before,
+  .node-card-glass::after,
+  .node-dot,
+  .experience-vertical-line,
+  .project-hud-label {
+    display: none !important;
+  }
+
+  .node-info-stack {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Hide the visual timeline line/dots */
+  .experience-vertical-line,
+  .node-dot,
+  .timeline::before,
+  .timeline::after {
+    display: none !important;
+  }
+
+  /* Mobile/Tablet connector: centered between card and frame */
+  .project-connector-line {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 900px !important;
+    /* Increased for Tablets */
+    height: 80px !important;
+    /* Taller to allow larger arrow */
+    margin: 0 auto !important;
+    opacity: 1 !important;
+    background: transparent !important;
+    visibility: visible !important;
+  }
+
+  /* Mobile/Tablet arrow: SHARP head pointing down towards the frame */
+  .project-beam-arrow {
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 24px !important;
+    /* Reduced from 44px */
+    height: 24px !important;
+    background: #fff !important;
+    /* Sharp single chevron head */
+    clip-path: polygon(50% 100%, 0% 40%, 15% 40%, 50% 75%, 85% 40%, 100% 40%) !important;
+    -webkit-clip-path: polygon(50% 100%, 0% 40%, 15% 40%, 50% 75%, 85% 40%, 100% 40%) !important;
+    transform: translate(-50%, -50%) !important;
+    opacity: 1 !important;
+    z-index: 9999 !important;
+    pointer-events: none !important;
+    visibility: visible !important;
+    transition: transform 0.3s ease !important;
+  }
+
+  .experience-node:hover .project-beam-arrow {
+    transform: translate(-50%, -30%) !important;
+    /* Small bounce effect on hover */
+  }
+
+  #experience .experience-vertical-line,
+  #experience .node-card-glass,
+  #experience .node-card-glass::before,
+  #experience .node-card-glass::after,
+  #experience .experience-scenes::before,
+  #experience .experience-scenes::after,
+  #experience .experience-node::before,
+  #experience .node-card::before,
+  /* Hide shine effect on mobile */
+  #experience .experience-ambient,
+  #experience .experience-orb,
+  #experience .orb-1,
+  #experience .orb-2,
+  #experience .orb-3 {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Adjust card padding for mobile */
+  .node-card {
+    padding: 1.5rem !important;
+  }
+
+
+  
+}
+
+

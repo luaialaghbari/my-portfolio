@@ -1,0 +1,37 @@
+/* ==================================================
+   Mobile/Tablet Hero Overrides
+   - Overlap portrait on "Alaghbari"
+   - Hide "Hi" on mobile + tablets
+   ================================================== */
+
+@media screen and (max-width: 1366px) {
+  #profile .hero-name-bg {
+    margin-top: 9vh !important;
+    z-index: 3 !important;
+  }
+
+  #profile .hero-name-bg .hi-text {
+    display: none !important;
+  }
+
+  #profile .hero-col-portrait {
+    margin-top: -18vh !important;
+    z-index: 12 !important;
+  }
+
+  #profile .hero-portrait {
+    z-index: 12 !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #profile .hero-col-portrait {
+    margin-top: -16vh !important;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1366px) {
+  #profile .hero-col-portrait {
+    margin-top: -24vh !important;
+  }
+}

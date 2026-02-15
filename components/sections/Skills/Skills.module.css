@@ -1,0 +1,310 @@
+
+/* SKILLS SECTION (MODERN BENTO GRID)
+      ================================================== 
+   */
+.scope { /* local hook to satisfy CSS Modules purity */ }
+.scope :global(#skills) {
+     position: relative;
+     overflow: hidden;
+     padding: 0 !important;
+     margin: 0 !important;
+   }
+
+   .scope :global(#skills .section-header-left) {
+       margin-bottom: 1rem;
+       margin-left: 2%;
+       margin-right: auto;
+       padding: 0 2rem;
+   }
+
+   .scope :global(#skills::before) {
+     content: '';
+     position: absolute;
+     top: 10%;
+     left: -5%;
+     width: 300px;
+     height: 300px;
+     background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+     border-radius: 50%;
+     z-index: -1;
+     animation: float 20s infinite alternate ease-in-out;
+   }
+
+   .scope :global(#skills::after) {
+     content: '';
+     position: absolute;
+     bottom: 10%;
+     right: -5%;
+     width: 400px;
+     height: 400px;
+     background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 70%);
+     border-radius: 50%;
+     z-index: -1;
+     animation: float 25s infinite alternate-reverse ease-in-out;
+   }
+
+   @keyframes float {
+     0% { transform: translate(0, 0) scale(1); }
+     100% { transform: translate(50px, 30px) scale(1.1); }
+   }
+
+   /* Modern Skills Grid Design - responsive auto-fit and circular progress */
+.scope :global(.skills-layout) { display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 1400px; margin: 0 auto; padding: 0 0.25rem; }
+   
+   /* Modern Bento Grid for Skills */
+.scope :global(.skills-grid-categories) {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 1rem;
+     width: 100%;
+     perspective: 1000px;
+   }
+   
+   .scope :global(.skill-category-card) {
+     background: linear-gradient(135deg, rgba(20, 20, 20, 0.4), rgba(10, 10, 10, 0.5)), 
+                 url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3%3C/filter%3%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3%3C/svg%3");
+     background-blend-mode: overlay;
+    border: none;
+     border-radius: 32px;
+     padding: 1.5rem;
+     display: flex;
+     flex-direction: column;
+     gap: 1.25rem;
+     position: relative;
+     overflow: hidden;
+     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+     backdrop-filter: blur(20px);
+     box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+   }
+
+   .scope :global(.skill-category-card::before) {
+     content: '';
+     position: absolute;
+     inset: 0;
+     background: radial-gradient(
+       600px circle at var(--mouse-x) var(--mouse-y),
+       rgba(255, 255, 255, 0.06),
+       transparent 40%
+     );
+     z-index: 3;
+     pointer-events: none;
+     opacity: 0;
+     transition: opacity 0.5s ease;
+   }
+
+   .scope :global(.skill-category-card:hover::before) {
+     opacity: 1;
+   }
+
+   /* Mesh Gradient Backgrounds */
+.scope :global(.skill-category-card::after) {
+     content: '';
+     position: absolute;
+     inset: -50%;
+     z-index: -1;
+     opacity: 0.2;
+     transition: opacity 0.5s ease, transform 0.8s ease;
+     filter: blur(40px);
+     pointer-events: none;
+   }
+
+   /* Mobile Dev - Electric Blue/Indigo */
+.scope :global(.skill-category-card:nth-child(1)::after) {
+     background: radial-gradient(circle at 20% 20%, #3b82f6 0%, transparent 50%),
+                 radial-gradient(circle at 80% 80%, #6366f1 0%, transparent 50%);
+   }
+   /* Frontend - Cyber Magenta/Purple */
+.scope :global(.skill-category-card:nth-child(2)::after) {
+     background: radial-gradient(circle at 20% 20%, #d946ef 0%, transparent 50%),
+                 radial-gradient(circle at 80% 80%, #7c3aed 0%, transparent 50%);
+   }
+   /* Tools - Emerald/Teal */
+.scope :global(.skill-category-card:nth-child(3)::after) {
+     background: radial-gradient(circle at 20% 20%, #10b981 0%, transparent 50%),
+                 radial-gradient(circle at 80% 80%, #06b6d4 0%, transparent 50%);
+   }
+   /* Backend - Solar Amber/Orange */
+.scope :global(.skill-category-card:nth-child(4)::after) {
+     background: radial-gradient(circle at 20% 20%, #f59e0b 0%, transparent 50%),
+                 radial-gradient(circle at 80% 80%, #ef4444 0%, transparent 50%);
+   }
+
+   .scope :global(.skill-category-card:hover) {
+     transform: translateY(-15px) scale(1.02);
+     border-color: transparent;
+     box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+     background: rgba(255, 255, 255, 0.03);
+   }
+
+   .scope :global(.skill-category-card:hover::after) {
+     opacity: 0.6;
+     transform: rotate(30deg) scale(1.2);
+   }
+
+   .scope :global(.category-title) {
+     font-size: 1.1rem;
+     font-weight: 800;
+     letter-spacing: 0.02em;
+     background: linear-gradient(90deg, #fff, #94a3b8);
+     -webkit-background-clip: text;
+     background-clip: text;
+     color: transparent;
+     margin: 0;
+     padding-bottom: 1rem;
+     border-bottom: 1px solid rgba(255,255,255,0.08);
+     position: relative;
+     z-index: 1;
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+   }
+
+   .scope :global(.category-title::before) {
+    content: none;
+    display: none;
+   }
+
+   .scope :global(.skill-category-card:nth-child(1) .category-title::before) { background: #3b82f6; box-shadow: 0 0 10px #3b82f6; }
+   .scope :global(.skill-category-card:nth-child(2) .category-title::before) { background: #d946ef; box-shadow: 0 0 10px #d946ef; }
+   .scope :global(.skill-category-card:nth-child(3) .category-title::before) { background: #10b981; box-shadow: 0 0 10px #10b981; }
+   .scope :global(.skill-category-card:nth-child(4) .category-title::before) { background: #f59e0b; box-shadow: 0 0 10px #f59e0b; }
+   
+   .scope :global(.category-content) {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.75rem;
+     position: relative;
+     z-index: 1;
+   }
+   
+   .scope :global(.skill-chip) {
+     display: flex;
+     align-items: center;
+     gap: 0.6rem;
+     padding: 0.45rem 1rem;
+     background: rgba(255,255,255,0.03);
+     border: 1px solid rgba(255,255,255,0.08);
+     border-radius: 16px;
+     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+     cursor: default;
+     position: relative;
+     overflow: hidden;
+     backdrop-filter: blur(10px);
+   }
+
+   .scope :global(.skill-chip::before) {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: -100%;
+     width: 100%;
+     height: 100%;
+     background: linear-gradient(
+       90deg,
+       transparent,
+       rgba(255, 255, 255, 0.1),
+       transparent
+     );
+     transition: 0.5s;
+   }
+
+   .scope :global(.skill-chip:hover::before) {
+     left: 100%;
+   }
+
+   .scope :global(.skill-chip:hover) {
+     background: rgba(255,255,255,0.08);
+     transform: translateY(-5px) scale(1.05);
+     border-color: rgba(255, 255, 255, 0.2);
+   }
+
+   /* Unique glows for each card's chips */
+.scope :global(.skill-category-card:nth-child(1) .skill-chip:hover) { box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2); }
+   .scope :global(.skill-category-card:nth-child(2) .skill-chip:hover) { box-shadow: 0 10px 25px rgba(217, 70, 239, 0.2); }
+   .scope :global(.skill-category-card:nth-child(3) .skill-chip:hover) { box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2); }
+   .scope :global(.skill-category-card:nth-child(4) .skill-chip:hover) { box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2); }
+
+   .scope :global(.chip-icon) {
+     width: 26px;
+     height: 26px;
+     z-index: 1;
+     filter: drop-shadow(0 0 8px rgba(255,255,255,0.1));
+     transition: transform 0.3s ease;
+   }
+
+   .scope :global(.skill-chip:hover .chip-icon) {
+     transform: rotate(12deg) scale(1.1);
+   }
+   
+   .scope :global(.chip-icon img), .scope :global(.chip-icon svg) {
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
+   }
+   
+   .scope :global(.chip-label) {
+     font-size: 0.9rem;
+     font-weight: 500;
+     color: white;
+     transition: color 0.2s ease;
+   }
+   
+   .scope :global(.skill-chip:hover .chip-label) {
+     color: var(--color-text);
+   }
+   
+   @media (max-width: 640px) {
+     .scope :global(.skills-grid-categories) {
+       grid-template-columns: 1fr;
+     }
+     .scope :global(.skill-category-card) {
+       padding: 1.25rem;
+     }
+   }
+
+   
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+	.scope :global(.skills-grid-categories) { 
+		grid-template-columns: 1fr; 
+	}
+}
+@media screen and (min-width: 769px) and (max-width: 1366px) {
+	 .scope :global(.skills-grid-categories) { 
+		 grid-template-columns: repeat(2, 1fr); 
+		 gap: 1.5rem;
+	 }
+}
+@media screen and (max-width: 768px) {
+	 .scope :global(.skills-grid-categories) { 
+		 grid-template-columns: 1fr; 
+		 gap: 1.5rem;
+	 }
+}
+@media screen and (min-width: 769px) and (max-width: 1366px) {
+/* Keep Skills Multi-column on Tablets as requested */
+.scope :global(.skills-grid-categories) {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+
+  @keyframes eduScaleUpIn {
+    from {
+      opacity: 0;
+      transform: translateY(100px) scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+}
+
+
+
+
+
+
+
+

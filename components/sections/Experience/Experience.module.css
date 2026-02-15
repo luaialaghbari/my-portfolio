@@ -1,0 +1,1818 @@
+
+/* iPhone 17 Pro Max Frame Styles */
+.scope { /* local hook to satisfy CSS Modules purity */ }
+.scope :global(.iphone-17-frame) {
+    width: 280px;
+    height: 606px;
+    background: #000; 
+    border-radius: 44px; /* Restored to previous refined radius */
+    padding: 4.5px; /* Slimmer, ultra-realistic titanium rim */
+    position: relative;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    box-shadow: 
+      0 0 0 0.5px rgba(0,0,0,0.9),
+      0 12px 40px rgba(0,0,0,0.6);
+    overflow: visible;
+    /* Maintain sharpness during and after animations */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+
+  /* Hyper-Realistic Titanium Finishes */
+.scope :global(.titanium-orange) { 
+    background: linear-gradient(135deg, 
+      #e5a47e 0%, 
+      #d38e5d 25%, 
+      #a26543 50%, 
+      #d38e5d 75%, 
+      #613926 100%
+    ) !important;
+    color: #d38e5d;
+    box-shadow: 
+      0 0 0 0.8px #f0c4aa, /* Brighter outer rim highlight */
+      inset 0 0 2px rgba(255,255,255,0.4), /* Metallic inner reflection */
+      0 15px 35px rgba(0,0,0,0.5) !important;
+  }
+.scope :global(.titanium-silver) { 
+    background: linear-gradient(135deg, 
+      #d1d1d6 0%, 
+      #ebebed 25%, 
+      #8e8e93 50%, 
+      #c7c7cc 75%, 
+      #adb5bd 100%
+    ) !important;
+    color: #c7c7cc;
+    box-shadow: 
+      0 0 0 0.8px #e5e5ea,
+      inset 0 0 2px rgba(255,255,255,0.4),
+      0 15px 35px rgba(0,0,0,0.4) !important;
+  }
+.scope :global(.titanium-deep-blue) { 
+    background: linear-gradient(135deg, 
+      #5e7fa3 0%, 
+      #3a4b5c 25%, 
+      #1e2933 50%, 
+      #3a4b5c 75%, 
+      #0d1217 100%
+    ) !important;
+    color: #3a4b5c;
+    box-shadow: 
+      0 0 0 0.8px #7aa0c7,
+      inset 0 0 2px rgba(255,255,255,0.2),
+      0 15px 35px rgba(0,0,0,0.5) !important;
+  }
+.scope :global(.titanium-natural) {
+    background: linear-gradient(135deg, 
+      #d1ccc5 0%, 
+      #b7b0a7 25%, 
+      #8e877e 50%, 
+      #b7b0a7 75%, 
+      #56514a 100%
+    ) !important;
+    color: #b7b0a7;
+    box-shadow: 
+      0 0 0 0.8px #e6e2dd,
+      inset 0 0 2px rgba(255,255,255,0.3),
+      0 15px 35px rgba(0,0,0,0.4) !important;
+  }
+
+  /* Precision Hardware Details - Removed decorative lines */
+.scope :global(.iphone-17-frame::before),
+.scope :global(.iphone-17-frame::after) {
+    display: none !important;
+  }
+.scope :global(.iphone-inner-border) {
+    position: absolute;
+    inset: 2.5px; /* Ultra-slim professional bezel */
+    border-radius: 42px; 
+    background: #000; /* Real display bezel */
+    pointer-events: none;
+    z-index: 5;
+    box-shadow: 
+      inset 0 0 1px rgba(255,255,255,0.1),
+      0 0 0 1px #000;
+  }
+.scope :global(.iphone-screen) {
+    width: 100%; /* Fills the padded content area */
+    height: 100%;
+    background: #000;
+    border-radius: 40px; /* Matches inner curve perfectly */
+    overflow: hidden;
+    position: relative;
+    z-index: 6;
+    /* Maintain hardware acceleration to keep video sharp */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+.scope :global(.iphone-screen img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* Prevent cropping for Internship mockup and keep black background */
+.scope :global(.internship-node .iphone-screen) {
+    background: #000000;
+  }
+.scope :global(.internship-node .iphone-screen img) {
+    object-fit: contain;
+    height: calc(100% - 35px);
+    margin-top: 30px; /* start below status bar */
+    background: #000000;
+  }
+
+  /* Keep QR Events mockup white as it was */
+.scope :global(.qr-node .iphone-screen) {
+    background: #ffffff;
+  }
+.scope :global(.qr-node .iphone-screen img) {
+    object-fit: contain;
+    height: calc(100% - 35px);
+    margin-top: 30px; /* start below status bar */
+    background: #ffffff;
+  }
+.scope :global(.yemeni-node .iphone-screen video) {
+    object-fit: contain;
+    height: calc(100% - 35px);
+    margin-top: 20px; /* start below status bar */
+  }
+.scope :global(.iphone-screen video) {
+    width: 100%;
+    height: calc(100% - 30px);
+    object-fit: contain; /* show full 1080p frame without cropping */
+    object-position: center top;
+    position: absolute;
+    top: 25px; /* start right below stats bar */
+    left: 0;
+    /* Ultra-aggressive high-quality rendering path */
+    image-rendering: -webkit-optimize-contrast;
+    -webkit-transform: translate3d(0, 0, 0) scale(1.0001);
+    transform: translate3d(0, 0, 0) scale(1.0001);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    will-change: transform, opacity, contents;
+    /* Subtle filter hack to keep GPU compositor active and sharp */
+    -webkit-filter: brightness(1.000001) contrast(1.000001);
+    filter: brightness(1.000001) contrast(1.000001);
+    background: #000; /* letterbox gap mimics real phone bezel */
+  }
+
+  /* Status Bar Shadow */
+.scope :global(.iphone-screen::before) {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  /* Water app frame uses a light status bar to match UI */
+.scope :global(.candy-node .iphone-screen::before) {
+    background: #000000;
+    height: 30px;
+    box-shadow: none;
+        object-fit: contain; /* show full 1080p frame without cropping */
+    z-index: 0; 
+  }
+.scope :global(.iphone-dynamic-island) {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 21px;
+    background: #000;
+    border-radius: 12px;
+    z-index: 100;
+    border: 0.5px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 
+      inset 0 0 4px rgba(255,255,255,0.02),
+      0 0 0 1px rgba(0,0,0,0.5);
+  }
+
+  /* Glass Rim Light / Screen Edge Glow */
+.scope :global(.iphone-screen::after) {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 3px rgba(255,255,255,0.05);
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Camera Lens in Dynamic Island */
+.scope :global(.iphone-dynamic-island::after) {
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 7px;
+    height: 7px;
+    background: radial-gradient(circle at 30% 30%, #1a1a1a 0%, #000 70%, #000814 100%);
+    border-radius: 50%;
+    box-shadow: inset 0 0 1px rgba(255,255,255,0.2);
+  }
+
+ /* FaceID / Proximity Sensor */
+.scope :global(.iphone-dynamic-island::before) {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background: #0a0a0a;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+/* --------------------------------------------------------------------------
+   Remove all animations/transitions for the visual phone frame
+   - This forces the frame and its decorative pseudo-elements to be static.
+   - We keep this isolated so other animated elements aren't affected.
+---------------------------------------------------------------------------- */
+.scope :global(.iphone-17-frame,
+.iphone-17-frame::before,
+.iphone-17-frame::after,
+.iphone-inner-border,
+.iphone-screen,
+.iphone-screen img,
+.iphone-screen video,
+.iphone-dynamic-island,
+.action-button,
+.volume-up,
+.volume-down,
+.power-button) {
+  animation: none !important;
+  transition: none !important;
+  will-change: auto !important;
+  /* Preserve layout but stop any movement */
+}
+.scope :global(.iphone-buttons-left) {
+    position: absolute;
+    left: -3.5px; /* Restored protrusion */
+    top: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 30; /* Higher than frame elements */
+  }
+.scope :global(.iphone-buttons-right) {
+    position: absolute;
+    right: -3.5px; 
+    top: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 80px;
+    z-index: 30;
+  }
+
+  /* Vibrant 3D Hardware Buttons */
+.scope :global(.action-button), .scope :global(.volume-up), .scope :global(.volume-down) {
+    width: 3.5px;
+    background: currentColor;
+    border-radius: 6px 0 0 6px; /* Pill-shaped outer edge */
+    position: relative;
+    box-shadow: 
+      -1px 0 2px rgba(0,0,0,0.3),
+      inset -1px 0 1px rgba(255,255,255,0.4),
+      inset 0 1px 1px rgba(255,255,255,0.2), /* Top highlight */
+      inset 0 -1px 1px rgba(0,0,0,0.2); /* Bottom shadow */
+    z-index: 15;
+    filter: brightness(1.08); 
+    transition: transform 0.1s ease;
+  }
+.scope :global(.power-button) {
+    width: 3.5px;
+    height: 62px;
+    border-radius: 0 6px 6px 0; /* Pill-shaped outer edge */
+    box-shadow: 
+      1px 0 2px rgba(0,0,0,0.3),
+      inset 1px 0 1px rgba(255,255,255,0.4),
+      inset 0 1px 1px rgba(255,255,255,0.2),
+      inset 0 -1px 1px rgba(0,0,0,0.2);
+    background: currentColor;
+    filter: brightness(1.08);
+  }
+
+  /* Enhanced 3D Specular Highlight */
+.scope :global(.action-button::after), .scope :global(.volume-up::after), .scope :global(.volume-down::after), .scope :global(.power-button::after) {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, 
+      rgba(255,255,255,0.7) 0%, 
+      transparent 10%, 
+      rgba(0,0,0,0.1) 90%, 
+      rgba(255,255,255,0.4) 100%
+    );
+    border-radius: inherit;
+  }
+
+  /* 3D Chamfered Edge Highlight for Right Buttons */
+.scope :global(.power-button::before) {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; right: 0;
+    width: 1px;
+    background: rgba(255,255,255,0.4);
+    box-shadow: 0 0 2px rgba(255,255,255,0.2);
+    z-index: 3;
+  }
+
+  /* Distinct Action Button (Tactile Texture) */
+.scope :global(.action-button::before) {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: repeating-linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1) 1px, transparent 1px, transparent 2px);
+    z-index: 2;
+    opacity: 0.3;
+  }
+.scope :global(.action-button) { height: 24px; margin-bottom: 8px; }
+.scope :global(.volume-up), .scope :global(.volume-down) { height: 54px; }
+
+
+
+  /* Mobile-specific media queries moved to `styles/mobile.css` to keep
+     phone overrides isolated. Import `mobile.css` after `mediaqueries.css`. */
+/* Specific layout for Candy project node */
+.scope :global(.candy-node) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+.scope :global(.candy-phone-left-container::before),
+.scope :global(.yemeni-phone-right-container::before) {
+    display: none;
+  }
+
+  @keyframes aura-pulse {
+    0% { transform: scale(1) opacity(0.5); }
+    100% { transform: scale(1.1) opacity(0.8); }
+  }
+
+  /* Connecting Particles Effect */
+.scope :global(.experience-node::before) {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.1) 1px, transparent 1px),
+      radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 1px, transparent 1px);
+    background-size: 100px 100px;
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+  }
+.scope :global(.experience-node:hover::before) {
+    opacity: 1;
+    animation: particles-drift 20s linear infinite;
+  }
+
+  @keyframes particles-drift {
+    from { background-position: 0 0; }
+    to { background-position: 100px 100px; }
+  }
+.scope :global(.candy-phone-left-container) {
+    position: absolute;
+    left: 0;
+    width: 42%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 20;
+    transform: none; /* Removed translateY(40px) */
+  }
+
+/* --------------------------------------------------------------------------
+   Desktop: disable animations on experience cards (keep frame animations)
+   - Make card surfaces static on wider viewports while preserving phone/frame
+     animations (do NOT target `.iphone-17-frame` selectors here).
+---------------------------------------------------------------------------- */
+@media screen and (min-width: 1367px) {
+  /* Stop particle/background drift for the experience container only */
+.scope :global(.experience-node::before) {
+    animation: none !important;
+    transition: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* Make node cards visually static on desktop: remove transforms/transitions */
+.scope :global(.node-card),
+.scope :global(.node-card:hover) {
+    transform: none !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Disable all hover effects on connector line */
+.scope :global(.experience-node:hover .project-connector-line) {
+    opacity: 1 !important;
+    height: 80px !important;
+    transition: none !important;
+  }
+  /* Disable remaining UI ornament and beam animations on desktop - target
+     card-specific selectors only so `.iphone-17-frame` pseudo-elements remain
+     untouched. */
+.scope :global(.project-connector-line::before),
+.scope :global(.node-card::before),
+.scope :global(.node-card:hover::before),
+.scope :global(.node-card-content::after),
+.scope :global(.node-card:hover .node-card-content::after) {
+    animation: none !important;
+    transition: none !important;
+    opacity: 0 !important;
+    display: none !important;
+    pointer-events: none !important;
+  }
+}
+  
+  /* Desktop: Volumetric Projection Beam (Bridging Phone and Card - horizontally centered) */
+@media screen and (min-width: 1367px) {.scope :global(.project-connector-line) {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      width: 32px;
+      height: 120px;
+      transform: translate(-50%, -50%);
+      z-index: 30;
+      opacity: 1;
+      transition: none;
+      pointer-events: none;
+      background: none;
+    }
+.scope :global(.candy-node .project-connector-line) {
+      -webkit-clip-path: none;
+              clip-path: none;
+    }
+.scope :global(.yemeni-node .project-connector-line), .scope :global(.qr-node .project-connector-line) {
+      -webkit-clip-path: none;
+              clip-path: none;
+    }
+  }
+
+  /* Remove beam particles animation */
+.scope :global(.project-connector-line::before) {
+    display: none !important;
+  }
+
+  /* Remove floating UI Decals */
+.scope :global(.project-connector-line::after) {
+    display: none !important;
+  }
+
+  /* UI Ornaments on the beam */
+.scope :global(.node-card::before) {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-top: 1px solid var(--color-accent);
+    border-right: 1px solid var(--color-accent);
+    opacity: 0;
+    transition: 0.4s;
+  }
+.scope :global(.node-card:hover::before) {
+    opacity: 1;
+    top: -5px;
+    right: -5px;
+  }
+.scope :global(.node-card-content::after) {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    border-bottom: 1px solid var(--color-accent);
+    border-left: 1px solid var(--color-accent);
+    opacity: 0;
+    transition: 0.4s;
+  }
+.scope :global(.node-card:hover .node-card-content::after) {
+    opacity: 1;
+    bottom: -5px;
+    left: -5px;
+  }
+
+
+
+  /* Desktop: Phone containers positioned on sides */
+@media screen and (min-width: 1367px) {.scope :global(.yemeni-phone-right-container), .scope :global(.internship-phone-right-container), .scope :global(.qr-phone-right-container) {
+      position: absolute;
+      right: 0;
+      width: 42%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 20;
+      transform: none;
+    }
+  }
+.scope :global(.yemeni-phone-right-container .iphone-17-frame), .scope :global(.internship-phone-right-container .iphone-17-frame), .scope :global(.qr-phone-right-container .iphone-17-frame) {
+      pointer-events: auto;
+    }
+.scope :global(.graduation-phone-left-container) {
+      position: absolute;
+      left: 0;
+      width: 42%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 20;
+      transform: none;
+      padding-top: 80px;
+      overflow: visible;
+    }
+.scope :global(.graduation-phone-left-container .iphone-17-frame) {
+      pointer-events: auto;
+    }
+  
+
+  /* Adjustments for Graduation Project Screen */
+.scope :global(.graduation-node .iphone-screen::before) {
+    display: block;
+    background: #ffffff;
+  }
+.scope :global(.graduation-node .iphone-screen img) {
+    height: calc(100% - 35px);
+    margin-top: 35px;
+    object-fit: contain;
+    background: #ffffff; /* Match background for non-cropped areas */
+  }
+.scope :global(.qr-node .iphone-screen::before) {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0));
+  }
+.scope :global(.internship-node .node-content-wrapper),
+.scope :global(.yemeni-node .node-content-wrapper),
+.scope :global(.qr-node .node-content-wrapper) {
+    display: flex;
+    flex-direction: column;
+    width: 42%;
+    margin-right: 58%;
+    margin-left: 0;
+    text-align: left;
+  }
+.scope :global(.internship-node .node-tech), .scope :global(.internship-node .node-actions),
+.scope :global(.yemeni-node .node-tech), .scope :global(.yemeni-node .node-actions) {
+    justify-content: flex-start;
+  }
+
+  @media screen and (max-width: 1366px) {
+.scope :global(.iphone-17-frame) {
+      width: 200px;
+      height: 415px;
+      transform: none;
+      margin: 0;
+    }
+  }
+
+  @media screen and (max-width: 1366px) {
+.scope :global(.experience-node) {
+      min-height: auto;
+      flex-direction: column !important;
+      align-items: center !important;
+      padding: 2rem 1rem !important;
+      margin-bottom: 6rem !important;
+      width: 100% !important;
+      overflow: hidden;
+    }
+.scope :global(.node-content-wrapper) {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      text-align: center !important;
+    }
+.scope :global(.candy-phone-left-container), 
+.scope :global(.yemeni-phone-right-container), 
+.scope :global(.graduation-phone-left-container),
+.scope :global(.qr-phone-right-container) {
+      position: relative !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      margin: 0 0 2rem 0 !important;
+      height: auto !important;
+      transform: none !important;
+      display: flex !important;
+    }
+
+    /* Hide all decorative elements that cause width issues or purple blocks */
+.scope :global(.project-connector-line),
+.scope :global(.node-card-glass::after),
+.scope :global(.node-card-glass::before),
+.scope :global(.experience-node::before),
+.scope :global(.experience-node::after) {
+      display: none !important;
+    }
+.scope :global(.iphone-17-frame) {
+      width: 220px;
+      height: 460px;
+      margin: 0 auto;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      transform: none;
+    }
+.scope :global(.node-info-stack) {
+      align-items: center !important;
+      text-align: center !important;
+      margin-bottom: 1.5rem !important;
+    }
+.scope :global(.node-tech), .scope :global(.node-actions) {
+      justify-content: flex-start !important;
+    }
+.scope :global(.node-highlights) {
+      text-align: left !important;
+      padding-left: 1rem !important;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+.scope :global(.experience-node) {
+      margin-bottom: 4rem !important;
+    }
+.scope :global(.node-card) {
+      padding: 1.5rem !important;
+      border-radius: 20px !important;
+    }
+.scope :global(.iphone-17-frame) {
+      width: 180px;
+      height: 380px;
+      transform: none;
+      margin: 0 auto;
+    }
+.scope :global(.graduation-node .iphone-screen img) {
+      height: calc(100% - 25px);
+      margin-top: 25px;
+    }
+  }
+
+   /* (deduped) hero avatar image rules live above */
+/* Floating Coding Icons */
+/* Buttons */.scope :global(.btn) {
+	   font-weight: 600;
+	   padding: 0.6rem 1rem;
+	   min-width: 7.5rem;
+	   border-radius: 999px;
+	   border: 1px solid var(--color-border);
+	   background: var(--color-surface);
+   }
+.scope :global(.btn:hover) { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(99,102,241,0.2); }
+.scope :global(.btn-color-1) { background: var(--gradient-accent); color: #fff; border: 0; box-shadow: 0 10px 25px rgba(99,102,241,0.25); }
+.scope :global(.btn-color-1:hover) { filter: brightness(1.05); }
+.scope :global(.btn-color-2) {
+	   background: linear-gradient(135deg, rgba(124, 58, 237, 0.8), rgba(59, 130, 246, 0.8));
+       backdrop-filter: blur(10px);
+	   color: #fff;
+	   border: 1px solid rgba(255, 255, 255, 0.2);
+	   box-shadow: 0 8px 32px rgba(124, 58, 237, 0.2);
+       position: relative;
+       overflow: hidden;
+       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+   }
+.scope :global(.btn-color-2::before) {
+       content: '';
+       position: absolute;
+       top: 0;
+       left: -100%;
+       width: 100%;
+       height: 100%;
+       background: linear-gradient(
+           120deg,
+           transparent,
+           rgba(255, 255, 255, 0.2),
+           transparent
+       );
+       transition: all 0.6s;
+   }
+.scope :global(.btn-color-2:hover::before) {
+       left: 100%;
+   }
+.scope :global(.btn-color-2:hover) { 
+       filter: brightness(1.1); 
+       transform: translateY(-4px); 
+       box-shadow: 0 15px 40px rgba(124, 58, 237, 0.4); 
+       border-color: rgba(255, 255, 255, 0.4);
+   }
+.scope :global(.btn:focus-visible) { outline: 3px solid color-mix(in srgb, var(--color-accent) 30%, transparent); outline-offset: 2px; }
+   
+   /* Social Icons */
+.scope :global(#socials-container) {
+	   display: flex;
+	   justify-content: center;
+	   gap: var(--space-4);
+	   margin-top: var(--space-3);
+   }
+.scope :global(.icon) {
+	   width: 32px;
+	   height: 32px;
+	   cursor: pointer;
+       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+       filter: grayscale(1) opacity(0.7);
+   }
+.scope :global(.icon:hover) {
+       transform: scale(1.2) rotate(5deg);
+       filter: grayscale(0) opacity(1) drop-shadow(0 5px 15px rgba(124, 58, 237, 0.4));
+   }
+   
+   /* Parallax target hint */
+.scope :global([data-parallax]) { will-change: transform; }
+   
+   /* About-Me picture */
+/* ===== Deconstructed Editorial Header (NEW) ===== */
+/* --- Refined Editorial Section Headers --- */.scope :global(.title-refined) {
+       font-size: clamp(2.2rem, 5vw, 4rem);
+       font-weight: 900;
+       letter-spacing: -0.03em;
+       margin: 0;
+       line-height: 1.1;
+       display: inline-block;
+       position: relative;
+   }
+.scope :global(.title-refined::after),
+.scope :global(.title-massive::after) {
+       content: '.';
+       color: var(--accent-color);
+       margin-left: 0.1em;
+       -webkit-text-fill-color: var(--accent-color);
+   }
+
+   /* --- Left Aligned Refined Headers --- */
+.scope :global(.title-refined) {
+       font-size: clamp(2.5rem, 6vw, 5rem);
+       font-weight: 900;
+       letter-spacing: -0.03em;
+       margin: 0;
+       line-height: 1.1;
+       display: inline-block;
+       text-align: inherit;
+       background: var(--title-accent);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       background-size: 200% 200%;
+       animation: gradientShift 8s ease infinite;
+   }
+
+   /* Section Specific Gradients - Unified Vibrant */
+.scope :global(#experience .title-refined),
+.scope :global(#skills .title-refined),
+.scope :global(#education .title-refined),
+.scope :global(#contact .title-refined) {
+       background: var(--title-accent);
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+   }
+.scope :global(.section-header-left) {
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       text-align: inherit;
+       margin-bottom: var(--space-12);
+       max-width: 1400px;
+       margin-left: auto;
+       margin-right: auto;
+       padding: 0 2rem;
+       gap: 0.5rem;
+   }
+
+     /* Contact title: same placement)), .scope :global(:global(better match to the card */
+.scope :global(#contact.contact-apple .section-header-left) {
+       position: relative;
+       max-width: 1180px;
+         padding: 0 2rem;
+         margin-bottom: -30px;
+         margin-left: auto;
+         margin-right: auto;
+         align-items: center;
+         text-align: center;
+         z-index: 0;
+     }
+.scope :global(#contact.contact-apple .subtitle-editorial) {
+       letter-spacing: 0.12em;
+       text-transform: uppercase;
+       opacity: 0.9;
+     }
+
+       /* Education-like watermark title behind the card */
+.scope :global(#contact.contact-apple .title-refined) {
+         position: relative;
+         z-index: 0;
+         font-size: clamp(3.4rem, 9.5vw, 6.6rem);
+         line-height: 0.8;
+         letter-spacing: -0.05em;
+         margin-bottom: -0.35em;
+         display: block;
+         opacity: 1;
+       }
+
+      /* Center the contact card content vertically so icons sit in the middle */
+.scope :global(#contact.contact-apple .contact-apple-grid) {
+        align-items: center;
+      }
+.scope :global(#contact.contact-apple .contact-apple-surface) {
+         position: relative;
+         z-index: 2;
+         background: #111111; /* Ensure it's opaque */
+         pointer-events: auto;
+       }
+
+      @media (max-width: 900px) {
+.scope :global(#contact.contact-apple .section-header-left) {
+        padding: 0 1.25rem;
+        margin-bottom: -28px;
+      }
+    }
+.scope :global(.title-massive) {
+       font-size: clamp(3rem, 8vw, 6rem) !important;
+       font-weight: 950 !important;
+       line-height: 0.9 !important;
+       letter-spacing: -0.04em !important;
+       margin: 0 !important;
+       text-align: center !important;
+       filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));
+   }
+.scope :global(#skills) {
+      position: relative;
+      overflow: hidden;
+  padding: 0 !important;
+      padding-top: 4rem !important;
+    max-width: 100vw !important;
+    }
+.scope :global(.about-header-bold) {
+       text-align: center;
+       margin-bottom: var(--space-8);
+   }
+.scope :global(.subtitle-editorial) {
+       font-family: var(--font-mono);
+       font-size: 0.85rem;
+       text-transform: uppercase;
+       letter-spacing: 0.25em;
+       color: var(--accent-color);
+       opacity: 0.9;
+       margin: 0;
+   }
+
+     
+/* ===== Modern Experience Section ===== */
+.scope :global(.modern-experience) {
+     position: relative;
+     overflow: visible;
+     padding: 6rem var(--gutter) 1rem;
+   }
+.scope :global(.experience-container) {
+     position: relative;
+     max-width: 1366px;
+     margin: 2rem auto 0;
+     padding: 6rem 0 2rem 0;
+     overflow: visible;
+   }
+
+/* ===== WORKFLOW CONNECTORS (ERD DIAGRAM STYLE) ===== */
+/* 1. OUTGOING L-SHAPE: Drops and turns towards the center */
+.scope :global(.experience-node.left:not(:last-child) .node-card-glass::after) {
+     content: '';
+     position: absolute;
+     top: 100%;
+     left: 50%;
+     width: 80%;
+     height: 18rem;
+     border-left: 2px dotted var(--color-accent);
+     border-bottom: 2px dotted var(--color-accent);
+     border-bottom-left-radius: 20px;
+     box-shadow: none;
+     filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4));
+     z-index: 10;
+     pointer-events: none;
+   }
+.scope :global(.experience-node.right:not(:last-child) .node-card-glass::after) {
+     content: '';
+     position: absolute;
+     top: 100%;
+     right: 50%;
+     width: 80%;
+     height: 14rem;
+     border-right: 2px dotted var(--color-accent);
+     border-bottom: 2px dotted var(--color-accent);
+     border-bottom-right-radius: 20px;
+     box-shadow: none;
+     filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4));
+     z-index: 10;
+     pointer-events: none;
+   }
+
+   /* 2. INCOMING L-SHAPE: Rises and turns towards the center to meet the bridge */
+.scope :global(.experience-node.right:not(:first-child) .node-card-glass::before) {
+     content: '';
+     position: absolute;
+     bottom: 100%;
+     right: 50%;
+     width: 80%;
+     height: 16rem;
+     border-right: 2px dotted var(--color-accent);
+     border-top: 2px dotted var(--color-accent);
+     border-top-right-radius: 20px;
+     box-shadow: none;
+     filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4));
+     z-index: 10;
+     pointer-events: none;
+   }
+.scope :global(.experience-node.left:not(:first-child) .node-card-glass::before) {
+     content: '';
+     position: absolute;
+     bottom: 100%;
+     left: 50%;
+     width: 80%;
+     height: 20rem;
+     border-left: 2px dotted var(--color-accent);
+     border-top: 2px dotted var(--color-accent);
+     border-top-left-radius: 20px;
+     box-shadow: none;
+     filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4));
+     z-index: 10;
+     pointer-events: none;
+   }
+.scope :global(.node-step-label) {
+     display: none !important;
+   }
+.scope :global(.node-info-stack) {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     height: 3rem;
+     margin-bottom: 1rem;
+     align-items: flex-start;
+     z-index: 10;
+   }
+:global([dir="rtl"]) .scope :global(.node-info-stack) {
+     align-items: flex-end;
+     text-align: right;
+   }
+.scope :global(.node-date) {
+     font-family: var(--font-mono);
+     font-size: 0.9rem;
+     font-weight: 600;
+     color: var(--color-accent);
+     opacity: 0.9;
+   }
+.scope :global(.experience-node) {
+     position: relative;
+     width: 100%;
+    margin-bottom: 30rem; /* Increased spacing between milestones */
+     display: flex;
+     justify-content: center;
+     align-items: center; /* Changed from flex-start to center cards and frames */
+     transition: none;
+   }
+.scope :global(.experience-node:last-child) {
+     margin-bottom: 2rem;
+   }
+
+  /* Workbench Grid - REMOVED */
+.scope :global(.experience-node::after) {
+    display: none;
+  }
+
+  /* Grounding Glow - REMOVED */
+.scope :global(.experience-node::before) {
+    display: none;
+  }
+
+  /* Double Chevron Arrow - DESKTOP ONLY */
+@media screen and (min-width: 1367px) {.scope :global(.project-beam-arrow) {
+      display: block !important;
+      position: absolute !important;
+      left: 50% !important;
+      top: 20% !important;
+      transform: translate(-50%, -50%) !important;
+      width: 36px !important;
+      height: 36px !important;
+      background: white !important;
+      clip-path: polygon(25% 30%, 50% 50%, 75% 30%, 80% 40%, 50% 70%, 20% 40%) !important;
+      -webkit-clip-path: polygon(25% 30%, 50% 50%, 75% 30%, 80% 40%, 50% 70%, 20% 40%) !important;
+      z-index: 2147483647 !important;
+      pointer-events: none !important;
+      opacity: 0.7 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      transition: none !important;
+    }
+.scope :global(.candy-node .project-beam-arrow), .scope :global(.graduation-node .project-beam-arrow) {
+      transform: translate(-50%, -50%) rotate(90deg) !important;
+    }
+.scope :global(.yemeni-node .project-beam-arrow), .scope :global(.internship-node .project-beam-arrow), .scope :global(.qr-node .project-beam-arrow) {
+      transform: translate(-50%, -50%) rotate(-90deg) !important;
+    }
+.scope :global(.experience-node:hover .project-beam-arrow) {
+      opacity: 1 !important;
+      transform: translate(-50%, -50%) rotate(var(--rot, 0deg)) !important;
+    }
+.scope :global(.candy-node:hover .project-beam-arrow), .scope :global(.graduation-node:hover .project-beam-arrow) {
+      transform: translate(-50%, -50%) rotate(90deg) !important;
+    }
+.scope :global(.yemeni-node:hover .project-beam-arrow), .scope :global(.internship-node:hover .project-beam-arrow), .scope :global(.qr-node:hover .project-beam-arrow) {
+      transform: translate(-50%, -50%) rotate(-90deg) !important;
+    }
+  }
+.scope :global(.node-content-wrapper) {
+     width: 42%;
+     position: relative;
+   }
+.scope :global(.experience-node.left .node-content-wrapper) {
+     margin-right: 58%;
+     text-align: left;
+   }
+.scope :global(.experience-node.right .node-content-wrapper) {
+     margin-left: 58%;
+     text-align: left;
+   }
+
+   /* RTL Support for experience content alignment */
+:global([dir="rtl"]) .scope :global(.experience-node.left .node-content-wrapper) {
+     margin-right: 0;
+     margin-left: 58%;
+     text-align: right;
+   }
+:global([dir="rtl"]) .scope :global(.experience-node.right .node-content-wrapper) {
+     margin-left: 0;
+     margin-right: 58%;
+     text-align: right;
+   }
+
+   /* Re-align milestone labels to the center-line side in RTL */
+:global([dir="rtl"]) .scope :global(.experience-node.left .node-info-stack) {
+     align-items: flex-start; /* Right node in RTL -> center is on the left */
+     text-align: left;
+   }
+:global([dir="rtl"]) .scope :global(.experience-node.right .node-info-stack) {
+     align-items: flex-end; /* Left node in RTL -> center is on the right */
+     text-align: right;
+   }
+:global([dir="rtl"]) .scope :global(.experience-node.left .node-step-label) {
+     justify-content: flex-start;
+   }
+:global([dir="rtl"]) .scope :global(.experience-node.right .node-step-label) {
+     justify-content: flex-end;
+   }
+
+   /* RTL Support for workflow connectors - Precise meeting at 50% */
+:global([dir="rtl"]) .scope :global(.experience-node.left:not(:last-child) .node-card-glass::after) {
+     left: auto;
+     right: 50%;
+     width: 71.5%; /* Corrected width to meet at center */
+     border-left: none;
+     border-right: 2px dotted var(--color-accent);
+     border-bottom-left-radius: 0;
+     border-bottom-right-radius: 20px;
+   }
+:global([dir="rtl"]) .scope :global(.experience-node.right:not(:last-child) .node-card-glass::after) {
+     right: auto;
+     left: 50%;
+     width: 71.5%;
+     border-right: none;
+     border-left: 2px dotted var(--color-accent);
+     border-bottom-right-radius: 0;
+     border-bottom-left-radius: 20px;
+   }
+:global([dir="rtl"]) .scope :global(.experience-node.right:not(:first-child) .node-card-glass::before) {
+     right: auto;
+     left: 50%;
+     width: 71.5%;
+     border-right: none;
+     border-left: 2px dotted var(--color-accent);
+     border-top-right-radius: 0;
+     border-top-left-radius: 20px;
+   }
+:global([dir="rtl"]) .scope :global(.experience-node.left:not(:first-child) .node-card-glass::before) {
+     left: auto;
+     right: 50%;
+     width: 71.5%;
+     border-left: none;
+     border-right: 2px dotted var(--color-accent);
+     border-top-left-radius: 0;
+     border-top-right-radius: 20px;
+   }
+:global([dir="rtl"]) .scope :global(.experience-node.left .node-highlights li),
+:global([dir="rtl"]) .scope :global(.experience-node.right .node-highlights li) { 
+     padding-left: 0;
+     padding-right: 1.5rem; 
+   }
+:global([dir="rtl"]) .scope :global(.experience-node.left .node-highlights li::before),
+:global([dir="rtl"]) .scope :global(.experience-node.right .node-highlights li::before) {
+     left: auto;
+     right: 0;
+   }
+.scope :global(.node-date) {
+     font-family: var(--font-mono);
+     font-size: 0.9rem;
+     font-weight: 700;
+     color: var(--color-accent);
+     margin-bottom: 1rem;
+     letter-spacing: 0.1em;
+   }
+.scope :global(.node-card) {
+     position: relative;
+     background: rgba(33, 33, 33, 0.4);
+     backdrop-filter: blur(12px);
+     -webkit-backdrop-filter: blur(12px);
+     border: 1px solid rgba(33, 33, 33, 0.4);
+     border-radius: 28px;
+     padding: 1.75rem;
+     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+     overflow: visible;
+     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+   }
+.scope :global(.node-card-glass) {
+     position: absolute;
+     inset: 0;
+     background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%, rgba(255, 255, 255, 0.02) 100%);
+     pointer-events: none;
+     z-index: 0;
+     border-radius: 28px;
+   }
+
+   /* Glowing top border line - REMOVED */
+.scope :global(.node-card::after) {
+     display: none;
+   }
+.scope :global(.node-card:hover::after) {
+     opacity: 1;
+     background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+   }
+
+   /* Mouse-follow glow - REMOVED */
+.scope :global(.node-card::before) {
+     display: none;
+   }
+.scope :global(.node-card:hover::before) {
+     opacity: 1;
+   }
+.scope :global(.node-title) {
+     font-size: 1.4rem;
+     font-weight: 700;
+     margin-bottom: 0.5rem;
+     background: var(--title-accent);
+     -webkit-background-clip: text;
+     background-clip: text;
+     color: transparent;
+     -webkit-text-fill-color: transparent;
+   }
+.scope :global(.node-company-row) {
+     margin-bottom: 0.8rem;
+   }
+.scope :global(.node-company) {
+     color: #e2e8f0;
+     font-weight: 600;
+   }
+.scope :global(.node-location) {
+     color: var(--color-muted);
+     font-size: 0.9rem;
+   }
+.scope :global(.node-highlights) {
+     list-style: none;
+     padding: 0;
+     margin: 0 0 1rem 0;
+     display: flex;
+     flex-direction: column;
+     gap: 0.5rem;
+   }
+.scope :global(.node-highlights li) {
+     color: #94a3b8;
+     font-size: 0.95rem;
+     line-height: 1.6;
+     position: relative;
+     transition: color 0.3s ease;
+   }
+.scope :global(.node-card:hover .node-highlights li) {
+     color: #cbd5e1;
+   }
+.scope :global(.experience-node.left .node-highlights li),
+.scope :global(.experience-node.right .node-highlights li) { 
+     padding-left: 1.5rem; 
+   }
+.scope :global(.experience-node.left .node-highlights li::before),
+.scope :global(.experience-node.right .node-highlights li::before) {
+     content: "";
+     position: absolute;
+     left: 0;
+     top: 0.6rem;
+     width: 6px;
+     height: 6px;
+     background: var(--color-accent);
+     border-radius: 2px;
+     transition: all 0.3s ease;
+   }
+.scope :global(.node-card:hover .node-highlights li::before) {
+     transform: scale(1.2) rotate(45deg);
+     box-shadow: 0 0 15px var(--color-accent);
+   }
+.scope :global(.node-tech) {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 0.6rem;
+     justify-content: flex-start;
+     margin-bottom: 1.2rem;
+   }
+.scope :global(.node-actions) {
+     display: flex;
+     gap: 1rem;
+     justify-content: flex-start;
+     margin-top: auto;
+   }
+.scope :global(.btn-sm) {
+     padding: 0.4rem 1.2rem;
+     font-size: 0.85rem;
+     min-width: unset;
+   }
+.scope :global(.experience-node.left .node-tech) { justify-content: flex-start; }
+.scope :global(.tech-badge) {
+     background: rgba(255, 255, 255, 0.03);
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     padding: 0.3rem 0.75rem;
+     border-radius: 12px;
+     font-size: 0.75rem;
+     font-weight: 500;
+     color: #94a3b8;
+     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+     letter-spacing: 0.02em;
+     text-transform: none;
+   }
+.scope :global(.tech-badge:hover) {
+     background: rgba(139, 92, 246, 0.2) !important;
+     border-color: var(--color-accent) !important;
+     color: #fff !important;
+     box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+   }
+
+   /* RTL Support */
+:global([dir="rtl"]) .scope :global(.node-card) {
+     text-align: right;
+     align-items: flex-start; /* flex-start in RTL is right */
+   }
+
+   /* Flip the left/right layout so it remains balanced in RTL. */
+:global([dir="rtl"]) .scope :global(.experience-node.left .node-content-wrapper) {
+     margin-right: 0;
+     margin-left: 58%;
+     text-align: right;
+   }
+:global([dir="rtl"]) .scope :global(.experience-node.right .node-content-wrapper) {
+     margin-left: 0;
+     margin-right: 58%;
+     text-align: right;
+   }
+   /* Highlights: always put the marker on the right in RTL */
+:global([dir="rtl"]) .scope :global(.experience-node .node-highlights li) {
+     padding-left: 0;
+     padding-right: 1.5rem;
+     text-align: right;
+   }
+:global([dir="rtl"]) .scope :global(.experience-node .node-highlights li::before) { display: none; }
+:global([dir="rtl"]) .scope :global(.experience-node .node-highlights li::after) {
+     content: "";
+     position: absolute;
+     right: 0;
+     top: 0.6rem;
+     width: 6px;
+     height: 6px;
+     background: var(--color-accent);
+     border-radius: 2px;
+     transition: all 0.3s ease;
+   }
+:global([dir="rtl"]) .scope :global(.node-card:hover .node-highlights li::after) {
+     transform: scale(1.2) rotate(45deg);
+     box-shadow: 0 0 15px var(--color-accent);
+   }
+
+   /* Tech/actions: align to the start in RTL (which is right) */
+:global([dir="rtl"]) .scope :global(.experience-node .node-tech),
+:global([dir="rtl"]) .scope :global(.experience-node .node-actions) {
+     justify-content: flex-start;
+   }
+
+   /* RTL Support for Phone Mockups and Beams */
+:global([dir="rtl"]) .scope :global(.candy-phone-left-container),
+:global([dir="rtl"]) .scope :global(.graduation-phone-left-container) {
+     left: auto;
+     right: 0;
+     justify-content: center;
+   }
+:global([dir="rtl"]) .scope :global(.yemeni-phone-right-container), :global([dir="rtl"]) .scope :global(.internship-phone-right-container), :global([dir="rtl"]) .scope :global(.qr-phone-right-container) {
+     right: auto;
+     left: 0;
+     justify-content: center;
+   }
+:global([dir="rtl"]) .scope :global(.yemeni-node .node-content-wrapper), :global([dir="rtl"]) .scope :global(.internship-node .node-content-wrapper), :global([dir="rtl"]) .scope :global(.qr-node .node-content-wrapper) {
+     margin-right: 0 !important;
+     margin-left: 58% !important;
+     text-align: right !important;
+   }
+
+   /* Flip the projection beams and arrows in RTL */
+:global([dir="rtl"]) .scope :global(.candy-node .project-connector-line), 
+:global([dir="rtl"]) .scope :global(.graduation-node .project-connector-line) {
+     clip-path: none !important;
+     -webkit-clip-path: none !important;
+   }
+:global([dir="rtl"]) .scope :global(.yemeni-node .project-connector-line), :global([dir="rtl"]) .scope :global(.internship-node .project-connector-line), :global([dir="rtl"]) .scope :global(.qr-node .project-connector-line) {
+     clip-path: none !important;
+     -webkit-clip-path: none !important;
+   }
+:global([dir="rtl"]) .scope :global(.project-connector-line::before) {
+     display: none !important;
+   }
+:global([dir="rtl"]) .scope :global(.candy-node .project-beam-arrow), 
+:global([dir="rtl"]) .scope :global(.graduation-node .project-beam-arrow) {
+     transform: translate(-50%, -50%) rotate(-90deg) !important;
+     margin-left: 0;
+     --rot: -90deg;
+   }
+:global([dir="rtl"]) .scope :global(.yemeni-node .project-beam-arrow), :global([dir="rtl"]) .scope :global(.internship-node .project-beam-arrow), :global([dir="rtl"]) .scope :global(.qr-node .project-beam-arrow) {
+     transform: translate(-50%, -50%) rotate(90deg) !important;
+     margin-left: 0;
+     --rot: 90deg;
+   }
+
+   /* Responsive Experience */
+@media (max-width: 968px) {.scope :global(.project-connector-line) {
+       display: none !important; /* Hide side beam on mobile */
+     }
+.scope :global(.experience-node) {
+       margin-bottom: 5rem;
+     }
+.scope :global(.experience-node::before) {
+       display: none !important;
+     }
+    /* Mobile Path: Straight down from bottom of current card */
+.scope :global(.experience-node:not(:last-child) .node-card-glass::after) {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 0;
+      height: 5rem;
+      border-left: 2px dotted var(--color-accent);
+      background: none !important;
+      border: none;
+      border-radius: 0 !important;
+      box-shadow: none !important; /* Removed shadow */
+      z-index: 5;
+      display: none !important;
+      transform: translateX(-50%);
+    }
+.scope :global(.node-card-glass::before),
+.scope :global(.node-content-wrapper::before) {
+       display: none !important;
+     }
+.scope :global(.experience-node:not(:last-child)::after) {
+       display: none !important;
+     }
+.scope :global(.node-content-wrapper) {
+       width: calc(100% - 60px) !important;
+       max-width: 550px !important;
+       margin-left: 60px !important;
+       margin-right: 0 !important;
+       text-align: left !important;
+     }
+.scope :global(.experience-node.left .node-tech), 
+.scope :global(.experience-node.right .node-tech) { 
+       justify-content: flex-start !important; 
+     }
+.scope :global(.experience-node .node-highlights li) {
+       padding-left: 1.5rem !important;
+       padding-right: 0 !important;
+       text-align: left;
+     }
+.scope :global(.experience-node .node-highlights li::before) {
+       content: "→" !important;
+       display: block !important;
+       left: 0 !important;
+     }
+:global([dir="rtl"]) .scope :global(.node-content-wrapper) { 
+       margin-left: auto !important; 
+       margin-right: auto !important;
+       width: 100% !important;
+       max-width: 550px;
+       text-align: right !important; 
+     }
+:global([dir="rtl"]) .scope :global(.experience-node .node-highlights li) {
+       padding-right: 1.5rem !important;
+       padding-left: 0 !important;
+       text-align: right;
+     }
+:global([dir="rtl"]) .scope :global(.experience-node .node-highlights li::after) {
+       content: "←" !important;
+       display: block !important;
+       right: 0 !important;
+     }
+:global([dir="rtl"]) .scope :global(.experience-node .node-highlights li::before) {
+       display: none !important;
+     }
+:global([dir="rtl"]) .scope :global(.experience-node.left .node-tech), 
+:global([dir="rtl"]) .scope :global(.experience-node.right .node-tech) { 
+       justify-content: flex-end !important; 
+     }
+   }
+:global(html[dir="rtl"]) .scope :global(.node-card),
+:global(html[dir="rtl"]) .scope :global(.node-card-content) {
+  direction: rtl;
+}
+@media screen and (max-width: 1366px) {
+.scope :global(.iphone-17-frame) {
+    transform: scale(0.9) translateZ(0);
+  }
+
+  /* Experience Section Shared Layout (Tablet & Mobile) */
+.scope :global(.candy-phone-left-container),
+.scope :global(.yemeni-phone-right-container),
+.scope :global(.graduation-phone-left-container),
+.scope :global(.internship-phone-right-container),
+.scope :global(.qr-phone-right-container) {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transform: none;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+  }
+.scope :global(.experience-node) {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 0 !important;
+    height: auto !important;
+    padding: 28px 16px !important;
+  }
+
+  /* Reorder: card first)), .scope :global(:global(arrow second)), .scope :global(:global(frame last */
+.scope :global(.node-content-wrapper) {
+    order: 1 !important;
+    margin-bottom: 12px !important;
+  }
+.scope :global(.project-connector-line) {
+    order: 2 !important;
+    margin-bottom: 12px !important;
+  }
+.scope :global(.candy-phone-left-container),
+.scope :global(.yemeni-phone-right-container),
+.scope :global(.graduation-phone-left-container),
+.scope :global(.internship-phone-right-container),
+.scope :global(.qr-phone-right-container) {
+    order: 3 !important;
+  }
+
+  /* Ensure timeline nodes collapse to a clean vertical list */
+.scope :global(.timeline) {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+.scope :global(.experience-node) {
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Center cards for both Mobile and Tablet */
+.scope :global(#experience .experience-node .node-content-wrapper) {
+    width: 92% !important;
+    margin: 0 auto !important;
+    max-width: 900px !important;
+    /* Wider for Tablets to be closer to edges */
+    padding: 0 !important;
+    text-align: center !important;
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    right: auto !important;
+  }
+:global([dir="rtl"]) .scope :global(#experience .experience-node .node-content-wrapper) {
+    margin: 0 auto !important;
+    text-align: center !important;
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    right: auto !important;
+  }
+
+  /* Mobile specific overrides to keep cards narrow on phones */
+@media screen and (max-width: 768px) {.scope :global(#experience .experience-node .node-content-wrapper),
+.scope :global(.project-connector-line) {
+      max-width: 520px !important;
+    }
+
+    
+  }
+.scope :global(.node-card),
+.scope :global(.node-card-glass) {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+    margin: 0 auto !important;
+  }
+.scope :global(.node-card-glass::before),
+.scope :global(.node-card-glass::after),
+.scope :global(.node-dot),
+.scope :global(.experience-vertical-line),
+.scope :global(.project-hud-label) {
+    display: none !important;
+  }
+.scope :global(.node-info-stack) {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Hide the visual timeline line/dots */
+.scope :global(.experience-vertical-line),
+.scope :global(.node-dot),
+.scope :global(.timeline::before),
+.scope :global(.timeline::after) {
+    display: none !important;
+  }
+
+  /* Mobile/Tablet connector: centered between card and frame */
+.scope :global(.project-connector-line) {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 900px !important;
+    /* Increased for Tablets */
+    height: 80px !important;
+    /* Taller to allow larger arrow */
+    margin: 0 auto !important;
+    opacity: 1 !important;
+    background: transparent !important;
+    visibility: visible !important;
+  }
+
+  /* Mobile/Tablet arrow: SHARP head pointing down towards the frame */
+.scope :global(.project-beam-arrow) {
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 24px !important;
+    /* Reduced from 44px */
+    height: 24px !important;
+    background: #fff !important;
+    /* Sharp single chevron head */
+    clip-path: polygon(50% 100%, 0% 40%, 15% 40%, 50% 75%, 85% 40%, 100% 40%) !important;
+    -webkit-clip-path: polygon(50% 100%, 0% 40%, 15% 40%, 50% 75%, 85% 40%, 100% 40%) !important;
+    transform: translate(-50%, -50%) !important;
+    opacity: 1 !important;
+    z-index: 9999 !important;
+    pointer-events: none !important;
+    visibility: visible !important;
+    transition: transform 0.3s ease !important;
+  }
+.scope :global(.experience-node:hover .project-beam-arrow) {
+    transform: translate(-50%, -30%) !important;
+    /* Small bounce effect on hover */
+  }
+.scope :global(#experience .experience-vertical-line),
+.scope :global(#experience .node-card-glass),
+.scope :global(#experience .node-card-glass::before),
+.scope :global(#experience .node-card-glass::after),
+.scope :global(#experience .experience-scenes::before),
+.scope :global(#experience .experience-scenes::after),
+.scope :global(#experience .experience-node::before),
+.scope :global(#experience .node-card::before),
+  /* Hide shine effect on mobile */
+.scope :global(#experience .experience-ambient),
+.scope :global(#experience .experience-orb),
+.scope :global(#experience .orb-1),
+.scope :global(#experience .orb-2),
+.scope :global(#experience .orb-3) {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Adjust card padding for mobile */
+.scope :global(.node-card) {
+    padding: 1.5rem !important;
+  }
+
+
+  
+}
+
+
+@media screen and (max-width: 992px) {
+.scope :global(.iphone-17-frame) {
+    transform: scale(0.85) translateZ(0);
+  }
+}
+@media screen and (max-width: 768px) {
+.scope :global(.iphone-17-frame) {
+    transform: none !important;
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0 auto 20px;
+    width: 230px;
+    height: 497px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Slight reduction so corners stay proportional on phones */
+.scope :global(.iphone-17-frame) {
+    border-radius: 32px !important;
+  }
+.scope :global(.iphone-inner-border) {
+    border-radius: 30px !important;
+  }
+.scope :global(.iphone-screen) {
+    border-radius: 28px !important;
+  }
+
+  /* Scale Dynamic Island and hardware buttons for phones */
+.scope :global(.iphone-dynamic-island) {
+    width: 60px !important;
+    height: 18px !important;
+    border-radius: 9px !important;
+    top: 12px !important;
+  }
+.scope :global(.action-button),
+.scope :global(.volume-up),
+.scope :global(.volume-down),
+.scope :global(.power-button) {
+    width: 3px !important;
+  }
+.scope :global(.action-button) {
+    height: 18px !important;
+    margin-bottom: 6px !important;
+  }
+.scope :global(.volume-up),
+.scope :global(.volume-down) {
+    height: 44px !important;
+  }
+.scope :global(.power-button) {
+    height: 50px !important;
+  }
+
+  
+}
+
+@media screen and (min-width: 769px) and (max-width: 1366px) {
+
+
+  /* Make iPhone frames larger for tablets */
+.scope :global(.iphone-17-frame) {
+    width: 260px !important;
+    height: 562px !important;
+    transform: none !important;
+    border-radius: 40px !important;
+  }
+.scope :global(.iphone-inner-border) {
+    border-radius: 38px !important;
+  }
+.scope :global(.iphone-screen) {
+    border-radius: 36px !important;
+  }
+
+  /* Hardware buttons & Dynamic Island scaling for tablets */
+.scope :global(.iphone-dynamic-island) {
+    width: 65px !important;
+    height: 20px !important;
+    border-radius: 11px !important;
+    top: 14px !important;
+  }
+.scope :global(.action-button),
+.scope :global(.volume-up),
+.scope :global(.volume-down),
+.scope :global(.power-button) {
+    width: 3.5px !important;
+  }
+.scope :global(.action-button) {
+    height: 22px !important;
+  }
+.scope :global(.volume-up),
+.scope :global(.volume-down) {
+    height: 50px !important;
+  }
+.scope :global(.power-button) {
+    height: 58px !important;
+  }
+
+  
+}
+
+@media screen and (max-width: 480px) {
+.scope :global(.iphone-17-frame) {
+    transform: none !important;
+    width: 200px;
+    height: 430px;
+    margin-bottom: 16px;
+  }
+
+  /* Gentle reduction for smaller phones */
+.scope :global(.experience-node) {
+    padding: 20px 12px !important;
+  }
+}
+@media screen and (max-width: 360px) {
+.scope :global(.iphone-17-frame) {
+    width: 180px;
+    height: 386px;
+  }
+
+  /* Tiny devices: small reduction but staying rounded */
+.scope :global(.experience-node) {
+    padding: 16px 10px !important;
+  }
+}
+/* --------------------------------------------------------------------------
+   Ensure experience cards are non-animated on mobile too.
+   This mirrors the global removal in `style.css` but is placed here to
+   override any mobile-specific re-enabling. We do NOT target
+   `.iphone-17-frame` so the phone/frame visuals remain as intended.
+---------------------------------------------------------------------------- */
+.scope :global(.experience-node),
+.scope :global(.experience-node .node-card),
+.scope :global(.experience-node .node-card:hover),
+.scope :global(.experience-node .project-connector-line) {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+.scope :global(.experience-node::before),
+.scope :global(.project-connector-line::before),
+.scope :global(.node-card::before),
+.scope :global(.node-card::after),
+.scope :global(.node-card-content::after),
+.scope :global(.node-card:hover::before),
+.scope :global(.node-card:hover .node-card-content::after) {
+  animation: none !important;
+  transition: none !important;
+  opacity: 0 !important;
+  display: none !important;
+  pointer-events: none !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   Also disable any animations/transitions for the phone frame on mobile.
+   This ensures the `.iphone-17-frame` visuals remain static on all devices.
+---------------------------------------------------------------------------- */
+.scope :global(.iphone-17-frame),
+.scope :global(.iphone-17-frame::before),
+.scope :global(.iphone-17-frame::after),
+.scope :global(.iphone-inner-border),
+.scope :global(.iphone-screen),
+.scope :global(.iphone-screen img),
+.scope :global(.iphone-screen video),
+.scope :global(.iphone-dynamic-island),
+.scope :global(.action-button),
+.scope :global(.volume-up),
+.scope :global(.volume-down),
+.scope :global(.power-button) {
+  animation: none !important;
+  transition: none !important;
+  will-change: auto !important;
+}
+
+
+
+
+
+
+
+
+
+
+

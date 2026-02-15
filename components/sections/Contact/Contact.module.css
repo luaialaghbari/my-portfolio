@@ -1,0 +1,302 @@
+
+/* ==================================================
+     CONTACT SECTION
+     - Apple-inspired Clean Design
+     - Responsive Grid and Social Link Pills
+     - Integrated Gradient Borders
+     ================================================== */
+.scope {
+  /* local hook to satisfy CSS Modules purity */
+}
+.scope.contact-apple {
+    position: relative;
+    background: transparent;
+  }
+.scope.contact-apple::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: none;
+    filter: none;
+  }
+.scope :global(.contact-apple-container) {
+    position: relative;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: clamp(0.75rem, 1.2vw, 1.25rem);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  /* Light backdrop card around content only (NOT the title) */
+.scope :global(.contact-apple-surface) {
+    position: relative;
+    max-width: 1180px;
+    width: 100%;
+    margin: 18px auto 0;
+    padding: clamp(1rem, 2vw, 1.6rem);
+    border-radius: 40px;
+    background: #111111;
+    border: 0;
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.62);
+  }
+.scope :global(.contact-apple-surface::after) {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 40px;
+    pointer-events: none;
+    box-shadow: none;
+  }
+
+  /* soft spread gradient shadow (same as titles) */
+.scope :global(.contact-apple-surface .contact-apple-container) {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+.scope :global(.contact-apple-grid) {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(1rem, 2.2vw, 1.6rem);
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    align-items: start;
+  }
+.scope :global(.contact-apple-left),
+.scope :global(.contact-apple-right) {
+    min-width: 0;
+  }
+.scope :global(.contact-apple-left) {
+    padding: clamp(0.25rem, 0.8vw, 0.75rem);
+    padding-right: clamp(1rem, 2.2vw, 1.6rem);
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+.scope :global(.contact-apple-title) {
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  /* Premium emphasis inside the contact card */
+.scope :global(.contact-apple-title) {
+    background: var(--title-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+.scope :global(.contact-apple-title) {
+    letter-spacing: -0.035em;
+  }
+.scope :global(.contact-apple-left) {
+    padding-top: clamp(0.4rem, 1vw, 0.9rem);
+  }
+.scope :global(.contact-apple-right) {
+    padding-top: clamp(0.4rem, 1vw, 0.9rem);
+    padding: clamp(0.25rem, 0.8vw, 0.75rem);
+    border-left: none;
+  }
+.scope :global(.contact-apple-right) {
+    padding: clamp(0.25rem, 0.8vw, 0.75rem);
+    border-left: none;
+    /* Restore original behavior: let the links occupy the card width */
+    /* Center the icons container while preserving its grid sizing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+.scope :global(.contact-apple-links) {
+    display: grid;
+    /* 3 equal columns for the social pills; allow shrinking to prevent overflow */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    height: 100%;
+    align-content: center;
+    justify-items: center; /* center icon content inside each cell */
+    width: 100%;
+  }
+.scope :global(.contact-link-pill) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1.1rem 0.7rem;
+    border-radius: 20px;
+    background: linear-gradient(#111, #111) padding-box,
+                var(--gradient-accent) border-box;
+    border: 2.2px solid transparent;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+.scope :global(.contact-link-pill.email) {
+    grid-column: 1 / -1; /* span full width */
+    flex-direction: row;
+    padding: 0.9rem 1.2rem;
+  }
+.scope :global(.contact-link-pill.whatsapp),
+.scope :global(.contact-link-pill.github),
+.scope :global(.contact-link-pill.linkedin) {
+    grid-column: span 1; /* each occupies one of the three equal columns */
+    width: 100%;
+    max-width: none;
+  }
+.scope :global(.contact-link-pill svg) {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+.scope :global(.contact-link-pill span) {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+.scope :global(.contact-link-pill:hover) {
+    background: linear-gradient(#1a1a1a, #1a1a1a) padding-box,
+                var(--gradient-accent) border-box;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(124, 58, 237, 0.15);
+  }
+.scope :global(.contact-link-pill:hover svg) {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 900px) {
+.scope :global(.contact-apple-links) {
+      width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+    }
+.scope :global(.contact-link-pill.whatsapp),
+.scope :global(.contact-link-pill.github),
+.scope :global(.contact-link-pill.linkedin) {
+      grid-column: span 1;
+      max-width: none;
+    }
+.scope :global(.contact-link-pill.email) {
+      grid-column: 1 / -1;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+.scope :global(.contact-apple-links) {
+      grid-template-columns: 1fr;
+    }
+.scope :global(.contact-link-pill.whatsapp),
+.scope :global(.contact-link-pill.github),
+.scope :global(.contact-link-pill.linkedin),
+.scope :global(.contact-link-pill.email) {
+      grid-column: span 1;
+    }
+  }
+
+  /* RTL: flip divider and align social row */
+:global(html[dir="rtl"]) .scope :global(.contact-apple-right) {
+    border-right: none;
+  }
+:global(html[dir="rtl"]) .scope :global(.contact-apple-left) {
+    border-right: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+    padding-right: clamp(0.25rem, 0.8vw, 0.75rem);
+    padding-left: clamp(1rem, 2.2vw, 1.6rem);
+  }
+
+  @media (max-width: 900px) {
+.scope :global(.contact-apple-grid) {
+      grid-template-columns: 1fr;
+    }
+.scope :global(.contact-apple-surface) {
+      padding: 18px;
+      border-radius: 22px;
+    }
+.scope :global(.contact-apple-surface::before) {
+      inset: -5px;
+      border-radius: 22px;
+      filter: blur(7px);
+      opacity: 0.24;
+    }
+.scope :global(.contact-apple-surface::after) {
+      border-radius: 22px;
+    }
+.scope :global(.contact-apple-left) {
+      border-right: none;
+      padding-right: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding-bottom: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+.scope :global(html[dir="rtl"] .contact-apple-left) {
+      border-left: none;
+      padding-left: 0;
+    }
+
+  }
+   
+   
+@media (max-width: 900px) {
+:global(#contact.contact-apple) .scope :global(.title-refined) {
+    font-size: clamp(2.6rem, 12vw, 4.2rem);
+    opacity: 0.20;
+  }
+}
+@media screen and (min-width: 1440px) {
+.scope :global(.contact-shell) {
+		max-width: 1400px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media screen and (min-width: 769px) and (max-width: 1366px) {
+.scope :global(.contact-rows) { 
+		 grid-template-columns: 1fr; 
+		 gap: 1rem;
+	 }
+}
+@media screen and (max-width: 768px) {
+.scope :global(.contact-rows) { 
+		 grid-template-columns: 1fr; 
+		 gap: 1rem;
+	 }
+ }
+/* --------------------------------------------------------------------------
+   Contact Title Mobile Styling
+   Ensure contact title has colored gradient with no opacity and no shadow
+---------------------------------------------------------------------------- */
+@media screen and (max-width: 900px) {
+:global(#contact.contact-apple) .scope :global(.title-refined) {
+    opacity: 1 !important;
+    text-shadow: none !important;
+    background: var(--title-accent) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

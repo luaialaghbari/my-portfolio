@@ -1,0 +1,1101 @@
+
+/* ==================================================
+      HERO SECTION
+      - Modern Redesign
+      - Portrait and Gradient Blending
+      - Responsive Grid and Typography
+      ================================================== */
+.scope { /* local hook to satisfy CSS Modules purity */ }
+.scope :global(.hero-modern) {
+     min-height: 100vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+     background: #000;
+     padding: 0 !important;
+     margin: 0 auto !important;
+     max-width: none !important;
+     width: 100% !important;
+    overflow: visible;
+     border-radius: 0;
+     direction: ltr !important;
+   }
+   
+   .scope :global(.hero-modern::before) {
+     display: none;
+   }
+
+   .scope :global(.hero-modern.scrolled::before) {
+     display: none;
+   }
+
+   .scope :global(.hero-modern::after) {
+     display: none;
+   }
+
+   .scope :global(.hero-modern.scrolled::after) {
+     display: none;
+   }
+   
+   .scope :global(.hero-modern.scrolled) {
+     box-shadow: none;
+     transition: box-shadow 0.5s ease;
+   }
+   
+   .scope :global(.hero-bg-glow) {
+     display: none; /* Removed blurriness */
+   }
+
+   .scope :global(.hero-rings) {
+     display: none; /* Cleaning up background elements */
+   }
+
+   .scope :global(.ring) {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     border: 1px solid rgba(255, 255, 255, 0.05);
+     border-radius: 50%;
+   }
+
+   .scope :global(.ring-1) { width: 300px; height: 300px; }
+   .scope :global(.ring-2) { width: 600px; height: 600px; }
+   .scope :global(.ring-3) { width: 900px; height: 900px; }
+   
+   .scope :global(.hero-modern-container) {
+     width: 100%;
+     max-width: none;
+     margin: 0;
+     padding: 0;
+     position: relative;
+     z-index: 2;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     min-height: 90vh;
+     overflow: hidden;
+   }
+   
+   .scope :global(.hero-name-bg) {
+     position: absolute;
+     top: 26vh;
+     left: 4vw;
+     width: auto;
+     display: flex;
+     justify-content: flex-start;
+     z-index: 5;
+     pointer-events: none;
+     user-select: none;
+     padding: 0;
+     margin: 0;
+   }
+   
+  .scope :global(.hero-subtitle-container) {
+    margin-top: 0.8em;
+    display: block;
+    line-height: 1.2;
+  }
+
+  .scope :global(.dot-accent) {
+    color: #7c3aed; /* Using the theme's purple accent */
+    display: inline-block;
+    margin-left: 2px;
+  }
+
+  .scope :global(.name-accent) {
+    display: block;
+    margin-top: 0;
+    font-size: 0.52em;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.01rem;
+    background: var(--title-accent);
+    background-size: 200% 200%;
+    animation: gradientShift 12s ease infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+   
+   .scope :global(.hero-name-bg h1) {
+     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+     font-size: clamp(2.2rem, 7vw, 9.5rem);
+     line-height: 1.15;
+     font-weight: 800;
+     color: #fff;
+     margin: 0;
+     letter-spacing: -0.03em;
+     display: block;
+     white-space: nowrap;
+     text-transform: none;
+     text-align: left;
+     padding-top: 0;
+   }
+
+.scope :global(.hero-name-bg .hi-text) {
+  font-family: "Chreed" !important;
+     display: inline-block;
+     font-weight: 400 !important;
+     font-stretch: expanded;
+     letter-spacing: 0.1em;
+     transform: scaleX(1.4) scaleY(2.2);
+     transform-origin: left top;
+     -webkit-text-stroke: 1px #fff;
+     color: transparent;
+     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+   }
+
+.scope :global(.hero-name-bg .mid-name),
+.scope :global(.hero-name-bg .last-name) {
+  font-family: "Chreed" !important;
+     display: inline-block;
+     font-weight: 600 !important;
+     font-stretch: expanded;
+     letter-spacing: 0.04em;
+     transform: scaleX(1.45) scaleY(2.2);
+     transform-origin: left top;
+     color: #fff;
+     margin-left: 0.45em;
+     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+   }
+
+/* Extra spacing before last name to prevent overlap with "Luai" */
+.scope :global(.hero-name-bg .last-name) {
+  margin-left: 1.4em;
+}
+   
+   .scope :global(.hero-modern-grid) {
+     display: grid;
+     grid-template-columns: 1.2fr 1fr;
+     align-items: center;
+     gap: 0;
+     position: relative;
+     z-index: 10;
+     width: 100%;
+     padding-left: 5vw;
+   }
+   
+   .scope :global(.hero-col-content) {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: flex-start;
+     gap: 1.5rem;
+     padding-top: 31vh; 
+     z-index: 15;
+   }
+   
+   .scope :global(.hero-text-block) {
+     max-width: 800px;
+     display: flex;
+     flex-direction: column;
+     gap: 1.2rem;
+   }
+
+   .scope :global(.hero-description) {
+     font-size: 1.3rem;
+     color: rgba(255, 255, 255, 0.85);
+     line-height: 1.6;
+     margin-bottom: 0;
+     font-weight: 400;
+     text-align: left;
+   }
+
+
+   
+
+   
+   .scope :global(.hero-action-btn) {
+     margin-top: 18rem;
+   }
+   
+   .scope :global(.hero-col-portrait) {
+     display: flex;
+     justify-content: flex-end;
+     align-items: flex-end;
+     height: 100vh;
+     position: relative;
+     padding-right: 2vw;
+   }
+
+   .scope :global(.hero-portrait) {
+     position: absolute;
+    bottom: -10vh;
+     right: -9vw;
+     width: 60vw;
+     height: 110vh;
+     display: flex;
+     flex-direction: column;
+     align-items: flex-end;
+     justify-content: flex-end;
+     pointer-events: none;
+     z-index: 20;
+   }
+
+   .scope :global(.hero-portrait::after) {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: 20vh;
+     opacity: 1;
+     background: linear-gradient(to top, #000 40%, transparent 100%);
+     z-index: 3;
+     transition: height 0.6s ease, opacity 0.6s ease, background 0.6s ease;
+   }
+
+   /* Keep it fixed and consistent */
+.scope :global(.hero-modern.scrolled .hero-portrait::after) {
+     height: 35vh;
+     opacity: 1;
+     background: linear-gradient(to top, #000 40%, transparent 100%);
+   }
+   
+   .scope :global(.hero-portrait img) {
+     width: auto;
+     height: 82%;
+     max-width: 900px;
+     object-fit: contain;
+     position: relative;
+     z-index: 2;
+     /* Cast shadow back onto the letters */
+     filter: drop-shadow(-40px 20px 60px rgba(0,0,0,0.85));
+   }
+
+   .scope :global(.portrait-bg-shape) {
+    position: absolute;
+    bottom: -24%;
+    right: 22%;
+    width: 580px;
+    height: 380px;
+    background: var(--title-accent);
+    opacity: 0.7;
+    border: 1px solid rgba(124, 58, 237, 0.35);
+    border-radius: 80px 80px 0 0;
+    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+    mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+    transform: rotate(-8deg);
+    z-index: 1;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 22px 60px rgba(124, 58, 237, 0.4);
+   }
+
+  @media (max-width: 900px) {
+    .scope :global(.portrait-bg-shape) {
+      width: 320px;
+      height: 240px;
+      right: 50%;
+      bottom: 2%; /* Moved down from 5% */
+      transform: translateX(52%) rotate(-4deg); /* Pushed more to the right from 44% */
+      border-radius: 42px 42px 0 0;
+      -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 70%);
+      mask-image: linear-gradient(to bottom, black 10%, transparent 70%);
+    }
+  }
+
+   
+   .scope :global(.btn-modern-pill) {
+    background: var(--title-accent);
+    font-family: 'Rubik', system-ui, -apple-system, 'Segoe UI', Tahoma, Arial, sans-serif;
+     color: #fff;
+     border: none;
+     padding: 0.8rem 0.8rem 0.8rem 1.8rem;
+     border-radius: 24px;
+     font-size: 1.1rem;
+     font-weight: 600;
+     display: flex;
+     align-items: center;
+     gap: 1.2rem;
+     cursor: pointer;
+     transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+     box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
+   }
+   
+   .scope :global(.btn-modern-pill .btn-icon) {
+     width: 36px;
+     height: 36px;
+     background: #fff;
+     color: #7c3aed; /* Keep icon color or make it match */
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+   }
+
+   .scope :global(.btn-modern-pill:hover .btn-icon) {
+     transform: scale(1.1) rotate(15deg);
+   }
+   
+   .scope :global(.btn-modern-pill:hover) {
+     opacity: 0.9;
+     transform: scale(1.05) translateY(-2px);
+     box-shadow: 0 15px 40px rgba(124, 58, 237, 0.6);
+   }
+   
+   .scope :global(.show-mobile) {
+    display: none !important;
+  }
+  .scope :global(.hide-mobile) {
+    display: block !important;
+  }
+
+  /* Responsive HERO SECTION for phones */
+@media (max-width: 1366px) {
+    .scope :global(.hero-modern) {
+      min-height: 80vh;
+      padding: 0 0.5rem !important;
+      border-radius: 0;
+    }
+    .scope :global(.hero-modern-container) {
+      min-height: 70vh;
+      padding: 0;
+    }
+    .scope :global(.hero-modern-grid) {
+      display: flex;
+      flex-direction: column;
+      padding-left: 0;
+      gap: 2.5rem;
+    }
+    .scope :global(.hero-col-content) {
+      padding-top: 9vh;
+      align-items: center;
+      text-align: center;
+      gap: 1.2rem;
+    }
+    .scope :global(.hero-text-block) {
+      max-width: 98vw;
+      align-items: center;
+      text-align: center;
+    }
+    .scope :global(.hero-description) {
+      font-size: 1.05rem;
+      text-align: center;
+    }
+    .scope :global(.hero-name-bg) {
+      position: static;
+      width: 100%;
+      justify-content: center;
+      left: 0;
+      top: 0;
+      margin-top: 5vh;
+      margin-bottom: 1.2rem;
+      padding: 0;
+    }
+    .scope :global(.hero-name-bg h1) {
+      font-size: clamp(1.5rem, 8vw, 2.8rem);
+      text-align: center;
+      white-space: normal;
+    }
+    .scope :global(.hero-col-portrait) {
+      height: auto;
+      padding-right: 0;
+      justify-content: center;
+      align-items: center;
+    }
+    .scope :global(.hero-portrait) {
+      position: relative;
+      width: 95vw;
+      height: auto;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .scope :global(.portrait-bg-shape) {
+      display: block !important;
+      width: clamp(340px, 85vw, 440px);
+      height: clamp(200px, 55vw, 280px);
+      right: 50%;
+      bottom: 2%;
+      transform: translateX(50%) rotate(-4deg);
+      border-radius: 42px 42px 0 0;
+      z-index: 1;
+    }
+    .scope :global(.hero-portrait img) {
+      width: 100%;
+      height: auto;
+      max-width: 1000px;
+      min-width: 120px;
+      margin: 0 auto;
+    }
+    .scope :global(.portrait-bg-shape) {
+      width: 320px;
+      height: 240px;
+      right: 50%;
+      bottom: 5%; 
+      transform: translateX(50%) rotate(-4deg);
+      border-radius: 60px 60px 0 0;
+      opacity: 0.8;
+      -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 90%);
+      mask-image: linear-gradient(to bottom, black 30%, transparent 90%);
+    }
+    .scope :global(.hero-action-btn) {
+      margin-top: 0.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .scope :global(.hero-modern) {
+      min-height: 60vh;
+      padding: 0 0.2rem !important;
+    }
+    .scope :global(.hero-modern-container) {
+      min-height: 50vh;
+    }
+    .scope :global(.hero-name-bg h1) {
+      font-size: clamp(1.1rem, 9vw, 2rem);
+      padding: 0 0.2em;
+    }
+    .scope :global(.hero-description) {
+      font-size: 0.98rem;
+      padding: 0 0.2em;
+    }
+    .scope :global(.hero-portrait) {
+      width: 100vw;
+      max-width: 800px;
+    }
+    .scope :global(.portrait-bg-shape) {
+      width: 280px;
+      height: 210px;
+      right: 50%;
+      bottom: 4%; 
+      transform: translateX(50%) rotate(-4deg);
+      border-radius: 45px 45px 0 0;
+      -webkit-mask-image: linear-gradient(to bottom, black 35%, transparent 95%);
+      mask-image: linear-gradient(to bottom, black 35%, transparent 95%);
+    }
+  }
+   
+  
+@media (max-width: 1366px) {
+/* Hero Modern Responsive */
+.scope :global(.hero-modern) {
+    padding: 0 !important;
+    min-height: 100svh; /* Use SVH for mobile browser bars */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  .scope :global(.hero-modern-container) {
+    padding: 0;
+    width: 100%;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .scope :global(.hero-modern-grid) {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Changed from stretch to center */
+    width: 100%;
+    gap: 0;
+    padding-top: 2vh;
+    padding-bottom: 5vh;
+    z-index: 10;
+    padding-left: 0;
+  }
+  .scope :global(.hero-name-bg) {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 5vh; /* Moved further up */
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    overflow: visible; /* Allow tall text to overflow without being cut */
+  }
+  .scope :global(.show-mobile) {
+    display: block !important;
+  }
+  .scope :global(.hide-mobile) {
+    display: none !important;
+  }
+  .scope :global(.hero-name-bg h1) {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 700;
+    margin: 0;
+    text-transform: none;
+    line-height: 1.15;
+    text-align: center;
+  }
+  .scope :global(.hi-text) {
+    display: none !important;
+  }
+  .scope :global(.hero-name-bg .mid-name) {
+    font-size: 20vw;
+    background: var(--title-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: block;
+    transform: scaleY(2.2); /* Same tall effect as hi */
+    transform-origin: center top;
+    line-height: 1;
+    z-index: 1;
+    position: relative;
+    margin-bottom: 5vh; /* Pushed Alaghbari further down */
+    margin-left: 0;
+  }
+  .scope :global(.hero-name-bg .last-name) {
+    font-size: 20vw;
+    color: #fff;
+    display: block;
+    transform: scaleY(2.2);
+    transform-origin: center top;
+    z-index: 2;
+    position: relative;
+    line-height: 1.1;
+    margin-left: 0;
+  }
+  .scope :global(.hero-subtitle-container) {
+    margin-top: 0.6em;
+    display: block;
+    line-height: 1.2;
+  }
+  .scope :global(.dot-accent) {
+    color: #7c3aed;
+  }
+  .scope :global(.name-accent) {
+    display: block;
+    margin-top: 0;
+    font-size: 6.5vw;
+    font-weight: 700;
+    line-height: 1.1;
+    background: var(--title-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .scope :global(.hero-col-portrait) {
+    order: 1;
+    height: auto;
+    margin-top: -15vh; /* Moved pic further down from -19vh */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+  }
+  .scope :global(.hero-portrait) {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .scope :global(.portrait-bg-shape) {
+    display: block !important;
+    width: 60vw;
+    max-width: 380px;
+    height: 240px;
+    right: 55%;
+    bottom: 1%;
+    transform: translateX(50%) rotate(-6deg); /* Rotated to mimic desktop */
+    border-radius: 50px 50px 0 0;
+    -webkit-mask-image: linear-gradient(to bottom, black 10%, black 20%, transparent 95%);
+    mask-image: linear-gradient(to bottom, black 5%, black 40%, transparent 50%);
+    opacity: 0.85;
+    z-index: 1;
+    position: absolute;
+    background: var(--title-accent);
+    box-shadow: 0 15px 50px rgba(124, 58, 237, 0.4);
+  }
+  .scope :global(.hero-portrait::after) {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 180px; /* Reduced height to avoid covering the center */
+    background: linear-gradient(to top, #000 20%, transparent 100%);
+    opacity: 1;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .scope :global(.hero-portrait .hero-subtitle-container) {
+    margin-top: 3.5rem; 
+    display: block;
+    text-align: center;
+    width: 100%;
+    pointer-events: auto;
+    position: relative;
+    z-index: 5; 
+  }
+  .scope :global(.hero-portrait img) {
+    height: auto;
+    width: 100%;
+    max-width: 1100px;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 40px rgba(0,0,0,0.6));
+    position: relative;
+    z-index: 2;
+    transform: scale(1.1); /* perfectly centered scale */
+    transform-origin: center center;
+    margin: 0 auto;
+    display: block;
+  }
+  .scope :global(.hero-col-content) {
+    order: 2;
+    padding-top: 2vh;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 5vh;
+    width: 100%;
+  }
+  .scope :global(.hero-text-block) {
+    width: 90%;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  .scope :global(.hero-description) {
+    text-align: center;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+  }
+  .scope :global(.hero-action-btn) {
+    margin-top: 1.5rem; /* Reduced from 5rem to move it up */
+  }
+  .scope :global([dir="rtl"] .hero-col-content) {
+    align-items: center;
+  }
+  .scope :global([dir="rtl"] .hero-description) {
+    text-align: center;
+  }
+
+
+}
+
+@media screen and (min-width: 1440px) {
+	.scope :global(.hero-modern-container) {
+		max-width: 1400px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+@media screen and (min-width: 769px) and (max-width: 1366px) {
+	 .scope :global(.hero-grid) { 
+		 grid-template-columns: 1fr; 
+		 gap: 2rem;
+	 }
+}
+
+/* Tall "Alaghbari" to enable portrait overlap */
+.scope :global(#profile .hero-name-bg .last-name) {
+  transform: scaleY(2.4) !important;
+  transform-origin: center top !important;
+  line-height: 0.85 !important;
+}
+@media screen and (max-width: 768px) {
+	 /* Remove all margin and padding from hero sections */
+.scope :global(#profile),
+	 .scope :global(.hero-modern),
+	 .scope :global(.hero-centered),
+	 .scope :global(.hero-modern-container),
+	 .scope :global(section#profile) {
+		 margin: 0 !important;
+		 padding: 0 !important;
+		 max-width: 100% !important;
+		 width: 100% !important;
+	 }
+
+	 .scope :global(.section_pic img) {
+		 width: 160px;
+		 height: 160px;
+		 max-width: 100%;
+	 }
+	 
+	 .scope :global(#profile) { gap: 1.5rem; }
+
+	 .scope :global(.hero-grid) { 
+		 grid-template-columns: 1fr; 
+		 gap: 2rem;
+	 }
+
+	 /* PROFILE → vertical */
+.scope :global(#profile) {
+		 min-height: auto;
+		 padding: 2rem 0;
+		 gap: 3rem;
+		 flex-direction: column-reverse;
+		 text-align: left;
+		 overflow-x: hidden;
+	 }
+	 
+	 .scope :global(#profile .hero-copy) {
+		 align-items: flex-start;
+		 text-align: left;
+		 max-width: 100%;
+		 padding: 0 1rem;
+	 }
+	 
+	 .scope :global(.hero-visual) {
+		 width: 100%;
+		 max-width: 100%;
+	 }
+	 
+	 .scope :global(.btn-container) {
+		 flex-direction: column;
+		 gap: 0.5rem;
+		 width: 100%;
+	 }
+ }
+@media screen and (max-width: 1366px) {
+/* Hero Modern Responsive Shared Layout (Tablet & Mobile) */
+.scope :global(.hero-modern) {
+    padding: 0 !important;
+    min-height: 100svh;
+    /* Use SVH for mobile browser bars */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  .scope :global(.hero-modern-container) {
+    padding: 0;
+    width: 100%;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .scope :global(.hero-modern-grid) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 0;
+    padding-top: 7vh;
+    padding-bottom: 5vh;
+    z-index: 10;
+    padding-left: 0;
+  }
+
+  .scope :global(.hero-name-bg) {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 13vh;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .scope :global(.show-mobile) {
+    display: block !important;
+  }
+
+  .scope :global(.hide-mobile) {
+    display: none !important;
+  }
+
+  .scope :global(.hero-name-bg h1) {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 700;
+    margin: 0;
+    text-transform: none;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .scope :global(.name-group) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0.2em;
+    width: 100%;
+  }
+
+  .scope :global(.hi-text) {
+    display: inline-block !important;
+    font-size: 18vw;
+    -webkit-text-stroke: 1px #fff;
+    color: transparent;
+    transform: scaleY(2.2);
+    transform-origin: center top;
+  }
+
+  .scope :global(.hero-name-bg .mid-name) {
+    font-size: 18vw;
+    /* Slightly smaller for shared base */
+    background: var(--title-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+    transform: scaleY(2.2);
+    transform-origin: center top;
+    line-height: 1;
+    z-index: 1;
+    position: relative;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+
+  .scope :global(.hero-name-bg .last-name) {
+    font-size: 18vw;
+    color: #fff;
+    display: inline-block;
+    transform: scaleY(2.2);
+    transform-origin: center top;
+    z-index: 2;
+    position: relative;
+    line-height: 1.1;
+    margin-left: 0;
+  }
+
+  .scope :global(.hero-subtitle-container) {
+    margin-top: 0.6em;
+    display: block;
+    line-height: 1.2;
+  }
+
+  .scope :global(.dot-accent) {
+    color: #7c3aed;
+  }
+
+  .scope :global(.name-accent) {
+    display: block;
+    margin-top: 0;
+    font-size: 6.5vw;
+    font-weight: 700;
+    line-height: 1.1;
+    background: var(--title-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .scope :global(.hero-col-portrait) {
+    order: 1;
+    height: auto;
+    margin-top: -5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+  }
+
+  .scope :global(.hero-portrait) {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .scope :global(.portrait-bg-shape) {
+    display: block !important;
+    width: 75vw;
+    max-width: 480px;
+    height: 250px;
+    left: 50%;
+    bottom: 2%;
+    transform: translateX(-50%) rotate(-6deg);
+    border-radius: 55px 55px 0 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+    opacity: 0.95;
+    z-index: 1;
+    position: absolute;
+    background: var(--title-accent);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+  }
+
+  .scope :global(.hero-portrait::after),
+  .scope :global(.hero-modern.scrolled .hero-portrait::after) {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 255px;
+    background: linear-gradient(to top, #000000 45%, rgba(0, 0, 0, 0.9) 65%, transparent 100%);
+    opacity: 1;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  .scope :global(.hero-portrait .hero-subtitle-container) {
+    margin-top: 3.5rem;
+    display: block;
+    text-align: center;
+    width: 100%;
+    pointer-events: auto;
+    position: relative;
+    z-index: 5;
+  }
+
+  .scope :global(.hero-portrait img) {
+    height: auto;
+    width: 100%;
+    max-width: 1100px;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.6));
+    position: relative;
+    z-index: 2;
+    transform: scale(1.1);
+    transform-origin: center center;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .scope :global(.hero-col-content) {
+    order: 2;
+    padding-top: 2vh;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 5vh;
+    width: 100%;
+  }
+
+  .scope :global(.hero-text-block) {
+    width: 90%;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .scope :global(.hero-description) {
+    text-align: center;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+  }
+
+  .scope :global([dir="rtl"] .hero-col-content) {
+    align-items: center;
+  }
+
+  .scope :global([dir="rtl"] .hero-description) {
+    text-align: center;
+  }
+
+  .scope :global(.hero-action-btn) {
+    margin-top: 4rem !important;
+    z-index: 100;
+    position: relative;
+  }
+
+  
+}
+
+@media screen and (max-width: 768px) {
+/* Phone Specific Hero Overrides */
+.scope :global(.hero-name-bg .mid-name),
+  .scope :global(.hero-name-bg .last-name) {
+    font-size: 20vw;
+  }
+
+  .scope :global(.portrait-bg-shape) {
+    width: 75vw;
+    max-width: 420px;
+    height: 200px;
+    right: 55%;
+    left: auto;
+    bottom: 5%;
+    transform: translateX(50%) rotate(-6deg);
+    border-radius: 55px 55px 0 0;
+  }
+
+  
+}
+
+@media screen and (min-width: 769px) and (max-width: 1366px) {
+/* Centered Hero Portrait for Tablets */
+.scope :global(.portrait-bg-shape) {
+    display: block !important;
+    width: 65vw !important;
+    max-width: 600px !important;
+    height: 290px !important;
+    /* Slightly shorter to emphasize the cut */
+    left: 45% !important;
+    bottom: -10% !important;
+    /* Moved further down */
+    transform: translateX(-50%) rotate(-5deg) !important;
+    border-radius: 60px 60px 0 0 !important;
+    /* Flat bottom */
+    opacity: 1 !important;
+    z-index: 1 !important;
+    position: absolute !important;
+    background: var(--title-accent) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+  }
+
+  .scope :global(.hero-portrait) {
+    overflow: hidden !important;
+    /* Ensures the "cut" at the bottom is sharp */
+    padding-bottom: 0 !important;
+  }
+
+  .scope :global(.hero-portrait img) {
+    max-width: 750px !important;
+    width: 110% !important;
+    transform: scale(1.15) translateY(12%) !important;
+    /* Adjusted for lower container */
+    z-index: 2 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .scope :global(.hero-col-portrait) {
+    margin-top: -22vh !important;
+    /* Pull up more to overlap the "I'm Luai" text */
+  }
+
+  .scope :global(.hero-name-bg .mid-name),
+  .scope :global(.hero-name-bg .last-name) {
+    font-size: 18vw !important;
+    line-height: 0.9 !important;
+  }
+
+  
+}
+
+
+
+
+
+
+
+

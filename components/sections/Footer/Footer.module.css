@@ -1,0 +1,119 @@
+
+/* Footer Effect - Nafas Style */
+.scope { /* local hook to satisfy CSS Modules purity */ }
+.scope :global(.footer-logo-container) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 1rem 0;
+  background: #000;
+  color: #fff;
+  margin-top: 4rem;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.scope :global(.footer-socials) {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.scope :global(.footer-social-icon) {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  background: transparent;
+  border: none;
+}
+
+.scope :global(.footer-social-icon svg) {
+  width: 32px;
+  height: 32px;
+}
+
+.scope :global(.footer-social-icon:hover) {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+.scope :global(.footer-middle-row) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+.scope :global(.footer-copyright) {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+}
+
+.scope :global(.footer-massive-logo) {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  margin-top: 4rem;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -0.2em;
+  z-index: 1;
+  overflow: visible;
+}
+
+.scope :global(.footer-massive-logo h2) {
+  font-size: clamp(10rem, 30vw, 40rem);
+  font-weight: 900;
+  margin: 0;
+  padding: 0.15em 0.1em 0; 
+  background: var(--title-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.07em;
+  font-family: "Poppins", sans-serif;
+  text-transform: lowercase;
+  line-height: 0.7;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+
+@media (max-width: 1366px) {
+  .scope :global(.footer-logo-container) {
+    padding-top: 5rem;
+  }
+  .scope :global(.footer-massive-logo) {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: -0.4em;
+    overflow: visible;
+  }
+  .scope :global(.footer-massive-logo h2) {
+    font-size: 28vw;
+    line-height: 0.9;
+    padding-right: 0.1em;
+    white-space: nowrap;
+    overflow: visible;
+  }
+
+  }
+
+
+
+
+
+
+
+

@@ -1,0 +1,245 @@
+
+/* ==================================================
+   RE-IMPLEMENTED TIMELINE SECTION (MATCHING SCREENSHOT)
+   ================================================== */
+.scope { /* local hook to satisfy CSS Modules purity */ }
+.scope :global(.timeline-section) {
+    background: #000;
+    padding: 100px 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.scope :global(.timeline-container) {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* The vertical dotted line that starts the section */
+.scope :global(.timeline-main-line) {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100px;
+    border-left: 2px dotted #8b5cf6;
+    transform: translateX(-50%);
+}
+
+.scope :global(.timeline-item) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 120px;
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+}
+
+.scope :global(.timeline-item.left) {
+    flex-direction: row;
+}
+
+.scope :global(.timeline-item.right) {
+    flex-direction: row-reverse;
+}
+
+.scope :global(.timeline-content-wrapper), 
+.scope :global(.timeline-visual-wrapper) {
+    width: 46%;
+    z-index: 2;
+}
+
+/* Card Styling */
+.scope :global(.timeline-card) {
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 2.5rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.scope :global(.timeline-card:hover) {
+    border-color: rgba(139, 92, 246, 0.3);
+    transform: translateY(-5px);
+}
+
+.scope :global(.timeline-title) {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.scope :global(.timeline-role) {
+    color: #a855f7;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.scope :global(.timeline-desc) {
+    margin-bottom: 1.5rem;
+}
+
+.scope :global(.timeline-desc strong) {
+    color: #fff;
+}
+
+.scope :global(.timeline-highlights) {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.scope :global(.timeline-highlights li) {
+    color: #94a3b8;
+    margin-bottom: 0.8rem;
+    display: flex;
+    gap: 0.75rem;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.scope :global(.timeline-highlights .bullet) {
+    color: #8b5cf6;
+    flex-shrink: 0;
+}
+
+/* Tech Pills */
+.scope :global(.timeline-tech-list) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.scope :global(.tech-pill) {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 0.5rem 1.2rem;
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.scope :global(.tech-pill:hover) {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: #8b5cf6;
+    color: #fff;
+}
+
+/* Visual wrapper */
+.scope :global(.timeline-visual-wrapper) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Zig-Zag Dotted Line Logic */
+.scope :global(.timeline-connector) {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 50%;
+    height: 120px; /* matches margin-bottom of timeline-item */
+    pointer-events: none;
+    z-index: 1;
+}
+
+.scope :global(.timeline-item.left .timeline-connector) {
+    border-left: 2px dotted #8b5cf6;
+    border-bottom: 2px dotted #8b5cf6;
+    border-radius: 0 0 0 30px;
+    left: 50%;
+    transform: translateX(-1px);
+}
+
+.scope :global(.timeline-item.right .timeline-connector) {
+    border-right: 2px dotted #8b5cf6;
+    border-bottom: 2px dotted #8b5cf6;
+    border-radius: 0 0 30px 0;
+    right: 50%;
+    left: auto;
+    transform: translateX(1px);
+}
+
+/* For the very last item)), .scope :global(.scope :global(we only want a vertical line going down slightly if needed)), 
+   .scope :global(.scope :global(or nothing. But in the screenshot)), .scope :global(.scope :global(it connects to the next. */
+.scope :global(.timeline-item:last-child .timeline-connector) {
+    border-bottom: none;
+    border-radius: 0;
+}
+
+/* Date positioning on the line */
+.scope :global(.timeline-date) {
+    position: absolute;
+    color: #8b5cf6;
+    font-weight: 700;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    z-index: 5;
+    background: #000;
+    padding: 0 1rem;
+    top: calc(100% + 120px); /* 100% of item + height of connector */
+}
+
+.scope :global(.timeline-item.left .timeline-date) {
+    left: 75%;
+    transform: translate(-50%, -50%);
+}
+
+.scope :global(.timeline-item.right .timeline-date) {
+    right: 75%;
+    transform: translate(50%, -50%);
+}
+
+/* Desktop: Volumetric Projection Beam (Bridging Phone and Card - horizontally centered) */
+@media screen and (min-width: 1367px) {
+  .scope :global(.project-connector-line) {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 32px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+    z-index: 30;
+    opacity: 1;
+    transition: none;
+    pointer-events: none;
+    background: none;
+  }
+}
+
+    .scope :global(.timeline-content-wrapper), 
+    .scope :global(.timeline-visual-wrapper) {
+        width: 100%;
+    }
+
+    .scope :global(.timeline-visual-wrapper) {
+        margin-top: 2rem;
+        order: 2;
+    }
+
+    .scope :global(.timeline-main-line),
+    .scope :global(.timeline-connector),
+    .scope :global(.timeline-date) {
+        display: none;
+    }
+
+    .scope :global(.timeline-card) {
+        padding: 1.5rem;
+    }
+
+    .scope :global(.timeline-highlights li) {
+        justify-content: center;
+    }
+
+
+
+
+
+
+

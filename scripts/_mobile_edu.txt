@@ -1,0 +1,92 @@
+@media screen and (max-width: 1366px) {
+/* Education Section Scrolling Fix for all responsive screens <= 1366px */
+  #education {
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .premium-education-narrative {
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 1rem 0 10rem 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    touch-action: manipulation !important;
+    max-height: none !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  .edu-narrative-block {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 560px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .edu-connector {
+    width: 100% !important;
+    max-width: 560px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: relative !important;
+  }
+
+  .connector-arrow-img {
+    display: none !important;
+  }
+
+  .edu-connector::before {
+    content: "" !important;
+    width: 3px !important;
+    height: 30px !important;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2)) !important;
+    position: absolute !important;
+  }
+
+  .edu-connector::after {
+    content: "" !important;
+    width: 0 !important;
+    height: 0 !important;
+    border-left: 8px solid transparent !important;
+    border-right: 8px solid transparent !important;
+    border-top: 10px solid rgba(255, 255, 255, 0.6) !important;
+    position: absolute !important;
+    bottom: 2px !important;
+    animation: arrowBounce 1.2s ease-in-out infinite !important;
+  }
+
+  @keyframes eduScaleUpIn {
+    from {
+      opacity: 0;
+      transform: translateY(100px) scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes arrowBounce {
+
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.6;
+    }
+
+    50% {
+      transform: translateY(8px);
+      opacity: 1;
+    }
+  }
+
+
