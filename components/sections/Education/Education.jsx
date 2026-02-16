@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './Education.module.css';
 
-export default function Education({ resume, trans, lang, assetPrefix, eduScrollRef }) {
+export default function Education({ resume, trans, lang, assetPrefix }) {
   return (
     <section id="education" className={styles.scope}>
       <motion.div 
@@ -16,7 +16,7 @@ export default function Education({ resume, trans, lang, assetPrefix, eduScrollR
         <h2 className="title-refined">{trans.eduTitle}</h2>
       </motion.div>
 
-      <div className="premium-education-narrative" ref={eduScrollRef}>
+      <div className="premium-education-narrative">
         {resume.education.map((ed, idx) => (
           <React.Fragment key={idx}>
             <motion.div

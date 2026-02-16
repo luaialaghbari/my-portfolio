@@ -23,7 +23,6 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
   const yearRef = useRef(null);
-  const eduScrollRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setIsDesktop(window.innerWidth >= 1367);
@@ -32,83 +31,6 @@ export default function Home() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Direction-aware auto-sliding for Education cards
-  useEffect(() => {
-    const container = eduScrollRef.current;
-    if (!container || !isDesktop) return;
-
-    let autoScrollInterval;
-    const startAutoScroll = () => {
-      autoScrollInterval = setInterval(() => {
-        const { scrollLeft, scrollWidth, clientWidth } = container;
-        const isRTL = lang === 'ar';
-        
-        // Calculate step based on first card width + gap
-        const firstCard = container.querySelector('.edu-narrative-block');
-        const gap = parseFloat(getComputedStyle(container).gap) || 0;
-        const step = firstCard ? firstCard.offsetWidth + gap : 340;
-        
-        if (isRTL) {
-          if (Math.abs(scrollLeft) + clientWidth >= scrollWidth - 50) {
-            container.scrollTo({ left: 0, behavior: 'smooth' });
-          } else {
-            container.scrollBy({ left: -step, behavior: 'smooth' });
-          }
-        } else {
-          if (scrollLeft + clientWidth >= scrollWidth - 50) {
-            container.scrollTo({ left: 0, behavior: 'smooth' });
-          } else {
-            container.scrollBy({ left: step, behavior: 'smooth' });
-          }
-        }
-      }, 4000);
-    };
-
-    startAutoScroll();
-    
-    const pauseScroll = () => clearInterval(autoScrollInterval);
-    const resumeScroll = () => {
-      clearInterval(autoScrollInterval);
-      startAutoScroll();
-    };
-    
-    // Attach listeners to container
-    container.addEventListener('mouseenter', pauseScroll);
-    container.addEventListener('mouseleave', resumeScroll);
-    container.addEventListener('touchstart', pauseScroll, { passive: true });
-    container.addEventListener('touchend', resumeScroll, { passive: true });
-    
-    // Also pause on window scroll to avoid fighting with vertical page scroll
-    window.addEventListener('scroll', pauseScroll, { passive: true });
-
-    return () => {
-      clearInterval(autoScrollInterval);
-      container.removeEventListener('mouseenter', pauseScroll);
-      container.removeEventListener('mouseleave', resumeScroll);
-      container.removeEventListener('touchstart', pauseScroll);
-      container.removeEventListener('touchend', resumeScroll);
-      window.removeEventListener('scroll', pauseScroll);
-      container.removeEventListener('scroll', pauseScroll);
-    };
-  }, [lang, isDesktop]); // Re-run if language or desktop mode changes
-
-  // Allow vertical page scroll when pointer is over the horizontal education rail
-  useEffect(() => {
-    const container = eduScrollRef.current;
-    if (!container) return;
-
-    const onWheel = (event) => {
-      // If the user is primarily scrolling vertically, pass it to the page
-      if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
-        event.preventDefault();
-        window.scrollBy({ top: event.deltaY, behavior: 'auto' });
-      }
-    };
-
-    container.addEventListener('wheel', onWheel, { passive: false });
-    return () => container.removeEventListener('wheel', onWheel);
-  }, []);
-  
   // Scroll listener for hero shadow
   useEffect(() => {
     const handleScroll = () => {
@@ -500,7 +422,6 @@ export default function Home() {
         trans={trans}
         lang={lang}
         assetPrefix={assetPrefix}
-        eduScrollRef={eduScrollRef}
       />
 
       <Contact

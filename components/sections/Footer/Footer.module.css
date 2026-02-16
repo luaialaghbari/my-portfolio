@@ -8,9 +8,10 @@
   padding: 6rem 1rem 0;
   background: #000;
   color: #fff;
-  margin-top: 4rem;
+  margin-top: 9rem;
   font-family: "Poppins", sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .scope :global(.footer-socials) {
@@ -65,11 +66,11 @@
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  margin-top: 4rem;
+  margin-top: 17rem;
   user-select: none;
   display: flex;
   justify-content: center;
-  margin-bottom: 0;
+  margin-bottom: -0.2em;
   z-index: 1;
   overflow: visible;
 }
@@ -78,16 +79,17 @@
   font-size: clamp(10rem, 30vw, 40rem);
   font-weight: 900;
   margin: 0;
-  padding: 0.15em 0.1em 0; 
+  padding: 0;
   background: var(--title-accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.07em;
   font-family: "Poppins", sans-serif;
   text-transform: lowercase;
-  line-height: 0.7;
+  line-height: 0.78;
   white-space: nowrap;
   overflow: visible;
+  transform: translateY(0.12em);
 }
 
 
@@ -100,7 +102,7 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    margin-bottom: -0.4em;
+    margin-bottom: -0.16em;
     overflow: visible;
   }
   .scope :global(.footer-massive-logo h2) {
@@ -112,7 +114,6 @@
   }
 
   }
-
 
 
 

@@ -347,10 +347,10 @@ export default function Experience({ resume, trans, lang, assetPrefix, isDesktop
                 <div className="node-card">
                   <div className="node-card-glass"></div>
                   <div className="node-card-content">
-                    <h3 className="node-title" style={{fontFamily: 'Inter, system-ui, Arial, sans-serif', fontWeight: 800, fontSize: '1.35em'}}>
+                    <h3 className="node-title" style={{fontFamily: 'Inter, system-ui, Arial, sans-serif', fontWeight: 900, fontSize: '1.35em'}}>
                       {exp.role}
                     </h3>
-                    <div className="node-appname" style={{fontWeight: 700, fontSize: '1.05em', marginBottom: '0.2em'}}>
+                    <div className="node-appname" style={{fontWeight: 800, fontSize: '1.05em', marginBottom: '0.2em'}}>
                       {lang === 'ar' ? (
                         (() => {
                           // Remove the role part in parentheses from the Arabic title for the app name

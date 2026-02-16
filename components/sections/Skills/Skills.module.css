@@ -12,7 +12,7 @@
 
    .scope :global(#skills .section-header-left) {
        margin-bottom: 1rem;
-       margin-left: 2%;
+       margin-left: auto;
        margin-right: auto;
        padding: 0 2rem;
    }
@@ -49,7 +49,7 @@
    }
 
    /* Modern Skills Grid Design - responsive auto-fit and circular progress */
-.scope :global(.skills-layout) { display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 1400px; margin: 0 auto; padding: 0 0.25rem; }
+.scope :global(.skills-layout) { display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 1400px; margin: 0 auto; padding: 0; }
    
    /* Modern Bento Grid for Skills */
 .scope :global(.skills-grid-categories) {

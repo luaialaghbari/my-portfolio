@@ -408,6 +408,11 @@ a:hover {
   z-index: 0;
 }
 
+html[dir="rtl"] #contact.contact-apple .section-header-left {
+  align-items: flex-end;
+  text-align: right;
+}
+
 #contact.contact-apple .subtitle-editorial {
   letter-spacing: 0.12em;
   text-transform: uppercase;
