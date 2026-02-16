@@ -16,14 +16,22 @@ const repoFromHomepage = (() => {
   }
 })();
 
-const repoName = repoFromCi || repoFromHomepage || 'my-portfolio';
-const basePath = isProd ? `/${repoName}` : '';
+const normalizeBasePath = (value) => {
+  if (!value) return '';
+  const cleaned = value.trim().replace(/^\/+|\/+$/g, '');
+  return cleaned ? `/${cleaned}` : '';
+};
+
+const inferredRepoName = repoFromHomepage || repoFromCi;
+const explicitBasePath = normalizeBasePath(process.env.BASE_PATH || '');
+const basePath = isProd ? (explicitBasePath || normalizeBasePath(inferredRepoName)) : '';
 
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
+  trailingSlash: true,
   images: { unoptimized: true },
-  assetPrefix: isProd ? `${basePath}/` : '',
+  assetPrefix: basePath ? `${basePath}/` : '',
   basePath,
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
