@@ -1,20 +1,11 @@
 
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
 
 const repoFromCi = process.env.GITHUB_REPOSITORY
   ? process.env.GITHUB_REPOSITORY.split('/')[1]
   : '';
-
-const repoFromHomepage = (() => {
-  try {
-    const { homepage } = require('./gh-pages.json');
-    if (!homepage) return '';
-    return (new URL(homepage).pathname || '').replace(/^\/|\/$/g, '');
-  } catch {
-    return '';
-  }
-})();
 
 const normalizeBasePath = (value) => {
   if (!value) return '';
@@ -22,9 +13,11 @@ const normalizeBasePath = (value) => {
   return cleaned ? `/${cleaned}` : '';
 };
 
-const inferredRepoName = repoFromHomepage || repoFromCi;
 const explicitBasePath = normalizeBasePath(process.env.BASE_PATH || '');
-const basePath = isProd ? (explicitBasePath || normalizeBasePath(inferredRepoName)) : '';
+const ciRepoBasePath = normalizeBasePath(repoFromCi);
+const basePath = isProd
+  ? (explicitBasePath || (isGithubActions ? ciRepoBasePath : ''))
+  : '';
 
 const nextConfig = {
   reactStrictMode: true,
