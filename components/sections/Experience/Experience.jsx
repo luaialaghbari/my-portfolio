@@ -75,7 +75,12 @@ export default function Experience({ resume, trans, lang, assetPrefix, isDesktop
                         <div className="power-button"></div>
                       </div>
                       <div className="iphone-screen">
-                        <img src={`${assetPrefix}/assets/Screenshot_20250703_173702.jpg`} alt="QR Events App" />
+                        <img
+                          src={`${assetPrefix}/assets/Screenshot_20250703_173702.jpg`}
+                          alt="QR Events App"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </div>
                       <div className="iphone-bottom-details">
                         <div className="speaker-grill">
@@ -119,7 +124,12 @@ export default function Experience({ resume, trans, lang, assetPrefix, isDesktop
                         <div className="power-button"></div>
                       </div>
                       <div className="iphone-screen">
-                        <img src={`${assetPrefix}/assets/Screenshot 2026-01-09 233757.png`} alt="Internship Project" />
+                        <img
+                          src={`${assetPrefix}/assets/Screenshot 2026-01-09 233757.png`}
+                          alt="Internship Project"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </div>
                       <div className="iphone-bottom-details">
                         <div className="speaker-grill">
@@ -170,7 +180,8 @@ export default function Experience({ resume, trans, lang, assetPrefix, isDesktop
                           loop 
                           muted 
                           playsInline 
-                          preload="auto"
+                          preload="metadata"
+                          poster={`${assetPrefix}/assets/candy app.jpg`}
                           width="1080"
                           height="1920"
                           style={{ 
@@ -231,7 +242,8 @@ export default function Experience({ resume, trans, lang, assetPrefix, isDesktop
                           loop 
                           muted 
                           playsInline 
-                          preload="auto"
+                          preload="metadata"
+                          poster={`${assetPrefix}/assets/yemen e-commerc app.png`}
                           width="1080"
                           height="1920"
                           style={{ 
@@ -287,7 +299,12 @@ export default function Experience({ resume, trans, lang, assetPrefix, isDesktop
                         <div className="power-button"></div>
                       </div>
                       <div className="iphone-screen">
-                        <img src={`${assetPrefix}/assets/Screenshot_20250225_002302.jpg`} alt="Graduation Project" />
+                        <img
+                          src={`${assetPrefix}/assets/Screenshot_20250225_002302.jpg`}
+                          alt="Graduation Project"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </div>
                       <div className="iphone-bottom-details">
                         <div className="speaker-grill">

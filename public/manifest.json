@@ -1,13 +1,14 @@
 {
-  "name": "Luai Alaghbari · Portfolio",
+  "name": "Luai Alaghbari Portfolio",
   "short_name": "Luai",
-  "start_url": "/",
+  "start_url": ".",
+  "scope": ".",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#0b0b0f",
   "description": "Full-Stack Engineer and UI/UX Designer building performant, delightful software with Flutter and React/Next.js.",
   "icons": [
-    { "src": "/assets/logopic.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "/assets/logopic.png", "type": "image/png", "sizes": "512x512" }
+    { "src": "./assets/logopic.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "./assets/logopic.png", "type": "image/png", "sizes": "512x512" }
   ]
 }
