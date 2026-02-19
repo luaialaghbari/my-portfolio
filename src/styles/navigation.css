@@ -494,6 +494,20 @@ html[dir="rtl"] .nav-controls-mobile {
 	 }
 }
 
+/* Remove the horizontal separator under mobile/tablet nav */
+@media screen and (max-width: 1366px) {
+  #hamburger-nav,
+  #desktop-nav,
+  #hamburgerNav,
+  #desktopNav,
+  nav[id*="hamburgerNav"],
+  nav[id*="desktopNav"] {
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+}
+
 
 
 
