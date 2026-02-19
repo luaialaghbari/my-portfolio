@@ -5,6 +5,15 @@
    ================================================== */
 
 @media screen and (max-width: 1366px) {
+  html[dir="rtl"] #profile .hero-name-bg,
+  html[dir="rtl"] #profile .hero-name-bg h1,
+  html[dir="rtl"] #profile .hero-col-content,
+  html[dir="rtl"] #profile .hero-text-block,
+  html[dir="rtl"] #profile .hero-description {
+    text-align: center !important;
+    align-items: center !important;
+  }
+
   #profile .hero-name-bg {
     margin-top: 9vh !important;
     z-index: 3 !important;
@@ -14,24 +23,78 @@
     display: none !important;
   }
 
+  /* Mobile/Tablet name stack: Luai -> Alaghbari */
+  #profile .hero-name-bg .im-text {
+    display: none !important;
+  }
+
+  #profile .hero-name-bg .mid-name,
+  #profile .hero-name-bg .last-name {
+    display: block !important;
+    margin-left: 0 !important;
+    transform: scaleY(2.2) !important;
+    transform-origin: center top !important;
+    line-height: 1 !important;
+    text-align: center !important;
+  }
+
+  #profile .hero-name-bg .mid-name {
+    font-size: 18vw !important;
+    background: var(--title-accent) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+  }
+
+  #profile .hero-name-bg .mid-name {
+    margin-bottom: 3vh !important;
+  }
+
+  #profile .hero-name-bg .last-name {
+    font-size: 18vw !important;
+    color: #fff !important;
+  }
+
   #profile .hero-col-portrait {
-    margin-top: -18vh !important;
+    margin-top: -26vh !important;
     z-index: 12 !important;
   }
 
   #profile .hero-portrait {
     z-index: 12 !important;
   }
+
+  #profile .hero-action-btn {
+    margin-top: 7rem !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
+  #profile .hero-name-bg .mid-name,
+  #profile .hero-name-bg .last-name {
+    font-size: 20vw !important;
+  }
+
   #profile .hero-col-portrait {
-    margin-top: -16vh !important;
+    margin-top: -24vh !important;
+  }
+
+  #profile .hero-action-btn {
+    margin-top: 6rem !important;
   }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1366px) {
+  #profile .hero-name-bg .mid-name,
+  #profile .hero-name-bg .last-name {
+    font-size: 18vw !important;
+  }
+
   #profile .hero-col-portrait {
-    margin-top: -24vh !important;
+    margin-top: -34vh !important;
+  }
+
+  #profile .hero-action-btn {
+    margin-top: 8rem !important;
   }
 }

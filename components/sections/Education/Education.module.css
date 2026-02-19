@@ -18,28 +18,39 @@
 }
 
 .scope :global(.premium-education-narrative) {
-  width: min(1100px, 100%);
-  margin: 0 auto;
-  padding: 1rem 1rem 8rem !important;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.5rem 0.75rem 8rem !important;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: stretch;
   justify-content: flex-start;
-  gap: 1.5rem;
-  overflow: visible !important;
-  overscroll-behavior: auto;
-  touch-action: pan-y;
+  gap: 1.8rem;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
+  touch-action: pan-x pan-y;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  direction: ltr;
+}
+
+.scope :global(.premium-education-narrative::-webkit-scrollbar) {
+  display: none;
 }
 
 .scope :global(.edu-narrative-block) {
-  width: min(100%, 560px);
+  flex: 0 0 clamp(300px, 42vw, 460px);
+  width: auto;
   display: flex !important;
   flex-direction: column !important;
   position: relative !important;
   align-items: stretch !important;
   justify-content: flex-start !important;
   margin: 0 !important;
-  padding-top: 96px !important;
+  padding-top: 56px !important;
 }
 
 .scope :global(.edu-watermark) {
@@ -67,12 +78,13 @@
 
 .scope :global(.edu-premium-card) {
   width: 100%;
+  height: 100%;
   position: relative;
   z-index: 5;
   background: #111111 !important;
   border: none !important;
   border-radius: 32px;
-  padding: 1.5rem;
+  padding: 1.2rem;
   display: flex;
   flex-direction: column;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
@@ -104,7 +116,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.9rem;
 }
 
 .scope :global(.edu-number) {
@@ -135,7 +147,7 @@
   font-size: clamp(1.4rem, 2.5vw, 1.8rem);
   font-weight: 900;
   line-height: 1.2;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
   background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
@@ -146,7 +158,7 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
 .scope :global(.edu-school-name) {
@@ -168,19 +180,14 @@
 }
 
 .scope :global(.edu-details-text) {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.45;
   color: rgba(255, 255, 255, 0.5);
   font-weight: 400;
 }
 
 .scope :global(.edu-connector) {
-  width: min(100%, 560px);
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
+  display: none;
 }
 
 .scope :global(.connector-arrow-img) {
@@ -205,11 +212,12 @@
 @media screen and (max-width: 768px) {
   .scope :global(.premium-education-narrative) {
     padding: 0.5rem 0.75rem 7rem !important;
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 
   .scope :global(.edu-narrative-block) {
-    padding-top: 68px !important;
+    flex-basis: clamp(280px, 82vw, 360px);
+    padding-top: 54px !important;
   }
 
   .scope :global(.edu-watermark) {

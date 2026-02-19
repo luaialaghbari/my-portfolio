@@ -17,6 +17,7 @@
 .scope :global(.footer-socials) {
   display: flex;
   gap: 2.5rem;
+  margin-top: 14rem;
   margin-bottom: 4rem;
   justify-content: center;
   align-items: center;
@@ -66,13 +67,13 @@
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  margin-top: 17rem;
+  margin-top: 18rem;
   user-select: none;
   display: flex;
   justify-content: center;
-  margin-bottom: -0.2em;
+  margin-bottom: 0;
   z-index: 1;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .scope :global(.footer-massive-logo h2) {
@@ -86,10 +87,11 @@
   letter-spacing: -0.07em;
   font-family: "Poppins", sans-serif;
   text-transform: lowercase;
-  line-height: 0.78;
+  line-height: 0.72;
   white-space: nowrap;
-  overflow: visible;
-  transform: translateY(0.12em);
+  overflow: hidden;
+  display: block;
+  transform: none;
 }
 
 
@@ -102,20 +104,18 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    margin-bottom: -0.16em;
-    overflow: visible;
+    margin-bottom: 0;
+    overflow: hidden;
   }
   .scope :global(.footer-massive-logo h2) {
     font-size: 28vw;
-    line-height: 0.9;
+    line-height: 0.78;
     padding-right: 0.1em;
     white-space: nowrap;
-    overflow: visible;
+    overflow: hidden;
   }
 
   }
-
-
 
 
 

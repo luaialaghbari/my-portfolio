@@ -184,17 +184,22 @@ body::-webkit-scrollbar {
 /* Arabic / RTL typography + alignment */
 html[lang="ar"],
 html[dir="rtl"] {
-  font-family: "Rubik", system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+  font-family: "Satoshi", "Rubik", system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
 }
 
 html[lang="ar"] body,
 html[dir="rtl"] body {
-  font-family: "Rubik", system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+  font-family: "Satoshi", "Rubik", system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
 }
 
 html[dir="rtl"] body {
   direction: rtl;
   text-align: right;
+}
+
+html[dir="rtl"] :lang(en),
+html[dir="rtl"] [lang="en"] {
+  font-family: "Satoshi", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
 }
 
 /* English / LTR typography */

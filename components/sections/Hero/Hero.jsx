@@ -18,7 +18,8 @@ export default function Hero({ scrolled, lang, assetPrefix, resume }) {
         <div className="hero-name-bg">
           <h1 className="name-main">
             <span className="hi-text">Hi,</span>
-            <span className="mid-name">I'm Luai</span>
+            <span className="im-text">I'm</span>
+            <span className="mid-name">Luai</span>
             <span className="last-name">Alaghbari</span>
             <div className="hero-subtitle-container hide-mobile">
               {lang === 'ar' ? (

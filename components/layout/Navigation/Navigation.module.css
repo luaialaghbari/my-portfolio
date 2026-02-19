@@ -63,15 +63,26 @@
   position: relative;
 }
 
-.navLinks a:hover,
-.navLinks a.active {
+.navLinks a:hover {
   color: #fff !important;
 }
 
 .navLinks a.active {
-  text-decoration: underline !important;
-  text-decoration-thickness: 2px !important;
-  text-underline-offset: 0.6rem !important;
+  text-decoration: none !important;
+  background: var(--title-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700 !important;
+}
+
+.navLinks a.active:hover {
+  background: var(--title-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent;
 }
 
 .navControls {
@@ -192,22 +203,38 @@
   display: block;
   padding: var(--space-3) var(--space-5);
   font-size: 1rem;
+  text-decoration: none !important;
   background: var(--title-accent);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  -webkit-text-fill-color: transparent;
   background-size: 200% auto;
   font-weight: 600;
 }
 
+.menuLinks a:hover,
+.menuLinks a:focus,
+.menuLinks a:active {
+  text-decoration: none !important;
+}
+
 @media screen and (min-width: 769px) and (max-width: 1366px) {
   #desktopNav { display: none !important; }
-  #hamburgerNav { display: flex !important; }
+  #hamburgerNav {
+    display: flex !important;
+    border: none !important;
+    border-bottom: none !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
   #desktopNav { display: none !important; }
-  #hamburgerNav { display: flex !important; }
+  #hamburgerNav {
+    display: flex !important;
+    border: none !important;
+    border-bottom: none !important;
+  }
 }
 
 @media screen and (max-width: 480px) {

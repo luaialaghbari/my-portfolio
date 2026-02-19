@@ -1,8 +1,74 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Education.module.css';
 
 export default function Education({ resume, trans, lang, assetPrefix }) {
+  const narrativeRef = useRef(null);
+
+  useEffect(() => {
+    const scroller = narrativeRef.current;
+    if (!scroller || typeof window === 'undefined') return undefined;
+
+    const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const speedPxPerSecond = 36;
+    const direction = lang === 'ar' ? -1 : 1;
+    let rafId;
+    let lastTs = 0;
+
+    const setEdgeStart = () => {
+      const maxScroll = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+      if (maxScroll <= 0) return;
+      scroller.scrollLeft = direction > 0 ? 0 : maxScroll;
+    };
+
+    const tick = (ts) => {
+      if (!lastTs) lastTs = ts;
+      const deltaSeconds = (ts - lastTs) / 1000;
+      lastTs = ts;
+
+      if (!reduceMotionQuery.matches) {
+        const maxScroll = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+        if (maxScroll > 0) {
+          const next = scroller.scrollLeft + (direction * speedPxPerSecond * deltaSeconds);
+          if (direction > 0 && next >= maxScroll) {
+            scroller.scrollLeft = 0;
+          } else if (direction < 0 && next <= 0) {
+            scroller.scrollLeft = maxScroll;
+          } else {
+            scroller.scrollLeft = next;
+          }
+        }
+      }
+
+      rafId = window.requestAnimationFrame(tick);
+    };
+
+    setEdgeStart();
+    rafId = window.requestAnimationFrame(tick);
+
+    const onResize = () => {
+      setEdgeStart();
+      lastTs = 0;
+    };
+
+    window.addEventListener('resize', onResize);
+    if (typeof reduceMotionQuery.addEventListener === 'function') {
+      reduceMotionQuery.addEventListener('change', onResize);
+    } else if (typeof reduceMotionQuery.addListener === 'function') {
+      reduceMotionQuery.addListener(onResize);
+    }
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', onResize);
+      if (typeof reduceMotionQuery.removeEventListener === 'function') {
+        reduceMotionQuery.removeEventListener('change', onResize);
+      } else if (typeof reduceMotionQuery.removeListener === 'function') {
+        reduceMotionQuery.removeListener(onResize);
+      }
+    };
+  }, [lang, resume.education.length]);
+
   return (
     <section id="education" className={styles.scope}>
       <motion.div 
@@ -16,7 +82,7 @@ export default function Education({ resume, trans, lang, assetPrefix }) {
         <h2 className="title-refined">{trans.eduTitle}</h2>
       </motion.div>
 
-      <div className="premium-education-narrative">
+      <div className="premium-education-narrative" ref={narrativeRef} dir="ltr">
         {resume.education.map((ed, idx) => (
           <React.Fragment key={idx}>
             <motion.div

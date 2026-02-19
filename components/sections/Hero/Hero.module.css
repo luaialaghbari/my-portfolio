@@ -147,6 +147,7 @@
      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
    }
 
+.scope :global(.hero-name-bg .im-text),
 .scope :global(.hero-name-bg .mid-name),
 .scope :global(.hero-name-bg .last-name) {
   font-family: "Chreed" !important;
@@ -163,7 +164,31 @@
 
 /* Extra spacing before last name to prevent overlap with "Luai" */
 .scope :global(.hero-name-bg .last-name) {
-  margin-left: 1.4em;
+  margin-left: 1em;
+}
+
+@media screen and (min-width: 1367px) {
+  .scope :global(html[dir="rtl"] #profile .hero-modern),
+  .scope :global(html[dir="rtl"] #profile .hero-modern-grid) {
+    direction: ltr;
+  }
+
+  .scope :global(html[dir="rtl"] #profile .hero-name-bg) {
+    left: 4vw;
+    right: auto;
+    justify-content: flex-start;
+  }
+
+  .scope :global(html[dir="rtl"] #profile .hero-col-content) {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .scope :global(html[dir="rtl"] #profile .hero-text-block),
+  .scope :global(html[dir="rtl"] #profile .hero-description),
+  .scope :global(html[dir="rtl"] #profile .hero-name-bg h1) {
+    text-align: left;
+  }
 }
    
    .scope :global(.hero-modern-grid) {
