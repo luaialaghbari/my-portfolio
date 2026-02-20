@@ -276,30 +276,7 @@ const resume = {
       ],
       technologies: ['Flutter', 'Dart', 'Supabase', 'Firebase Messaging', 'Figma', 'Mapbox', 'Git/GitHub'],
     },
-    {
-      title: 'QR Events — Invitation & Check-in App (KSA)',
-      titleAr: 'تطبيق Event QR — الدعوات وتسجيل الحضور (السعودية)',
-      role: 'Frontend & UI/UX Designer',
-      company: 'QR Events Platform',
-      companyAr: 'منصة فعاليات QR',
-      location: '',
-      locationAr: '',
-      period: 'October 2025',
-      periodAr: 'مايو 2025',
-      preview: '#',
-      source: '#',
-      highlights: [
-        'Event management platform for public and private events in KSA.',
-        'Designed UI/UX, creating intuitive and engaging mobile experiences.',
-        'Developed frontend in Flutter, building smooth and responsive interfaces.',
-      ],
-      highlightsAr: [
-        'تطوير تطبيق Event QR للفعاليات العامة والخاصة في المملكة العربية السعودية.',
-        'تصميم واجهة وتجربة المستخدم (UI/UX)، وبناء تجارب موبايل بديهية وجذابة.',
-        'تطوير الواجهات الأمامية باستخدام Flutter، وبناء واجهات سلسة ومتجاوبة.',
-      ],
-      technologies: ['Flutter', 'Dart', 'Figma', 'QR Scanning', 'Jira'],
-    },
+  
   ],
 
   skills: [
