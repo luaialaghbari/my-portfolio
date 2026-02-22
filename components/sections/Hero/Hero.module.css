@@ -162,6 +162,11 @@
      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
    }
 
+/* Match spacing: I'm -> Luai equals Luai -> Alaghbari */
+.scope :global(.hero-name-bg .mid-name) {
+  margin-left: 0.8em;
+}
+
 /* Extra spacing before last name to prevent overlap with "Luai" */
 .scope :global(.hero-name-bg .last-name) {
   margin-left: 1em;
