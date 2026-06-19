@@ -28,11 +28,12 @@ export default function Experience({ resume, trans, lang, assetPrefix, isDesktop
       <div className="experience-container">
         
         {resume.experience.map((exp, idx) => {
-          const isCandy = exp.title.toLowerCase().includes('water delivery');
-          const isYemeniStore = exp.title.toLowerCase().includes('yemeni store');
-          const isGraduation = exp.title.toLowerCase().includes('graduation project');
-          const isInternship = exp.title.toLowerCase().includes('summer internship');
-          const isQrEvents = exp.title.toLowerCase().includes('qr events');
+          const titleLower = (exp.title || '').toLowerCase();
+          const isCandy = titleLower.includes('water delivery');
+          const isYemeniStore = titleLower.includes('yemeni store');
+          const isGraduation = titleLower.includes('graduation project');
+          const isInternship = titleLower.includes('summer internship');
+          const isQrEvents = titleLower.includes('qr events');
           
           return (
             <motion.div 
