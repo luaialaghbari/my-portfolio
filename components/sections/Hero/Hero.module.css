@@ -173,26 +173,31 @@
 }
 
 @media screen and (min-width: 1367px) {
-  .scope :global(html[dir="rtl"] #profile .hero-modern),
-  .scope :global(html[dir="rtl"] #profile .hero-modern-grid) {
+  :global(html[dir="rtl"] #profile.hero-modern),
+  :global(html[dir="rtl"] #profile .hero-modern-container),
+  :global(html[dir="rtl"] #profile .hero-modern-grid) {
     direction: ltr;
   }
 
-  .scope :global(html[dir="rtl"] #profile .hero-name-bg) {
+  :global(html[dir="rtl"] #profile .hero-name-bg) {
     left: 4vw;
     right: auto;
     justify-content: flex-start;
   }
 
-  .scope :global(html[dir="rtl"] #profile .hero-col-content) {
+  :global(html[dir="rtl"] #profile .hero-col-content) {
     align-items: flex-start;
     text-align: left;
   }
 
-  .scope :global(html[dir="rtl"] #profile .hero-text-block),
-  .scope :global(html[dir="rtl"] #profile .hero-description),
-  .scope :global(html[dir="rtl"] #profile .hero-name-bg h1) {
+  :global(html[dir="rtl"] #profile .hero-text-block),
+  :global(html[dir="rtl"] #profile .hero-description),
+  :global(html[dir="rtl"] #profile .hero-name-bg h1) {
     text-align: left;
+  }
+
+  :global(html[dir="rtl"] #profile .hero-action-btn) {
+    align-self: flex-start;
   }
 }
    

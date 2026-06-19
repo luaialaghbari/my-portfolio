@@ -180,21 +180,20 @@ const resume = {
   ],
   experience: [
     {
-      title: ' Summer Internship Program',
-      titleAr: 'برنامج التدريب الصيفي',
+      
       role: 'Software Engineer & UI/UX Designer',
       company: 'Yemen Soft',
       companyAr: 'يمن سوفت',
       location: "Sana'a, Yemen",
       locationAr: 'صنعاء، اليمن',
-      period: 'May 9 – July 27, 2024',
+      period: 'May 9 – July 27, 2025',
       periodAr: '9 مايو – 27 يوليو 2024',
       highlights: [
         '3‑month internship across the full SDLC — from system analysis to UI/UX.',
         'Collaborated on an English management app, contributing to technical structure and UX design.',
       ],
       highlightsAr: [
-        'تدريب مكثف لمدة 3 أشهر شمل دورة حياة تطوير البرمجيات بالكامل — من تحليل النظام إلى تصميم الواجهات.',
+        
         'المشاركة في تطوير تطبيق لإدارة نظام المعاهد للغة الإنجليزية.',
       ],
       technologies: ['Figma', 'Flutter', 'Dart'],
@@ -233,7 +232,7 @@ const resume = {
       companyAr: '',
       location: '',
       locationAr: '',
-      period: 'June 2025',
+      period: 'June 2026',
       periodAr: 'مايو 2025',
       preview: '#',
       source: '#',
