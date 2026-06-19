@@ -189,7 +189,7 @@ const resume = {
       period: 'May 9 – July 27, 2025',
       periodAr: '9 مايو – 27 يوليو 2024',
       highlights: [
-        '3‑month internship across the full SDLC — from system analysis to UI/UX.',
+        
         'Collaborated on an English management app, contributing to technical structure and UX design.',
       ],
       highlightsAr: [
