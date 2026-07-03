@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Navigation.module.css';
 
-export default function Navigation({ lang, trans, active, setLang, menuOpen, toggleMenu }) {
+export default function Navigation({ lang, trans, active, setLang, menuOpen, toggleMenu, theme, setTheme }) {
   return (
     <>
       {/* Desktop Navigation */}
@@ -29,6 +29,9 @@ export default function Navigation({ lang, trans, active, setLang, menuOpen, tog
           )}
         </ul>
         <div className={styles.navControls}>
+          <button className={styles.themeToggle} onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label="Toggle theme">
+            {theme === 'dark' ? '\u2600' : '\u263E'}
+          </button>
           <button className={styles.langToggle} onClick={() => setLang(lang === 'en' ? 'ar' : 'en')} aria-label="Toggle language">
             {lang === 'en' ? 'Ar' : 'En'}
           </button>
@@ -41,6 +44,9 @@ export default function Navigation({ lang, trans, active, setLang, menuOpen, tog
           <a className={styles.logo} href="#profile">Luai Alaghbari</a>
         </div>
         <div className={styles.navControlsMobile}>
+          <button className={styles.themeToggle} onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label="Toggle theme">
+            {theme === 'dark' ? '\u2600' : '\u263E'}
+          </button>
           <button className={styles.langToggle} onClick={() => setLang(lang === 'en' ? 'ar' : 'en')} aria-label="Toggle language">
             {lang === 'en' ? 'Ar' : 'En'}
           </button>

@@ -2,431 +2,235 @@
 import { motion } from 'framer-motion';
 import styles from './Experience.module.css';
 
-export default function Experience({ resume, trans, lang, assetPrefix, isDesktop }) {
-  const withAssetPrefix = (url) => {
-    if (!url || url === '#') return url;
-    if (/^(?:[a-z]+:)?\/\//i.test(url) || url.startsWith('mailto:') || url.startsWith('tel:')) {
-      return url;
-    }
-    const normalized = url.startsWith('/') ? url : `/${url}`;
-    return `${assetPrefix}${normalized}`;
+function Media({ exp, assetPrefix }) {
+  const title = (exp.title || '').toLowerCase();
+  const isCandy = title.includes('water delivery');
+  const isYemeni = title.includes('yemeni store');
+  const isGrad = title.includes('graduation project');
+  const isIntern = title.includes('summer internship');
+
+  if (isCandy)
+    return <video src={`${assetPrefix}/assets/Screen_Recording_20260106_005631_Crystal Drop.mp4`} autoPlay loop muted playsInline preload="none" poster={`${assetPrefix}/assets/candy app.jpg`} />;
+  if (isYemeni)
+    return <video src={`${assetPrefix}/assets/Screen_Recording_20250725_203231.mp4`} autoPlay loop muted playsInline preload="none" poster={`${assetPrefix}/assets/yemen e-commerc app.png`} />;
+  if (isGrad)
+    return <img src={`${assetPrefix}/assets/Screenshot_20250225_002302.jpg`} alt="Graduation Project" loading="lazy" />;
+  if (isIntern)
+    return <img src={`${assetPrefix}/assets/Screenshot 2026-01-09 233757.png`} alt="Internship" loading="lazy" />;
+  return <img src={`${assetPrefix}/assets/Screenshot_20250703_173702.jpg`} alt="Project" loading="lazy" />;
+}
+
+function Phone({ exp, assetPrefix, frameClass }) {
+  return (
+    <div className={styles.iphoneWrapper}>
+      <div className={`${styles.iphoneFrame} ${frameClass}`}>
+        <div className={styles.iphoneInner}></div>
+        <div className={styles.dynamicIsland}></div>
+        <div className={styles.buttonsLeft}>
+          <div className={styles.actionBtn}></div>
+          <div className={styles.volUp}></div>
+          <div className={styles.volDown}></div>
+        </div>
+        <div className={styles.buttonsRight}>
+          <div className={styles.powerBtn}></div>
+        </div>
+        <div className={styles.screen}><Media exp={exp} assetPrefix={assetPrefix} /></div>
+        <div className={styles.bottomDetails}>
+          <div className={styles.speakerGrill}><span></span><span></span><span></span></div>
+          <div className={styles.usbPort}></div>
+          <div className={styles.speakerGrill}><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PanelCenter({ exp, idx, lang, assetPrefix, frameClass }) {
+  const name = (lang === 'ar'
+    ? (exp.titleAr || '').replace(/\s*\(.*?\)/, '').trim()
+    : (exp.title || '').replace(/\s*\(.*?\)/, '').trim()
+  );
+  const highlights = lang === 'ar' ? exp.highlightsAr : exp.highlights;
+
+  const phoneAnim = {
+    hidden: { opacity: 0, scale: 0.85 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } }
   };
+  const sideAnim = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 } }
+  };
+  const mid = Math.ceil(highlights.length / 2);
+  const parts = exp.period.split('–');
+  const startMonth = parts[0].trim();
+  const endPart = parts[1].trim();
+  const yearMatch = endPart.match(/\d{4}/);
+  const year = yearMatch ? yearMatch[0] : '';
+  const endMonth = endPart.replace(year, '').trim();
 
   return (
-    <section id="experience" className={`${styles.scope} modern-experience`}>
-      <motion.div 
-        className="section-header-left"
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
-      >
-        <p className="subtitle-editorial">{trans.recentWork}</p>
-        <h2 className="title-refined">{trans.expTitle}</h2>
-      </motion.div>
-      
-      <div className="experience-container">
-        
-        {resume.experience.map((exp, idx) => {
-          const titleLower = (exp.title || '').toLowerCase();
-          const isCandy = titleLower.includes('water delivery');
-          const isYemeniStore = titleLower.includes('yemeni store');
-          const isGraduation = titleLower.includes('graduation project');
-          const isInternship = titleLower.includes('summer internship');
-          const isQrEvents = titleLower.includes('qr events');
-          
-          return (
-            <motion.div 
-              key={idx}
-              className={`experience-node ${idx % 2 === 0 ? 'left' : 'right'} ${isCandy ? 'candy-node' : ''} ${isYemeniStore ? 'yemeni-node' : ''} ${isGraduation ? 'graduation-node' : ''} ${isInternship ? 'internship-node' : ''} ${isQrEvents ? 'qr-node' : ''}`}
-              initial={isDesktop ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
-              whileInView={isDesktop ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={isDesktop ? { duration: 0 } : { 
-                duration: 1, 
-                ease: [0.16, 1, 0.3, 1],
-                type: "spring",
-                stiffness: 50,
-                damping: 15
-              }}
-            >
-              {isQrEvents && (
-                <>
-                  <div className="qr-phone-right-container">
-                    <motion.div 
-                      className="iphone-17-frame titanium-silver"
-                      initial={{ opacity: 0, x: 50, scale: 1, rotate: 0 }}
-                      whileInView={{ opacity: 1, x: 0, scale: 1, rotate: 0 }}
-                      viewport={{ once: false, amount: 0.2 }}
-                      transition={{ 
-                        type: "spring",
-                        stiffness: 50,
-                        damping: 15,
-                        delay: 0.1
-                      }}
-                    >
-                      <div className="iphone-inner-border"></div>
-                      <div className="iphone-dynamic-island"></div>
-                      <div className="iphone-buttons-left">
-                        <div className="action-button"></div>
-                        <div className="volume-up"></div>
-                        <div className="volume-down"></div>
-                      </div>
-                      <div className="iphone-buttons-right">
-                        <div className="power-button"></div>
-                      </div>
-                      <div className="iphone-screen">
-                        <img
-                          src={`${assetPrefix}/assets/Screenshot_20250703_173702.jpg`}
-                          alt="QR Events App"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
-                      <div className="iphone-bottom-details">
-                        <div className="speaker-grill">
-                          <span></span><span></span><span></span>
-                        </div>
-                        <div className="usb-c-port"></div>
-                        <div className="speaker-grill">
-                          <span></span><span></span><span></span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                  <div className="project-connector-line">
-                    <div className="project-beam-arrow"></div>
-                  </div>
-                </>
-              )}
-              {isInternship && (
-                <>
-                  <div className="internship-phone-right-container">
-                    <motion.div 
-                      className="iphone-17-frame titanium-natural"
-                      initial={{ opacity: 0, x: 50, scale: 1, rotate: 0 }}
-                      whileInView={{ opacity: 1, x: 0, scale: 1, rotate: 0 }}
-                      viewport={{ once: false, amount: 0.2 }}
-                      transition={{ 
-                        type: "spring",
-                        stiffness: 50,
-                        damping: 15,
-                        delay: 0.1
-                      }}
-                    >
-                      <div className="iphone-inner-border"></div>
-                      <div className="iphone-dynamic-island"></div>
-                      <div className="iphone-buttons-left">
-                        <div className="action-button"></div>
-                        <div className="volume-up"></div>
-                        <div className="volume-down"></div>
-                      </div>
-                      <div className="iphone-buttons-right">
-                        <div className="power-button"></div>
-                      </div>
-                      <div className="iphone-screen">
-                        <img
-                          src={`${assetPrefix}/assets/Screenshot 2026-01-09 233757.png`}
-                          alt="Internship Project"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
-                      <div className="iphone-bottom-details">
-                        <div className="speaker-grill">
-                          <span></span><span></span><span></span>
-                        </div>
-                        <div className="usb-c-port"></div>
-                        <div className="speaker-grill">
-                          <span></span><span></span><span></span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                  <div className="project-connector-line">
-                    <div className="project-beam-arrow"></div>
-                  </div>
-                </>
-              )}
-
-              {isCandy && (
-                <>
-                  <div className="candy-phone-left-container">
-                    <motion.div 
-                      className="iphone-17-frame video-frame titanium-orange"
-                      initial={{ opacity: 0, x: -50, scale: 1, rotate: 0 }}
-                      whileInView={{ opacity: 1, x: 0, scale: 1, rotate: 0 }}
-                      viewport={{ once: false, amount: 0.2 }}
-                      transition={{ 
-                        type: "spring",
-                        stiffness: 50,
-                        damping: 15,
-                        delay: 0.1
-                      }}
-                    >
-                      <div className="iphone-inner-border"></div>
-                      <div className="iphone-dynamic-island"></div>
-                      <div className="iphone-buttons-left">
-                        <div className="action-button"></div>
-                        <div className="volume-up"></div>
-                        <div className="volume-down"></div>
-                      </div>
-                      <div className="iphone-buttons-right">
-                        <div className="power-button"></div>
-                      </div>
-                      <div className="iphone-screen">
-                        <video 
-                          src={`${assetPrefix}/assets/Screen_Recording_20260106_005631_Crystal Drop.mp4`} 
-                          autoPlay 
-                          loop 
-                          muted 
-                          playsInline 
-                          preload="metadata"
-                          poster={`${assetPrefix}/assets/candy app.jpg`}
-                          width="1080"
-                          height="1920"
-                          style={{ 
-                            transform: 'translate3d(0, 0, 0) scale(1.0001)',
-                            backfaceVisibility: 'hidden',
-                            WebkitBackfaceVisibility: 'hidden',
-                            filter: 'brightness(1.000001) contrast(1.000001)',
-                            WebkitFilter: 'brightness(1.000001) contrast(1.000001)'
-                          }}
-                        />
-                      </div>
-                      <div className="iphone-bottom-details">
-                        <div className="speaker-grill">
-                          <span></span><span></span><span></span>
-                        </div>
-                        <div className="usb-c-port"></div>
-                        <div className="speaker-grill">
-                          <span></span><span></span><span></span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                  <div className="project-connector-line">
-                    <div className="project-beam-arrow"></div>
-                  </div>
-                </>
-              )}
-
-              {isYemeniStore && (
-                <>
-                  <div className="yemeni-phone-right-container">
-                    <motion.div 
-                      className="iphone-17-frame video-frame titanium-deep-blue"
-                      initial={{ opacity: 0, x: 50, scale: 1, rotate: 0 }}
-                      whileInView={{ opacity: 1, x: 0, scale: 1, rotate: 0 }}
-                      viewport={{ once: false, amount: 0.2 }}
-                      transition={{ 
-                        type: "spring",
-                        stiffness: 50,
-                        damping: 15,
-                        delay: 0.1
-                      }}
-                    >
-                      <div className="iphone-inner-border"></div>
-                      <div className="iphone-dynamic-island"></div>
-                      <div className="iphone-buttons-left">
-                        <div className="action-button"></div>
-                        <div className="volume-up"></div>
-                        <div className="volume-down"></div>
-                      </div>
-                      <div className="iphone-buttons-right">
-                        <div className="power-button"></div>
-                      </div>
-                      <div className="iphone-screen">
-                        <video 
-                          src={`${assetPrefix}/assets/Screen_Recording_20250725_203231.mp4`} 
-                          autoPlay 
-                          loop 
-                          muted 
-                          playsInline 
-                          preload="metadata"
-                          poster={`${assetPrefix}/assets/yemen e-commerc app.png`}
-                          width="1080"
-                          height="1920"
-                          style={{ 
-                            transform: 'translate3d(0, 0, 0) scale(1.0001)',
-                            backfaceVisibility: 'hidden',
-                            WebkitBackfaceVisibility: 'hidden',
-                            filter: 'brightness(1.000001) contrast(1.000001)',
-                            WebkitFilter: 'brightness(1.000001) contrast(1.000001)'
-                          }}
-                        />
-                      </div>
-                      <div className="iphone-bottom-details">
-                        <div className="speaker-grill">
-                          <span></span><span></span><span></span>
-                        </div>
-                        <div className="usb-c-port"></div>
-                        <div className="speaker-grill">
-                          <span></span><span></span><span></span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                  <div className="project-connector-line">
-                    <div className="project-beam-arrow"></div>
-                  </div>
-                </>
-              )}
-
-              {/* Graduation card: always show connector above phone, like other cards */}
-              {isGraduation && (
-                <>
-                  <div className="graduation-phone-left-container">
-                    <motion.div 
-                      className="iphone-17-frame titanium-silver"
-                      initial={{ opacity: 0, x: -50, scale: 1, rotate: 0 }}
-                      whileInView={{ opacity: 1, x: 0, scale: 1, rotate: 0 }}
-                      viewport={{ once: false, amount: 0.2 }}
-                      transition={{ 
-                        type: "spring",
-                        stiffness: 50,
-                        damping: 15,
-                        delay: 0.1
-                      }}
-                    >
-                      <div className="iphone-inner-border"></div>
-                      <div className="iphone-dynamic-island"></div>
-                      <div className="iphone-buttons-left">
-                        <div className="action-button"></div>
-                        <div className="volume-up"></div>
-                        <div className="volume-down"></div>
-                      </div>
-                      <div className="iphone-buttons-right">
-                        <div className="power-button"></div>
-                      </div>
-                      <div className="iphone-screen">
-                        <img
-                          src={`${assetPrefix}/assets/Screenshot_20250225_002302.jpg`}
-                          alt="Graduation Project"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
-                      <div className="iphone-bottom-details">
-                        <div className="speaker-grill">
-                          <span></span><span></span><span></span>
-                        </div>
-                        <div className="usb-c-port"></div>
-                        <div className="speaker-grill">
-                          <span></span><span></span><span></span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                  <div className="project-connector-line">
-                    <div className="project-beam-arrow"></div>
-                  </div>
-                </>
-              )}
-              
-              <motion.div 
-                className="node-content-wrapper"
-                initial={isDesktop ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 40 }}
-                whileInView={isDesktop ? { opacity: 1, scale: 1, y: 0 } : { opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={isDesktop ? { duration: 0 } : { 
-                  duration: 0.8, 
-                  type: "spring",
-                  stiffness: 45,
-                  damping: 12,
-                  delay: 0.2
-                }}
-              >
-                <div className="node-info-stack">
-                  <div className="node-step-label">
-                    <span className="step-index">{String(idx + 1).padStart(2, '0')}</span>
-                    <span className="step-text">{lang === 'ar' ? 'مرحلة' : 'Milestone'}</span>
-                  </div>
-                  <div className="node-date">{exp.period}</div>
-                </div>
-                
-                <div className="node-card">
-                  <div className="node-card-glass"></div>
-                  <div className="node-card-content">
-                    <h3
-                      className="node-title"
-                      style={{
-                        fontFamily: '" "Satoshi"',
-                        fontWeight: 900,
-                        fontSize: '1.35em',
-                        letterSpacing: '-0.01em',
-                        WebkitTextStroke: '0.35px rgba(168, 85, 247, 0.35)',
-                      }}
-                    >
-                      {exp.role}
-                    </h3>
-                    <div className="node-appname" style={{fontWeight: 900, fontSize: '1.05em', marginBottom: '0.2em'}}>
-                      {lang === 'ar' ? (
-                        (() => {
-                          // Remove the role part in parentheses from the Arabic title for the app name
-                          const arTitle = exp.titleAr || '';
-                          // Remove any parenthesis and content inside
-                          const appName = arTitle.replace(/\s*\(.*?\)/, '').trim();
-                          return appName;
-                        })()
-                      ) : (
-                        // Remove the role part in parentheses from the English title for the app name
-                        (exp.title || '').replace(/\s*\(.*?\)/, '').trim()
-                      )}
-                    </div>
-                    <div className="node-company-row" style={{ color: '#888' }}>
-                      <span className="node-company">
-                        {lang === 'ar'
-                          ? (exp.companyAr === 'منصة فعاليات QR' ? '' : exp.companyAr)
-                          : exp.company}
-                      </span>
-                      {(exp.location || exp.locationAr) && <span className="node-location"> • {lang === 'ar' ? exp.locationAr : exp.location}</span>}
-                    </div>
-                    
-                    <ul className="node-highlights">
-                      {(lang === 'ar' ? exp.highlightsAr : exp.highlights).map((h, i) => (
-                        <li key={i}>{h}</li>
-                      ))}
-                    </ul>
-
-                    <div className="node-tech">
-                      {exp.technologies.map((tech, i) => (
-                        <span key={i} className="tech-badge">{tech}</span>
-                      ))}
-                    </div>
-
-                    {(exp.preview && exp.preview !== '#') || (exp.source && exp.source !== '#') ? (
-                      <div className="node-actions">
-                        {exp.preview && exp.preview !== '#' && (
-                          <a href={withAssetPrefix(exp.preview)} target="_blank" rel="noopener" className="btn btn-color-2 btn-sm">
-                            {trans.preview}
-                          </a>
-                        )}
-                        {exp.source && exp.source !== '#' && (
-                          <a href={withAssetPrefix(exp.source)} target="_blank" rel="noopener" className="btn btn-color-1 btn-sm">
-                            {trans.source}
-                          </a>
-                        )}
-                      </div>
-                    ) : null}
-                  </div>
-                </div>
-              </motion.div>
-          </motion.div>
-        );
-      })}
+    <section className={`${styles.panel} ${styles.panelCenter}`}>
+      <div className={styles.panelBg} />
+      <div className={styles.timeline}>
+        <div className={styles.timelineYear}>
+          {year.split('').map((d, i) => <span key={i}>{d}</span>)}
+        </div>
+        <div className={styles.timelineBody}>
+          <span className={styles.timelineDate}>{startMonth}</span>
+          <span className={styles.timelineDot} />
+          <span className={styles.timelineLine} />
+          <span className={styles.timelineDot} />
+          <span className={styles.timelineDate}>{endMonth}</span>
+        </div>
       </div>
-      <div className="arrow-container">
-        <motion.img
-          src={`${assetPrefix}/assets/arrow.png`}
-          className="icon arrow"
-          alt="Scroll down"
-          onClick={() => { const el = document.getElementById('skills'); el && el.scrollIntoView({ behavior: 'smooth'}); }}
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2 }}
-        />
+      <div className={styles.panelInner}>
+        <motion.div className={styles.cLeft} variants={sideAnim} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }}>
+          <div className={styles.appMag}>
+            <span className={styles.appMagLg}>Candy</span>
+            <span>Water</span>
+          </div>
+          <div className={styles.tech}>
+            {exp.technologies.map((t, i) => <span key={i} className={styles.techBadge}>{t}</span>)}
+          </div>
+        </motion.div>
+        <motion.div className={styles.phoneCenter} variants={phoneAnim} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }}>
+          <Phone exp={exp} assetPrefix={assetPrefix} frameClass={frameClass} />
+        </motion.div>
+        <motion.div className={styles.cRight} variants={sideAnim} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }}>
+          <div className={styles.appMag}>
+            <span className={styles.appMagLg}>Delivery</span>
+            <span>App</span>
+          </div>
+          <h2 className={styles.cRightRole}>{exp.role}</h2>
+          <p className={styles.company}>{exp.company}</p>
+          <div className={styles.highlightsCard}>
+            <ul className={styles.highlights}>
+              {highlights.slice(0, mid).map((h, i) => <li key={i}>{h}</li>)}
+            </ul>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 }
 
+function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, timeline, timelineRight = true, timelineYellow, titleLines }) {
+  const isLeft = align === 'left';
+  const name = (lang === 'ar'
+    ? (exp.titleAr || '').replace(/\s*\(.*?\)/, '').trim()
+    : (exp.title || '').replace(/\s*\(.*?\)/, '').trim()
+  );
+  const parts = timeline ? exp.period.split(/[–-]/) : [];
+  const startMonth = parts[0] ? parts[0].trim().replace(/\s*\d{4}$/, '') : '';
+  const endPart = parts[1] ? parts[1].trim() : '';
+  const yearMatch = endPart ? endPart.match(/\d{4}/) : exp.period.match(/\d{4}/);
+  const year = yearMatch ? yearMatch[0] : '';
+  const endMonth = endPart ? endPart.replace(year, '').trim() : '';
+
+  const phoneAnim = {
+    hidden: { opacity: 0, x: isLeft ? -120 : 120 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+  };
+  const textAnim = {
+    hidden: { opacity: 0, x: isLeft ? 80 : -80 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 } }
+  };
+
+  return (
+    <section className={`${styles.panel} ${styles.panelSide} ${isLeft ? styles.panelSideLeft : styles.panelSideRight}`}>
+      <div className={styles.panelBg} />
+      {timeline && (
+        <div className={`${styles.timeline} ${timelineRight ? styles.timelineRight : ''} ${timelineYellow ? styles.timelineYellow : ''}`}>
+          <div className={styles.timelineYear}>
+            {year.split('').map((d, i) => <span key={i}>{d}</span>)}
+          </div>
+          <div className={styles.timelineBody}>
+            {endMonth ? (
+              <>
+                <span className={styles.timelineDate}>{startMonth}</span>
+                <span className={styles.timelineDot} />
+                <span className={styles.timelineLine} />
+                <span className={styles.timelineDot} />
+                <span className={styles.timelineDate}>{endMonth}</span>
+              </>
+            ) : (
+              <>
+                <span className={styles.timelineDot} />
+                <span className={styles.timelineDate}>{startMonth || exp.period}</span>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+      <div className={styles.panelInner}>
+        {isLeft && (
+          <motion.div className={styles.phoneLeft} variants={phoneAnim} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }}>
+            <Phone exp={exp} assetPrefix={assetPrefix} frameClass={frameClass} />
+          </motion.div>
+        )}
+        <motion.div className={isLeft ? styles.textRight : styles.textLeft} variants={textAnim} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }}>
+          {titleLines ? (
+            <div className={styles.appMagMultiline}>
+              {titleLines.map((line, i) => <span key={i}>{line}</span>)}
+            </div>
+          ) : stacked ? (
+            <div className={styles.appMagStacked}>
+              {name.split(' ').map((w, i) => <span key={i}>{w}</span>)}
+            </div>
+          ) : (
+            <p className={styles.appMag}>{name}</p>
+          )}
+          <h2 className={styles.role}>{exp.role}</h2>
+          <p className={styles.company}>{lang === 'ar' ? exp.companyAr : exp.company}</p>
+          <div className={styles.highlightsCard}>
+            <ul className={styles.highlights}>
+              {(lang === 'ar' ? exp.highlightsAr : exp.highlights).slice(0, 2).map((h, i) => (
+                <li key={i}>{h}</li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.tech}>
+            {exp.technologies.map((t, i) => <span key={i} className={styles.techBadge}>{t}</span>)}
+          </div>
+        </motion.div>
+        {!isLeft && (
+          <motion.div className={styles.phoneRight} variants={phoneAnim} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }}>
+            <Phone exp={exp} assetPrefix={assetPrefix} frameClass={frameClass} />
+          </motion.div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function Panel({ exp, idx, lang, assetPrefix }) {
+  const title = (exp.title || '').toLowerCase();
+  const isCandy = title.includes('water delivery');
+  const isYemeni = title.includes('yemeni store');
+  const isIntern = title.includes('summer') || title.includes('yemen soft');
+
+  const frameClass = isCandy ? styles.titaniumOrange
+    : isYemeni || isIntern ? styles.titaniumDeepBlue
+    : styles.titaniumSilver;
+
+  if (isCandy) return <PanelCenter exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} />;
+  if (idx === 1) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="right" titleLines={["Graduation Project", "Food Delivery", "App"]} timeline timelineRight={false} timelineYellow />;
+  if (idx === 0) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" timeline />;
+  return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" stacked timeline />;
+}
+
+export default function Experience({ resume, trans, lang, assetPrefix }) {
+  return (
+    <section id="experience" className={styles.scope}>
+      <div className={styles.header}>
+        <p className="subtitle-editorial">{trans.recentWork}</p>
+        <h2 className={styles.title}>{trans.expTitle}</h2>
+      </div>
+      <div className={styles.track}>
+        {resume.experience.map((exp, idx) => (
+          <Panel key={idx} exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} />
+        ))}
+      </div>
+    </section>
+  );
+}

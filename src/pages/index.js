@@ -263,6 +263,8 @@ export default function Home() {
     if (typeof document !== 'undefined') {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0b0f' : '#f6f7fb');
     }
   }, [theme]);
 
@@ -376,13 +378,15 @@ export default function Home() {
       {/* Background intentionally minimal/black */}
 
       <Navigation
-        lang={lang}
-        trans={trans}
-        active={active}
-        setLang={setLang}
-        menuOpen={menuOpen}
-        toggleMenu={toggleMenu}
-      />
+            lang={lang}
+            trans={trans}
+            active={active}
+            setLang={setLang}
+            menuOpen={menuOpen}
+            toggleMenu={toggleMenu}
+            theme={theme}
+            setTheme={setTheme}
+          />
 
       <Hero
         scrolled={scrolled}
