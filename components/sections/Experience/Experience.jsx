@@ -114,7 +114,7 @@ function PanelCenter({ exp, idx, lang, assetPrefix, frameClass }) {
   );
 }
 
-function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, timeline, timelineRight = true, timelineYellow, titleLines }) {
+function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, timeline, timelineRight = true, timelineYellow, titleLines, gradientClass }) {
   const isLeft = align === 'left';
   const name = (lang === 'ar'
     ? (exp.titleAr || '').replace(/\s*\(.*?\)/, '').trim()
@@ -137,10 +137,10 @@ function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, ti
   };
 
   return (
-    <section className={`${styles.panel} ${styles.panelSide} ${isLeft ? styles.panelSideLeft : styles.panelSideRight}`}>
+    <section className={`${styles.panel} ${styles.panelSide} ${isLeft ? styles.panelSideLeft : styles.panelSideRight} ${gradientClass ? styles[gradientClass] : ''}`}>
       <div className={styles.panelBg} />
       {timeline && (
-        <div className={`${styles.timeline} ${timelineRight ? styles.timelineRight : ''} ${timelineYellow ? styles.timelineYellow : ''}`}>
+        <div className={`${styles.timeline} ${timelineRight ? styles.timelineRight : ''} ${timelineYellow ? styles.timelineYellow : ''} ${gradientClass ? styles[gradientClass] : ''}`}>
           <div className={styles.timelineYear}>
             {year.split('').map((d, i) => <span key={i}>{d}</span>)}
           </div>
@@ -174,7 +174,7 @@ function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, ti
               {titleLines.map((line, i) => <span key={i}>{line}</span>)}
             </div>
           ) : stacked ? (
-            <div className={styles.appMagStacked}>
+            <div className={`${styles.appMagStacked} ${gradientClass ? styles[gradientClass] : ''}`}>
               {name.split(' ').map((w, i) => <span key={i}>{w}</span>)}
             </div>
           ) : (
@@ -206,16 +206,18 @@ function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, ti
 function Panel({ exp, idx, lang, assetPrefix }) {
   const title = (exp.title || '').toLowerCase();
   const isCandy = title.includes('water delivery');
-  const isYemeni = title.includes('yemeni store') || title.includes('qr events');
+  const isYemeni = title.includes('yemeni store');
+  const isQrEvents = title.includes('qr &');
   const isIntern = title.includes('summer') || title.includes('yemen soft');
 
   const frameClass = isCandy ? styles.titaniumOrange
-    : isYemeni || isIntern ? styles.titaniumDeepBlue
+    : isYemeni || isQrEvents || isIntern ? styles.titaniumDeepBlue
     : styles.titaniumSilver;
 
   if (isCandy) return <PanelCenter exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} />;
   if (idx === 1) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="right" titleLines={["Graduation Project", "Food Delivery", "App"]} timeline timelineRight={false} timelineYellow />;
-  if (idx === 0) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" timeline />;
+  if (idx === 0) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" timeline gradientClass="accentGradient" />;
+  if (isQrEvents) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" stacked timeline gradientClass="blueGradient" />;
   return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" stacked timeline />;
 }
 

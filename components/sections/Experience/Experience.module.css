@@ -249,15 +249,15 @@ html[dir="rtl"] .timeline {
   right: 0.5rem;
 }
 .timelineRight .timelineDot {
-  background: var(--title-accent);
-  box-shadow: 0 0 10px rgba(59,130,246,0.5);
+  background: linear-gradient(135deg, #D0E701, #1BC0F7);
+  box-shadow: 0 0 10px rgba(27,192,247,0.5);
 }
 .timelineRight .timelineLine {
-  background: linear-gradient(to bottom, #3b82f6, #7c3aed, transparent);
+  background: linear-gradient(to bottom, #D0E701, #1BC0F7, transparent);
   opacity: 0.6;
 }
 .timelineRight .timelineYear {
-  background: var(--title-accent);
+  background: linear-gradient(135deg, #D0E701, #1BC0F7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
@@ -277,6 +277,28 @@ html[dir="rtl"] .timelineRight {
 }
 .timelineYellow .timelineYear {
   background: linear-gradient(135deg, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+.blueGradient .appMagStacked span {
+  background: linear-gradient(135deg, #1e3a5f, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+.blueGradient .timelineDot {
+  background: linear-gradient(135deg, #1e3a5f, #3b82f6);
+  box-shadow: 0 0 10px rgba(59,130,246,0.5);
+}
+.blueGradient .timelineLine {
+  background: linear-gradient(to bottom, #1e3a5f, #3b82f6, transparent);
+  opacity: 0.6;
+}
+.blueGradient .timelineYear {
+  background: linear-gradient(135deg, #1e3a5f, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
@@ -761,6 +783,21 @@ html[dir="rtl"] .highlights li {
   }
 }
 
+.accentGradient .timelineDot {
+  background: var(--title-accent);
+  box-shadow: 0 0 10px rgba(59,130,246,0.5);
+}
+.accentGradient .timelineLine {
+  background: linear-gradient(to bottom, #3b82f6, #7c3aed, transparent);
+  opacity: 0.6;
+}
+.accentGradient .timelineYear {
+  background: var(--title-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
 /* --- Animations --- */
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
