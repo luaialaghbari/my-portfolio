@@ -147,14 +147,6 @@
   --radius-card-lg: 32px;
 }
 
-[data-theme='light'] {
-  --color-bg: #f6f7fb;
-  --color-surface: #ffffff;
-  --color-text: #0f172a;
-  --color-muted: #475569;
-  --color-border: #e2e8f0;
-}
-
 html {
   scroll-behavior: smooth;
 }

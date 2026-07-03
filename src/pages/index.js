@@ -17,7 +17,6 @@ import Footer from '../../components/sections/Footer/Footer';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState('dark');
   const [active, setActive] = useState('profile');
   const [lang, setLang] = useState('en');
   const [scrolled, setScrolled] = useState(false);
@@ -254,20 +253,6 @@ export default function Home() {
 
   const toggleMenu = () => setMenuOpen((v) => !v);
 
-  // Theme load/persist
-  useEffect(() => {
-    const saved = typeof window !== 'undefined' ? localStorage.getItem('theme') : null;
-    if (saved === 'light' || saved === 'dark') setTheme(saved);
-  }, []);
-  useEffect(() => {
-    if (typeof document !== 'undefined') {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      const meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0b0f' : '#f6f7fb');
-    }
-  }, [theme]);
-
   // Active section tracking
   useEffect(() => {
     const sections = ['profile','about','experience','skills','education','contact'];
@@ -384,8 +369,6 @@ export default function Home() {
             setLang={setLang}
             menuOpen={menuOpen}
             toggleMenu={toggleMenu}
-            theme={theme}
-            setTheme={setTheme}
           />
 
       <Hero

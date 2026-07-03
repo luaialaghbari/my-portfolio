@@ -719,6 +719,13 @@ html[dir="rtl"] .highlights li {
   .iphoneFrame {
     width: 200px;
     height: 415px;
+    border-radius: 34px;
+  }
+  .iphoneInner {
+    border-radius: 31px;
+  }
+  .screen {
+    border-radius: 30px;
   }
   .highlights {
     align-items: center;
@@ -741,6 +748,13 @@ html[dir="rtl"] .highlights li {
   .iphoneFrame {
     width: 170px;
     height: 360px;
+    border-radius: 29px;
+  }
+  .iphoneInner {
+    border-radius: 27px;
+  }
+  .screen {
+    border-radius: 26px;
   }
   .panel {
     padding: 3rem 0;
