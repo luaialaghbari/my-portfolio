@@ -101,8 +101,8 @@ function PanelCenter({ exp, idx, lang, assetPrefix, frameClass }) {
             <span className={styles.appMagLg}>Delivery</span>
             <span>App</span>
           </div>
-          <h2 className={styles.cRightRole}>{exp.role}</h2>
-          <p className={styles.company}>{exp.company}</p>
+          <h2 className={styles.cRightRole}>{lang === 'ar' ? exp.roleAr : exp.role}</h2>
+          <p className={styles.company}>{lang === 'ar' ? exp.companyAr : exp.company}</p>
           <div className={styles.highlightsCard}>
             <ul className={styles.highlights}>
               {highlights.slice(0, mid).map((h, i) => <li key={i}>{h}</li>)}
@@ -114,7 +114,7 @@ function PanelCenter({ exp, idx, lang, assetPrefix, frameClass }) {
   );
 }
 
-function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, timeline, timelineRight = true, timelineYellow, titleLines, gradientClass }) {
+function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, timeline, timelineRight = true, timelineYellow, titleLines, gradientClass, trans }) {
   const isLeft = align === 'left';
   const name = (lang === 'ar'
     ? (exp.titleAr || '').replace(/\s*\(.*?\)/, '').trim()
@@ -180,7 +180,7 @@ function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, ti
           ) : (
             <p className={styles.appMag}>{name}</p>
           )}
-          <h2 className={styles.role}>{exp.role}</h2>
+          <h2 className={styles.role}>{lang === 'ar' ? exp.roleAr : exp.role}</h2>
           <p className={styles.company}>{lang === 'ar' ? exp.companyAr : exp.company}</p>
           <div className={styles.highlightsCard}>
             <ul className={styles.highlights}>
@@ -192,6 +192,11 @@ function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, ti
           <div className={styles.tech}>
             {exp.technologies.map((t, i) => <span key={i} className={styles.techBadge}>{t}</span>)}
           </div>
+          {exp.preview && exp.preview !== '#' && (
+            <a href={`${assetPrefix}${exp.preview}`} target="_blank" rel="noopener noreferrer" className={styles.previewBtn}>
+              {trans?.preview || 'Preview'}
+            </a>
+          )}
         </motion.div>
         {!isLeft && (
           <motion.div className={styles.phoneRight} variants={phoneAnim} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }}>
@@ -203,7 +208,7 @@ function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, ti
   );
 }
 
-function Panel({ exp, idx, lang, assetPrefix }) {
+function Panel({ exp, idx, lang, assetPrefix, trans }) {
   const title = (exp.title || '').toLowerCase();
   const isCandy = title.includes('water delivery');
   const isYemeni = title.includes('yemeni store');
@@ -214,11 +219,11 @@ function Panel({ exp, idx, lang, assetPrefix }) {
     : isYemeni || isQrEvents || isIntern ? styles.titaniumDeepBlue
     : styles.titaniumSilver;
 
-  if (isCandy) return <PanelCenter exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} />;
-  if (idx === 1) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="right" titleLines={["Graduation Project", "Food Delivery", "App"]} timeline timelineRight={false} timelineYellow />;
-  if (idx === 0) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" timeline gradientClass="accentGradient" />;
-  if (isQrEvents) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" stacked timeline gradientClass="blueGradient" />;
-  return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" stacked timeline />;
+  if (isCandy) return <PanelCenter exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} trans={trans} />;
+  if (idx === 1) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="right" titleLines={["Graduation Project", "Food Delivery", "App"]} timeline timelineRight={false} timelineYellow trans={trans} />;
+  if (idx === 0) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" timeline gradientClass="accentGradient" trans={trans} />;
+  if (isQrEvents) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" stacked timeline gradientClass="blueGradient" trans={trans} />;
+  return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" stacked timeline trans={trans} />;
 }
 
 export default function Experience({ resume, trans, lang, assetPrefix }) {
@@ -230,7 +235,7 @@ export default function Experience({ resume, trans, lang, assetPrefix }) {
       </div>
       <div className={styles.track}>
         {resume.experience.map((exp, idx) => (
-          <Panel key={idx} exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} />
+          <Panel key={idx} exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} trans={trans} />
         ))}
       </div>
     </section>

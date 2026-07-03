@@ -798,6 +798,31 @@ html[dir="rtl"] .highlights li {
   background-size: 200% 200%;
   animation: gradientShift 8s ease infinite;
 }
+.previewBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 2rem;
+  color: rgba(255,255,255,0.85);
+  font-family: "Satoshi", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  width: fit-content;
+  cursor: pointer;
+}
+.previewBtn:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.25);
+  color: #fff;
+  transform: translateY(-1px);
+}
 /* --- Animations --- */
 @keyframes gradientShift {
   0%, 100% { background-position: 0% 50%; }
