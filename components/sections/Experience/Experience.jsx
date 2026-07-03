@@ -206,7 +206,7 @@ function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, ti
 function Panel({ exp, idx, lang, assetPrefix }) {
   const title = (exp.title || '').toLowerCase();
   const isCandy = title.includes('water delivery');
-  const isYemeni = title.includes('yemeni store');
+  const isYemeni = title.includes('yemeni store') || title.includes('qr events');
   const isIntern = title.includes('summer') || title.includes('yemen soft');
 
   const frameClass = isCandy ? styles.titaniumOrange
