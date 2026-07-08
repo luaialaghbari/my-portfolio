@@ -835,6 +835,14 @@ html[dir="rtl"] .highlights li {
   .tech {
     justify-content: center;
   }
+  .panelSideLeft.frameBottom .phoneLeft,
+  .panelSideRight.frameBottom .phoneRight {
+    order: 2;
+  }
+  .panelSideLeft.frameBottom .textRight,
+  .panelSideRight.frameBottom .textLeft {
+    order: 1;
+  }
 }
 @media screen and (max-width: 480px) {
   .scope {
