@@ -973,13 +973,14 @@
     width: 75vw;
     max-width: 420px;
     height: 190px;
-    left: 50%;
-    bottom: -10px;
-    transform: translateX(-50%) rotate(-6deg);
-    border-radius: 55px 55px 0 0;
-    -webkit-mask-image: none;
-    mask-image: none;
-    opacity: 0.95;
+    left: 45%;
+    bottom: -36px;
+    transform: translateX(-50%) rotate(-8deg);
+    border-radius: 80px 80px 0 0;
+    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+    mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+    opacity: 0.7;
+    border: 1px solid rgba(124, 58, 237, 0.35);
     z-index: 1;
     position: absolute;
     background: var(--title-accent);
@@ -1021,11 +1022,10 @@
 
   .scope :global(.portrait-bottom-line) {
     position: absolute;
-    left: auto;
-    right: clamp(3rem, 10vw, 8rem);
+    left: 4vw;
+    right: 10vw;
     bottom: 0;
-    width: min(420px, 64%);
-    height: 1px;
+    height: 2px;
     background: linear-gradient(90deg, #ffffff 0%, #d7d9df 42%, #8f939c 100%);
     border-radius: 999px;
     z-index: 3;
@@ -1092,13 +1092,16 @@
 
   .scope :global(.portrait-bg-shape) {
     width: 75vw;
-    max-width: 380px;
-    height: 160px;
-    left: 50%;
+    max-width: 360px;
+    height: 150px;
+    left: 45%;
     right: auto;
-    bottom: -8px;
-    transform: translateX(-50%) rotate(-6deg);
-    border-radius: 50px 50px 0 0;
+    bottom: -28px;
+    transform: translateX(-50%) rotate(-8deg);
+    border-radius: 60px 60px 0 0;
+    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+    mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+    opacity: 0.7;
   }
 
   
