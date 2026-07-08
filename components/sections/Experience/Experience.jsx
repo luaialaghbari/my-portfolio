@@ -129,7 +129,7 @@ function PanelCenter({ exp, idx, lang, assetPrefix, frameClass }) {
   );
 }
 
-function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, timeline, timelineRight = true, timelineYellow, titleLines, gradientClass, trans }) {
+function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, timeline, timelineRight = true, timelineYellow, titleLines, gradientClass, previewGrad, trans }) {
   const isLeft = align === 'left';
   const name = (lang === 'ar'
     ? (exp.titleAr || '').replace(/\s*\(.*?\)/, '').trim()
@@ -216,7 +216,7 @@ function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, ti
             {exp.technologies.map((t, i) => <span key={i} className={styles.techBadge}>{t}</span>)}
           </div>
           {exp.preview && exp.preview !== '#' && (
-            <a href={`${assetPrefix}${exp.preview}`} target="_blank" rel="noopener noreferrer" className={styles.previewBtn}>
+            <a href={`${assetPrefix}${exp.preview}`} target="_blank" rel="noopener noreferrer" className={`${styles.previewBtn} ${previewGrad ? styles.previewBtnGrad : ''}`}>
               {trans?.preview || 'Preview'}
             </a>
           )}
@@ -246,7 +246,7 @@ function Panel({ exp, idx, lang, assetPrefix, trans }) {
     : styles.titaniumSilver;
 
   if (isCandy) return <PanelCenter exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} trans={trans} />;
-  if (idx === 1) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="right" titleLines={["Graduation Project", "Food Delivery", "App"]} timeline timelineRight={false} timelineYellow trans={trans} />;
+  if (idx === 1) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="right" titleLines={["Graduation Project", "Food Delivery", "App"]} timeline timelineRight={false} timelineYellow previewGrad trans={trans} />;
   if (idx === 0) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" timeline gradientClass="accentGradient" trans={trans} />;
   if (isQrEvents) return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" stacked timeline gradientClass="blueGradient" trans={trans} />;
   return <PanelSide exp={exp} idx={idx} lang={lang} assetPrefix={assetPrefix} frameClass={frameClass} align="left" stacked timeline trans={trans} />;

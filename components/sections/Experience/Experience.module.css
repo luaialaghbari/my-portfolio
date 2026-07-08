@@ -761,12 +761,24 @@ html[dir="rtl"] .highlights li {
   .panelSideLeft .phoneLeft,
   .panelSideRight .phoneRight {
     order: 0;
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
+    transform: none;
   }
   .panelSideLeft .textRight,
   .panelSideRight .textLeft {
     order: 0;
     text-align: center;
     align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+  .panelSide .appMagMultiline,
+  .panelSide .appMagStacked,
+  .panelSide .appMag {
+    align-items: center;
+    text-align: center;
   }
   .panelSideLeft .textRight .highlights,
   .panelSideRight .textLeft .highlights {
@@ -781,6 +793,13 @@ html[dir="rtl"] .highlights li {
   }
   .panelSide .previewBtn {
     margin: 1rem auto 0;
+  }
+  .phoneCenter {
+    width: 100%;
+    justify-content: center;
+  }
+  .phoneRow {
+    justify-content: center;
   }
   .iphoneFrame {
     width: 200px;
@@ -891,6 +910,18 @@ html[dir="rtl"] .highlights li {
   border-color: rgba(255,255,255,0.25);
   color: #fff;
   transform: translateY(-1px);
+}
+.previewBtnGrad {
+  background: var(--gradient-accent);
+  border: none;
+  border-radius: 12px;
+  color: #000;
+}
+.previewBtnGrad:hover {
+  background: var(--gradient-accent);
+  border: none;
+  color: #111;
+  opacity: 0.9;
 }
 /* --- Animations --- */
 @keyframes gradientShift {
