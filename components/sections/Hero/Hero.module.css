@@ -316,10 +316,6 @@
       mask-image: none;
     }
 
-   .scope :global(.portrait-visual) {
-     height: 100%;
-   }
-
     .scope :global(.portrait-bottom-line) {
      position: absolute;
       left: 4vw;
@@ -972,30 +968,22 @@
     box-shadow: none;
   }
 
-  .scope :global(.portrait-visual) {
-    position: relative;
-    width: 100%;
-    max-width: 720px;
-    margin: 0 auto;
-  }
-
   .scope :global(.portrait-bg-shape) {
     display: block !important;
-    width: 100%;
-    max-width: 420px;
-    height: 190px;
-    left: 45%;
-    bottom: -36px;
-    transform: translateX(-50%) rotate(-8deg);
-    border-radius: 80px 80px 0 0;
-    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
-    mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
-    opacity: 0.7;
-    border: 1px solid rgba(124, 58, 237, 0.35);
+    width: 75vw;
+    max-width: 480px;
+    height: 250px;
+    left: 50%;
+    bottom: 2%;
+    transform: translateX(-50%) rotate(-6deg);
+    border-radius: 55px 55px 0 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+    opacity: 0.95;
     z-index: 1;
     position: absolute;
     background: var(--title-accent);
-    box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+    box-shadow: none;
   }
 
   .scope :global(.hero-portrait::before) {
@@ -1016,7 +1004,9 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 720px;
+    max-width: 1100px;
+    transform: scale(1.1);
+    transform-origin: center center;
     margin: 0 auto;
     display: block;
   }
@@ -1025,7 +1015,6 @@
     height: auto;
     width: 100%;
     max-width: 100%;
-    max-height: 65vh;
     object-fit: contain;
     filter: none;
     display: block;
@@ -1033,10 +1022,11 @@
 
   .scope :global(.portrait-bottom-line) {
     position: absolute;
-    left: 4vw;
-    right: 10vw;
+    left: auto;
+    right: clamp(3rem, 10vw, 8rem);
     bottom: 0;
-    height: 2px;
+    width: min(420px, 64%);
+    height: 1px;
     background: linear-gradient(90deg, #ffffff 0%, #d7d9df 42%, #8f939c 100%);
     border-radius: 999px;
     z-index: 3;
@@ -1107,16 +1097,13 @@
 
   .scope :global(.portrait-bg-shape) {
     width: 75vw;
-    max-width: 360px;
-    height: 150px;
-    left: 45%;
-    right: auto;
-    bottom: -28px;
-    transform: translateX(-50%) rotate(-8deg);
-    border-radius: 60px 60px 0 0;
-    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
-    mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
-    opacity: 0.7;
+    max-width: 420px;
+    height: 200px;
+    right: 55%;
+    left: auto;
+    bottom: 5%;
+    transform: translateX(50%) rotate(-6deg);
+    border-radius: 55px 55px 0 0;
   }
 
   

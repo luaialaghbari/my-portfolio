@@ -81,12 +81,10 @@ export default function Hero({ scrolled, lang, assetPrefix, resume }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="portrait-visual">
-                <div className="portrait-bg-shape"></div>
-                <div className="portrait-image-wrap">
-                  <img src={`${assetPrefix}/assets/newprofilelogo.png`} alt="Luai Alaghbari" />
-                  <div className="portrait-bottom-line"></div>
-                </div>
+              <div className="portrait-bg-shape"></div>
+              <div className="portrait-image-wrap">
+                <img src={`${assetPrefix}/assets/newprofilelogo.png`} alt="Luai Alaghbari" />
+                <div className="portrait-bottom-line"></div>
               </div>
               <div className="hero-subtitle-container show-mobile">
                 {lang === 'ar' ? (
