@@ -644,7 +644,7 @@
   .scope :global(.hero-col-portrait) {
     order: 1;
     height: auto;
-    margin-top: 28vh;
+    margin-top: -15vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -948,7 +948,7 @@
   .scope :global(.hero-col-portrait) {
     order: 1;
     height: auto;
-    margin-top: 28vh;
+    margin-top: 16vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1101,6 +1101,10 @@
     font-size: 20vw;
   }
 
+  .scope :global(.hero-col-portrait) {
+    margin-top: 40vh;
+  }
+
   .scope :global(.portrait-bg-shape) {
     width: 75vw;
     max-width: 360px;
@@ -1154,7 +1158,7 @@
   }
 
   .scope :global(.hero-col-portrait) {
-    margin-top: 24vh !important;
+    margin-top: -22vh !important;
   }
 
   .scope :global(.hero-name-bg .mid-name),
