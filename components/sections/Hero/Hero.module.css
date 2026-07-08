@@ -948,7 +948,7 @@
   .scope :global(.hero-col-portrait) {
     order: 1;
     height: auto;
-    margin-top: 6vh;
+    margin-top: 16vh;
     display: flex;
     flex-direction: column;
     align-items: center;
