@@ -644,7 +644,7 @@
   .scope :global(.hero-col-portrait) {
     order: 1;
     height: auto;
-    margin-top: -15vh; /* Moved pic further down from -19vh */
+    margin-top: 28vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -948,7 +948,7 @@
   .scope :global(.hero-col-portrait) {
     order: 1;
     height: auto;
-    margin-top: 16vh;
+    margin-top: 28vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1154,8 +1154,7 @@
   }
 
   .scope :global(.hero-col-portrait) {
-    margin-top: -22vh !important;
-    /* Pull up more to overlap the "I'm Luai" text */
+    margin-top: 24vh !important;
   }
 
   .scope :global(.hero-name-bg .mid-name),
