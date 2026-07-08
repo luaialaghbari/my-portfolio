@@ -363,17 +363,14 @@ html[dir="rtl"] .textLeft {
   display: flex;
   align-items: center;
   gap: 1rem;
+  position: relative;
+  width: 100%;
 }
 .timelineDesktop {
   display: flex;
 }
 .timelineMobile {
   display: none;
-  position: relative;
-  left: auto;
-  right: auto;
-  top: auto;
-  transform: none;
 }
 .phoneLeft {
   flex: 0 0 auto;
@@ -812,6 +809,22 @@ html[dir="rtl"] .highlights li {
   .screen {
     border-radius: 30px;
   }
+  .dynamicIsland {
+    width: 50px;
+    height: 15px;
+    top: 11px;
+    border-radius: 9px;
+  }
+  .dynamicIsland::after {
+    right: 10px;
+    width: 5px;
+    height: 5px;
+  }
+  .dynamicIsland::before {
+    left: 10px;
+    width: 3px;
+    height: 3px;
+  }
   .highlights {
     align-items: center;
   }
@@ -839,9 +852,6 @@ html[dir="rtl"] .highlights li {
   .cRight .highlightsCard {
     width: 100%;
   }
-  .phoneRow {
-    gap: 0.5rem;
-  }
   .iphoneFrame {
     width: 170px;
     height: 360px;
@@ -852,6 +862,22 @@ html[dir="rtl"] .highlights li {
   }
   .screen {
     border-radius: 26px;
+  }
+  .dynamicIsland {
+    width: 42px;
+    height: 13px;
+    top: 9px;
+    border-radius: 7px;
+  }
+  .dynamicIsland::after {
+    right: 8px;
+    width: 4px;
+    height: 4px;
+  }
+  .dynamicIsland::before {
+    left: 8px;
+    width: 3px;
+    height: 3px;
   }
   .panel {
     padding: 3rem 0;
