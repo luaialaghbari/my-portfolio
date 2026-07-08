@@ -89,7 +89,7 @@
 
   /* Premium emphasis inside the contact card */
 .scope :global(.contact-apple-title) {
-    background: var(--title-accent);
+    background: var(--section-title-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

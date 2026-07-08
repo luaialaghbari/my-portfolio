@@ -98,25 +98,37 @@
     line-height: 1.2;
   }
 
-  .scope :global(.dot-accent) {
-    color: #7c3aed; /* Using the theme's purple accent */
-    display: inline-block;
-    margin-left: 2px;
-  }
-
   .scope :global(.name-accent) {
+    position: relative;
     display: block;
     margin-top: 0;
     font-size: 0.52em;
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: 0.01rem;
+    color: #000;
+    z-index: 1;
+  }
+
+  .scope :global(.name-accent)::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    -webkit-text-stroke: 3px;
+    -webkit-text-fill-color: transparent;
     background: var(--title-accent);
-    background-size: 200% 200%;
-    animation: gradientShift 12s ease infinite;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    pointer-events: none;
   }
    
    .scope :global(.hero-name-bg h1) {
@@ -143,6 +155,9 @@
      transform: scaleX(1.4) scaleY(2.2);
      transform-origin: left top;
      -webkit-text-stroke: 1px #fff;
+     background: var(--gradient-accent);
+     -webkit-background-clip: text;
+     background-clip: text;
      color: transparent;
      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
    }
@@ -157,7 +172,10 @@
      letter-spacing: 0.04em;
      transform: scaleX(1.45) scaleY(2.2);
      transform-origin: left top;
-     color: #fff;
+     background: var(--gradient-accent);
+     -webkit-background-clip: text;
+     background-clip: text;
+     color: transparent;
      margin-left: 0.45em;
      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
    }
@@ -246,84 +264,94 @@
      margin-top: 18rem;
    }
    
-   .scope :global(.hero-col-portrait) {
-     display: flex;
-     justify-content: flex-end;
-     align-items: flex-end;
-     height: 100vh;
-     position: relative;
-     padding-right: 2vw;
-   }
+    .scope :global(.hero-col-portrait) {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      height: 100vh;
+      position: relative;
+      padding-right: 2vw;
+    }
 
    .scope :global(.hero-portrait) {
      position: absolute;
-    bottom: -10vh;
-     right: -9vw;
-     width: 60vw;
-     height: 110vh;
+     bottom: 14vh;
+     right: -8vw;
+     width: 48vw;
+     height: 70vh;
      display: flex;
      flex-direction: column;
      align-items: flex-end;
      justify-content: flex-end;
      pointer-events: none;
      z-index: 20;
+     overflow: visible;
+     box-shadow: none;
+   }
+
+   .scope :global(.hero-portrait::before) {
+     display: none;
    }
 
    .scope :global(.hero-portrait::after) {
-     content: "";
-     position: absolute;
-     bottom: 0;
-     left: 0;
-     width: 100%;
-     height: 20vh;
-     opacity: 1;
-     background: linear-gradient(to top, #000 40%, transparent 100%);
-     z-index: 3;
-     transition: height 0.6s ease, opacity 0.6s ease, background 0.6s ease;
+     display: none;
    }
 
-   /* Keep it fixed and consistent */
-.scope :global(.hero-modern.scrolled .hero-portrait::after) {
-     height: 35vh;
-     opacity: 1;
-     background: linear-gradient(to top, #000 40%, transparent 100%);
+   .scope :global(.portrait-image-wrap) {
+     position: relative;
+     z-index: 2;
+     display: inline-block;
+     height: 82%;
+     max-width: 720px;
    }
    
    .scope :global(.hero-portrait img) {
      width: auto;
-     height: 82%;
-     max-width: 900px;
+     height: 100%;
+     max-width: 100%;
      object-fit: contain;
-     position: relative;
-     z-index: 2;
-     /* Cast shadow back onto the letters */
-     filter: drop-shadow(-40px 20px 60px rgba(0,0,0,0.85));
+     display: block;
+     filter: none;
+     -webkit-mask-image: none;
+     mask-image: none;
+   }
+
+   .scope :global(.portrait-bottom-line) {
+     position: absolute;
+      left: 4vw;
+      right: 10vw;
+     bottom: 0;
+     height: 2px;
+     background: linear-gradient(90deg, #ffffff 0%, #d7d9df 42%, #8f939c 100%);
+     border-radius: 999px;
+     z-index: 3;
+     pointer-events: none;
    }
 
    .scope :global(.portrait-bg-shape) {
     position: absolute;
-    bottom: -24%;
-    right: 22%;
-    width: 580px;
-    height: 380px;
+    bottom: -48px;
+    left: 45%;
+    transform: translateX(-50%) rotate(-8deg);
+    width: 420px;
+    height: 190px;
     background: var(--title-accent);
     opacity: 0.7;
     border: 1px solid rgba(124, 58, 237, 0.35);
     border-radius: 80px 80px 0 0;
     -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
     mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
-    transform: rotate(-8deg);
     z-index: 1;
     backdrop-filter: blur(6px);
-    box-shadow: 0 22px 60px rgba(124, 58, 237, 0.4);
+     box-shadow: none;
    }
 
   @media (max-width: 900px) {
     .scope :global(.portrait-bg-shape) {
-      width: 320px;
-      height: 240px;
+      width: 300px;
+      height: 180px;
       right: 50%;
-      bottom: 2%; /* Moved down from 5% */
+      bottom: -10%;
       transform: translateX(52%) rotate(-4deg); /* Pushed more to the right from 44% */
       border-radius: 42px 42px 0 0;
       -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 70%);
@@ -333,9 +361,9 @@
 
    
    .scope :global(.btn-modern-pill) {
-    background: var(--title-accent);
+    background: var(--gradient-accent);
     font-family: 'Rubik', system-ui, -apple-system, 'Segoe UI', Tahoma, Arial, sans-serif;
-     color: #fff;
+     color: #000;
      border: none;
      padding: 0.8rem 0.8rem 0.8rem 1.8rem;
      border-radius: 24px;
@@ -346,14 +374,14 @@
      gap: 1.2rem;
      cursor: pointer;
      transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
-     box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
+     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
    }
    
    .scope :global(.btn-modern-pill .btn-icon) {
      width: 36px;
      height: 36px;
-     background: #fff;
-     color: #7c3aed; /* Keep icon color or make it match */
+     background: #000;
+     color: #fff;
      border-radius: 50%;
      display: flex;
      align-items: center;
@@ -368,7 +396,7 @@
    .scope :global(.btn-modern-pill:hover) {
      opacity: 0.9;
      transform: scale(1.05) translateY(-2px);
-     box-shadow: 0 15px 40px rgba(124, 58, 237, 0.6);
+     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
    }
    
    .scope :global(.show-mobile) {
@@ -433,7 +461,8 @@
     }
     .scope :global(.hero-portrait) {
       position: relative;
-      width: 95vw;
+      width: 82vw;
+      max-width: 620px;
       height: auto;
       margin: 0 auto;
       display: flex;
@@ -490,8 +519,8 @@
       padding: 0 0.2em;
     }
     .scope :global(.hero-portrait) {
-      width: 100vw;
-      max-width: 800px;
+      width: 82vw;
+      max-width: 620px;
     }
     .scope :global(.portrait-bg-shape) {
       width: 280px;
@@ -597,9 +626,6 @@
     display: block;
     line-height: 1.2;
   }
-  .scope :global(.dot-accent) {
-    color: #7c3aed;
-  }
   .scope :global(.name-accent) {
     display: block;
     margin-top: 0;
@@ -639,10 +665,10 @@
   .scope :global(.portrait-bg-shape) {
     display: block !important;
     width: 60vw;
-    max-width: 380px;
-    height: 240px;
+    max-width: 360px;
+    height: 190px;
     right: 55%;
-    bottom: 1%;
+    bottom: -12%;
     transform: translateX(50%) rotate(-6deg); /* Rotated to mimic desktop */
     border-radius: 50px 50px 0 0;
     -webkit-mask-image: linear-gradient(to bottom, black 10%, black 20%, transparent 95%);
@@ -651,22 +677,10 @@
     z-index: 1;
     position: absolute;
     background: var(--title-accent);
-    box-shadow: 0 15px 50px rgba(124, 58, 237, 0.4);
-  }
-  .scope :global(.hero-portrait::after) {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 180px; /* Reduced height to avoid covering the center */
-    background: linear-gradient(to top, #000 20%, transparent 100%);
-    opacity: 1;
-    z-index: 3;
-    pointer-events: none;
-  }
+     box-shadow: 0 15px 50px rgba(124, 58, 237, 0.4);
+   }
   .scope :global(.hero-portrait .hero-subtitle-container) {
-    margin-top: 3.5rem; 
+     margin-top: 3.5rem;
     display: block;
     text-align: center;
     width: 100%;
@@ -677,12 +691,12 @@
   .scope :global(.hero-portrait img) {
     height: auto;
     width: 100%;
-    max-width: 1100px;
+    max-width: 760px;
     object-fit: contain;
     filter: drop-shadow(0 15px 40px rgba(0,0,0,0.6));
     position: relative;
     z-index: 2;
-    transform: scale(1.1); /* perfectly centered scale */
+    transform: scale(0.92);
     transform-origin: center center;
     margin: 0 auto;
     display: block;
@@ -915,10 +929,6 @@
     line-height: 1.2;
   }
 
-  .scope :global(.dot-accent) {
-    color: #7c3aed;
-  }
-
   .scope :global(.name-accent) {
     display: block;
     margin-top: 0;
@@ -956,6 +966,7 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    box-shadow: none;
   }
 
   .scope :global(.portrait-bg-shape) {
@@ -973,22 +984,12 @@
     z-index: 1;
     position: absolute;
     background: var(--title-accent);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
   }
 
-  .scope :global(.hero-portrait::after),
-  .scope :global(.hero-modern.scrolled .hero-portrait::after) {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 255px;
-    background: linear-gradient(to top, #000000 45%, rgba(0, 0, 0, 0.9) 65%, transparent 100%);
-    opacity: 1;
-    z-index: 4;
-    pointer-events: none;
-  }
+  .scope :global(.hero-portrait::before) {
+     display: none;
+   }
 
   .scope :global(.hero-portrait .hero-subtitle-container) {
     margin-top: 3.5rem;
@@ -1000,18 +1001,37 @@
     z-index: 5;
   }
 
-  .scope :global(.hero-portrait img) {
-    height: auto;
-    width: 100%;
-    max-width: 1100px;
-    object-fit: contain;
-    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.6));
+  .scope :global(.portrait-image-wrap) {
     position: relative;
     z-index: 2;
+    width: 100%;
+    max-width: 1100px;
     transform: scale(1.1);
     transform-origin: center center;
     margin: 0 auto;
     display: block;
+  }
+
+  .scope :global(.hero-portrait img) {
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: none;
+    display: block;
+  }
+
+  .scope :global(.portrait-bottom-line) {
+    position: absolute;
+    left: auto;
+    right: clamp(3rem, 10vw, 8rem);
+    bottom: 0;
+    width: min(420px, 64%);
+    height: 1px;
+    background: linear-gradient(90deg, #ffffff 0%, #d7d9df 42%, #8f939c 100%);
+    border-radius: 999px;
+    z-index: 3;
+    pointer-events: none;
   }
 
   .scope :global(.hero-col-content) {
@@ -1053,7 +1073,16 @@
     position: relative;
   }
 
-  
+  /* Strong override for the hero backdrop shape position */
+  .scope :global(#profile.hero-modern .hero-portrait .portrait-bg-shape) {
+    position: absolute !important;
+    bottom: -92px !important;
+    width: 400px !important;
+    height: 180px !important;
+    left: 50% !important;
+    transform: translateX(-50%) rotate(-8deg) !important;
+  }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -1082,11 +1111,11 @@
 .scope :global(.portrait-bg-shape) {
     display: block !important;
     width: 65vw !important;
-    max-width: 600px !important;
-    height: 290px !important;
+    max-width: 540px !important;
+    height: 210px !important;
     /* Slightly shorter to emphasize the cut */
     left: 45% !important;
-    bottom: -10% !important;
+    bottom: -25% !important;
     /* Moved further down */
     transform: translateX(-50%) rotate(-5deg) !important;
     border-radius: 60px 60px 0 0 !important;
@@ -1095,12 +1124,11 @@
     z-index: 1 !important;
     position: absolute !important;
     background: var(--title-accent) !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4) !important;
+    box-shadow: none !important;
   }
 
   .scope :global(.hero-portrait) {
-    overflow: hidden !important;
-    /* Ensures the "cut" at the bottom is sharp */
+    overflow: visible !important;
     padding-bottom: 0 !important;
   }
 
@@ -1126,11 +1154,5 @@
 
   
 }
-
-
-
-
-
-
 
 

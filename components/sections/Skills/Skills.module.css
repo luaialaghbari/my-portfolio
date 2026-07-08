@@ -108,15 +108,15 @@
      pointer-events: none;
    }
 
-   /* Mobile Dev - Electric Blue/Indigo */
+    /* Mobile Dev - Electric Blue/Indigo */
 .scope :global(.skill-category-card:nth-child(1)::after) {
-     background: radial-gradient(circle at 20% 20%, #3b82f6 0%, transparent 50%),
-                 radial-gradient(circle at 80% 80%, #6366f1 0%, transparent 50%);
+     background: radial-gradient(circle at 20% 20%, #FFFFFF 0%, transparent 50%),
+                 radial-gradient(circle at 80% 80%, #9CA3AF 0%, transparent 50%);
    }
    /* Frontend - Cyber Magenta/Purple */
 .scope :global(.skill-category-card:nth-child(2)::after) {
-     background: radial-gradient(circle at 20% 20%, #d946ef 0%, transparent 50%),
-                 radial-gradient(circle at 80% 80%, #7c3aed 0%, transparent 50%);
+     background: radial-gradient(circle at 20% 20%, #FFFFFF 0%, transparent 50%),
+                 radial-gradient(circle at 80% 80%, #D4D4D8 0%, transparent 50%);
    }
    /* Tools - Emerald/Teal */
 .scope :global(.skill-category-card:nth-child(3)::after) {

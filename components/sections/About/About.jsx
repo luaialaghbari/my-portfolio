@@ -48,7 +48,7 @@ export default function About({ lang, t, trans, assetPrefix }) {
                 أجمع بين فن التصميم وبراعة <span className="gradient-text">البرمجة</span>؛ حيث أصمم واجهات مستخدم ذكية وأحوّلها إلى واقع ملموس.
               </>
             ) : (
-              <>Creating intuitive <span className="gradient-text">UI/UX</span> and <br /> bringing it to life on the <span className="gradient-text">frontend</span>.</>
+              <><span className="gradient-text">Creating intuitive </span><span className={styles.textOutlineGlow} data-text="UI/UX">UI/UX</span><span className="gradient-text"> and </span><br /><span className="gradient-text"> bringing it to life on the </span><span className={styles.textOutlineGlow} data-text="frontend">frontend</span><span className="gradient-text">.</span></>
             )}
           </motion.h2>
         </div>

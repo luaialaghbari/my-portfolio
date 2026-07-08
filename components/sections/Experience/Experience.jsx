@@ -33,6 +33,7 @@ function Phone({ exp, assetPrefix, frameClass }) {
         </div>
         <div className={styles.buttonsRight}>
           <div className={styles.powerBtn}></div>
+          <div className={styles.cameraControl}></div>
         </div>
         <div className={styles.screen}><Media exp={exp} assetPrefix={assetPrefix} /></div>
         <div className={styles.bottomDetails}>
@@ -71,7 +72,7 @@ function PanelCenter({ exp, idx, lang, assetPrefix, frameClass }) {
   return (
     <section className={`${styles.panel} ${styles.panelCenter}`}>
       <div className={styles.panelBg} />
-      <div className={styles.timeline}>
+      <div className={`${styles.timeline} ${styles.timelineDesktop}`}>
         <div className={styles.timelineYear}>
           {year.split('').map((d, i) => <span key={i}>{d}</span>)}
         </div>
@@ -94,7 +95,21 @@ function PanelCenter({ exp, idx, lang, assetPrefix, frameClass }) {
           </div>
         </motion.div>
         <motion.div className={styles.phoneCenter} variants={phoneAnim} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }}>
-          <Phone exp={exp} assetPrefix={assetPrefix} frameClass={frameClass} />
+          <div className={styles.phoneRow}>
+            <div className={`${styles.timeline} ${styles.timelineMobile}`}>
+              <div className={styles.timelineYear}>
+                {year.split('').map((d, i) => <span key={i}>{d}</span>)}
+              </div>
+              <div className={styles.timelineBody}>
+                <span className={styles.timelineDate}>{startMonth}</span>
+                <span className={styles.timelineDot} />
+                <span className={styles.timelineLine} />
+                <span className={styles.timelineDot} />
+                <span className={styles.timelineDate}>{endMonth}</span>
+              </div>
+            </div>
+            <Phone exp={exp} assetPrefix={assetPrefix} frameClass={frameClass} />
+          </div>
         </motion.div>
         <motion.div className={styles.cRight} variants={sideAnim} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }}>
           <div className={styles.appMag}>
@@ -136,36 +151,44 @@ function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, ti
     visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 } }
   };
 
+  const timelineClass = `${styles.timeline} ${styles.timelineDesktop} ${timelineRight ? styles.timelineRight : ''} ${timelineYellow ? styles.timelineYellow : ''} ${gradientClass ? styles[gradientClass] : ''}`;
+  const timelineMobileClass = `${styles.timeline} ${styles.timelineMobile} ${timelineRight ? styles.timelineRight : ''} ${timelineYellow ? styles.timelineYellow : ''} ${gradientClass ? styles[gradientClass] : ''}`;
+
+  const timelineContent = (
+    <>
+      <div className={styles.timelineYear}>
+        {year.split('').map((d, i) => <span key={i}>{d}</span>)}
+      </div>
+      <div className={styles.timelineBody}>
+        {endMonth ? (
+          <>
+            <span className={styles.timelineDate}>{startMonth}</span>
+            <span className={styles.timelineDot} />
+            <span className={styles.timelineLine} />
+            <span className={styles.timelineDot} />
+            <span className={styles.timelineDate}>{endMonth}</span>
+          </>
+        ) : (
+          <>
+            <span className={styles.timelineDot} />
+            <span className={styles.timelineDate}>{startMonth || exp.period}</span>
+          </>
+        )}
+      </div>
+    </>
+  );
+
   return (
     <section className={`${styles.panel} ${styles.panelSide} ${isLeft ? styles.panelSideLeft : styles.panelSideRight} ${gradientClass ? styles[gradientClass] : ''}`}>
       <div className={styles.panelBg} />
-      {timeline && (
-        <div className={`${styles.timeline} ${timelineRight ? styles.timelineRight : ''} ${timelineYellow ? styles.timelineYellow : ''} ${gradientClass ? styles[gradientClass] : ''}`}>
-          <div className={styles.timelineYear}>
-            {year.split('').map((d, i) => <span key={i}>{d}</span>)}
-          </div>
-          <div className={styles.timelineBody}>
-            {endMonth ? (
-              <>
-                <span className={styles.timelineDate}>{startMonth}</span>
-                <span className={styles.timelineDot} />
-                <span className={styles.timelineLine} />
-                <span className={styles.timelineDot} />
-                <span className={styles.timelineDate}>{endMonth}</span>
-              </>
-            ) : (
-              <>
-                <span className={styles.timelineDot} />
-                <span className={styles.timelineDate}>{startMonth || exp.period}</span>
-              </>
-            )}
-          </div>
-        </div>
-      )}
+      {timeline && <div className={timelineClass}>{timelineContent}</div>}
       <div className={styles.panelInner}>
         {isLeft && (
           <motion.div className={styles.phoneLeft} variants={phoneAnim} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }}>
-            <Phone exp={exp} assetPrefix={assetPrefix} frameClass={frameClass} />
+            <div className={styles.phoneRow}>
+              {timeline && <div className={timelineMobileClass}>{timelineContent}</div>}
+              <Phone exp={exp} assetPrefix={assetPrefix} frameClass={frameClass} />
+            </div>
           </motion.div>
         )}
         <motion.div className={isLeft ? styles.textRight : styles.textLeft} variants={textAnim} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }}>
@@ -200,7 +223,10 @@ function PanelSide({ exp, idx, lang, assetPrefix, frameClass, align, stacked, ti
         </motion.div>
         {!isLeft && (
           <motion.div className={styles.phoneRight} variants={phoneAnim} initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }}>
-            <Phone exp={exp} assetPrefix={assetPrefix} frameClass={frameClass} />
+            <div className={styles.phoneRow}>
+              <Phone exp={exp} assetPrefix={assetPrefix} frameClass={frameClass} />
+              {timeline && <div className={timelineMobileClass}>{timelineContent}</div>}
+            </div>
           </motion.div>
         )}
       </div>

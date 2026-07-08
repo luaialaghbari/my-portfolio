@@ -8,6 +8,7 @@
   overflow: visible;
   padding: 4rem 2rem 6rem;
   max-width: 100vw;
+  --exp-accent: linear-gradient(90deg, #3b82f6 0%, #7c3aed 50%, #ff6fbf 100%);
 }
 .header {
   max-width: 1400px;
@@ -23,7 +24,7 @@
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin: 0;
-  background: var(--title-accent);
+  background: var(--section-title-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
@@ -206,7 +207,7 @@ html[dir="rtl"] .header {
   letter-spacing: 0;
   line-height: 1;
   transform: scaleX(1.3);
-  background: var(--title-accent);
+  background: var(--exp-accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
@@ -336,7 +337,7 @@ html[dir="rtl"] .textLeft {
   line-height: 1;
   letter-spacing: 0.02em;
   margin: 0;
-  background: var(--title-accent);
+  background: var(--exp-accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
@@ -357,6 +358,22 @@ html[dir="rtl"] .textLeft {
 /* --- Side Layout --- */
 .panelSide .panelInner {
   gap: 4rem;
+}
+.phoneRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.timelineDesktop {
+  display: flex;
+}
+.timelineMobile {
+  display: none;
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  transform: none;
 }
 .phoneLeft {
   flex: 0 0 auto;
@@ -635,7 +652,7 @@ html[dir="rtl"] .textLeft {
   letter-spacing: -0.02em;
   line-height: 1.15;
   margin: 0 0 0.15rem;
-  background: var(--title-accent);
+  background: var(--exp-accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
@@ -704,9 +721,19 @@ html[dir="rtl"] .highlights li {
 
 /* --- Responsive --- */
 @media screen and (max-width: 1024px) {
+  .timelineDesktop {
+    display: none;
+  }
+  .timelineMobile {
+    display: flex;
+  }
   .panelCenter .panelInner {
     flex-direction: column;
     gap: 2rem;
+    align-items: center;
+  }
+  .panelCenter .timeline {
+    display: none;
   }
   .cLeft, .cRight {
     flex: none;
@@ -729,6 +756,7 @@ html[dir="rtl"] .highlights li {
     flex-direction: column;
     gap: 2.5rem;
     padding: 0 1rem;
+    align-items: center;
   }
   .panelSideLeft .phoneLeft,
   .panelSideRight .phoneRight {
@@ -737,6 +765,22 @@ html[dir="rtl"] .highlights li {
   .panelSideLeft .textRight,
   .panelSideRight .textLeft {
     order: 0;
+    text-align: center;
+    align-items: center;
+  }
+  .panelSideLeft .textRight .highlights,
+  .panelSideRight .textLeft .highlights {
+    align-items: center;
+  }
+  .panelSide .role,
+  .panelSide .company {
+    text-align: center;
+  }
+  .panelSide .tech {
+    justify-content: center;
+  }
+  .panelSide .previewBtn {
+    margin: 1rem auto 0;
   }
   .iphoneFrame {
     width: 200px;
@@ -767,6 +811,18 @@ html[dir="rtl"] .highlights li {
   .header {
     margin-bottom: 2rem;
   }
+  .panelSide .panelInner {
+    padding: 0 0.5rem;
+  }
+  .panelSide .highlightsCard {
+    width: 100%;
+  }
+  .cRight .highlightsCard {
+    width: 100%;
+  }
+  .phoneRow {
+    gap: 0.5rem;
+  }
   .iphoneFrame {
     width: 170px;
     height: 360px;
@@ -784,19 +840,32 @@ html[dir="rtl"] .highlights li {
 }
 
 .accentGradient .timelineDot {
-  background: var(--title-accent);
-  box-shadow: 0 0 10px rgba(59,130,246,0.5);
+  background: var(--gradient-accent);
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 .accentGradient .timelineLine {
-  background: linear-gradient(to bottom, #3b82f6, #7c3aed, transparent);
+  background: linear-gradient(to bottom, #FFFFFF, #D4D4D8, #9CA3AF, transparent);
   opacity: 0.6;
 }
 .accentGradient .timelineYear {
-  background: var(--title-accent);
+  background: var(--gradient-accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
   animation: gradientShift 8s ease infinite;
+}
+.panelCenter .timelineDot {
+  background: var(--exp-accent);
+  box-shadow: 0 0 10px rgba(139,92,246,0.5);
+}
+.panelCenter .timelineLine {
+  background: linear-gradient(to bottom, #3b82f6, #7c3aed, transparent);
+  opacity: 0.6;
+}
+.accentGradient .appMag {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .previewBtn {
   display: inline-flex;

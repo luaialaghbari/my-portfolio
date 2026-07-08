@@ -24,13 +24,13 @@ export default function Hero({ scrolled, lang, assetPrefix, resume }) {
             <div className="hero-subtitle-container hide-mobile">
               {lang === 'ar' ? (
                 <>
-                  <span className="name-accent" style={{fontFamily: 'Inter, system-ui, Arial, sans-serif'}}>Frontend Developer &</span>
-                  <span className="name-accent" style={{fontFamily: 'Inter, system-ui, Arial, sans-serif'}}>UI UX designer<span className="dot-accent">.</span></span>
+                  <span className="name-accent" data-text="Frontend Developer &" style={{fontFamily: 'Inter, system-ui, Arial, sans-serif'}}>Frontend Developer &</span>
+                  <span className="name-accent" data-text="UI UX designer." style={{fontFamily: 'Inter, system-ui, Arial, sans-serif'}}>UI UX designer.</span>
                 </>
               ) : (
                 <>
-                  <span className="name-accent">Frontend Developer &</span>
-                  <span className="name-accent">UI UX designer<span className="dot-accent">.</span></span>
+                  <span className="name-accent" data-text="Frontend Developer &">Frontend Developer &</span>
+                  <span className="name-accent" data-text="UI UX designer.">UI UX designer.</span>
                 </>
               )}
             </div>
@@ -82,17 +82,20 @@ export default function Hero({ scrolled, lang, assetPrefix, resume }) {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="portrait-bg-shape"></div>
-              <img src={`${assetPrefix}/assets/newprofilelogo.png`} alt="Luai Alaghbari" />
+              <div className="portrait-image-wrap">
+                <img src={`${assetPrefix}/assets/newprofilelogo.png`} alt="Luai Alaghbari" />
+                <div className="portrait-bottom-line"></div>
+              </div>
               <div className="hero-subtitle-container show-mobile">
                 {lang === 'ar' ? (
                   <>
                     <span className="name-accent" style={{fontFamily: 'Inter, system-ui, Arial, sans-serif'}}>Frontend Developer &</span>
-                    <span className="name-accent" style={{fontFamily: 'Inter, system-ui, Arial, sans-serif'}}>UI UX designer<span className="dot-accent">.</span></span>
+                    <span className="name-accent" style={{fontFamily: 'Inter, system-ui, Arial, sans-serif'}}>UI UX designer.</span>
                   </>
                 ) : (
                   <>
                     <span className="name-accent">Frontend Developer &</span>
-                    <span className="name-accent">UI UX designer<span className="dot-accent">.</span></span>
+                    <span className="name-accent">UI UX designer.</span>
                   </>
                 )}
               </div>

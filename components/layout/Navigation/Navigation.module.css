@@ -17,12 +17,12 @@
   align-items: center !important;
   gap: 1.5rem !important;
   padding: 0.45rem 0.5rem !important;
-  background: rgba(50, 50, 50, 0.35) !important;
+  background: rgba(30, 30, 30, 0.75) !important;
   backdrop-filter: blur(25px) saturate(210%) !important;
   -webkit-backdrop-filter: blur(25px) saturate(210%) !important;
   border-radius: 999px !important;
-  border: 0.2px solid rgba(255, 255, 255, 0.03) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
   transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1) !important;
 }
 
@@ -38,12 +38,12 @@
   justify-content: space-between !important;
   align-items: center !important;
   padding: 0.45rem 0.5rem !important;
-  background: rgba(38, 38, 38, 0.35) !important;
+  background: rgba(30, 30, 30, 0.75) !important;
   backdrop-filter: blur(25px) saturate(210%) !important;
   -webkit-backdrop-filter: blur(25px) saturate(210%) !important;
   border-radius: 999px !important;
-  border: 0.2px solid rgba(255, 255, 255, 0.03) !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
 }
 
 .navLinks {
@@ -122,12 +122,12 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
+  box-shadow: 0 4px 15px rgba(255,255,255,0.15) !important;
 }
 
 .logo {
   font-family: 'Satoshi' !important;
-  color: #fff !important;
+  color: #000 !important;
   font-size: 1rem !important;
   font-weight: 800 !important;
   letter-spacing: 0.05em !important;
