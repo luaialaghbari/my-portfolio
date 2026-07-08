@@ -306,17 +306,21 @@
    }
    
    .scope :global(.hero-portrait img) {
-     width: auto;
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
+      filter: none;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+
+   .scope :global(.portrait-visual) {
      height: 100%;
-     max-width: 100%;
-     object-fit: contain;
-     display: block;
-     filter: none;
-     -webkit-mask-image: none;
-     mask-image: none;
    }
 
-   .scope :global(.portrait-bottom-line) {
+    .scope :global(.portrait-bottom-line) {
      position: absolute;
       left: 4vw;
       right: 10vw;
@@ -968,9 +972,16 @@
     box-shadow: none;
   }
 
+  .scope :global(.portrait-visual) {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
   .scope :global(.portrait-bg-shape) {
     display: block !important;
-    width: 75vw;
+    width: 100%;
     max-width: 420px;
     height: 190px;
     left: 45%;
@@ -992,7 +1003,7 @@
    }
 
   .scope :global(.hero-portrait .hero-subtitle-container) {
-    margin-top: 3.5rem;
+    margin-top: 2rem;
     display: block;
     text-align: center;
     width: 100%;
